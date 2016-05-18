@@ -1,0 +1,89 @@
+object FrmDiaLog: TFrmDiaLog
+  Left = 401
+  Top = 259
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = #25554#20214#27880#20876
+  ClientHeight = 174
+  ClientWidth = 314
+  Color = clBtnFace
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #23435#20307
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 12
+  object Label1: TLabel
+    Left = 16
+    Top = 84
+    Width = 48
+    Height = 12
+    Caption = #26426#22120#30721#65306
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clRed
+    Font.Height = -12
+    Font.Name = #23435#20307
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 113
+    Width = 48
+    Height = 12
+    Caption = #27880#20876#30721#65306
+  end
+  object LabelMsg: TLabel
+    Left = 10
+    Top = 5
+    Width = 42
+    Height = 12
+    Caption = 'IGE'#31185#25216
+  end
+  object EditUserName: TEdit
+    Left = 64
+    Top = 83
+    Width = 233
+    Height = 20
+    AutoSelect = False
+    BorderStyle = bsNone
+    Color = clBtnFace
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clRed
+    Font.Height = -12
+    Font.Name = #23435#20307
+    Font.Style = []
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+    Text = 'EditUserName'
+  end
+  object EditEnterKey: TEdit
+    Left = 64
+    Top = 109
+    Width = 233
+    Height = 20
+    TabOrder = 1
+  end
+  object ButtonOK: TButton
+    Left = 64
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = #27880#20876'(&R)'
+    TabOrder = 2
+    OnClick = ButtonOKClick
+  end
+  object ButtonClose: TButton
+    Left = 200
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = #20851#38381'(&C)'
+    TabOrder = 3
+    OnClick = ButtonCloseClick
+  end
+end

@@ -1,0 +1,106 @@
+2008-8-27 10:24:17 [异常] TBaseObject.IsAttackTarget Code:28
+[异常] TBaseObject::Die 1 CheckCode:98
+[异常] TBaseObject::Die 1 CheckCode:102
+[异常] TBaseObject::Die 1 CheckCode:6
+[异常] TBaseObject::Die 1 CheckCode:7
+
+TBaseObject::Run 3 65
+TBaseObject::SendRefMsg Code:24
+
+2008-8-26 22:09:11 [异常] TEnvirnoment::AddToMap Code:19(两个是相关连的)
+2008-8-26 22:09:12 [异常] TEnvirnoment::MoveToMovingObject Code:15
+
+2008-8-27 15:55:54 [异常] TUserEngine::ProcessHumans 
+
+
+
+
+2008-8-31 19:09:12 [异常] TBaseObject::SendRefMsg Code:23
+2008-8-31 19:25:42 [异常] TBaseObject::SendRefMsg Code:21
+
+
+1. [异常] TPlayObject.GetExp Code:2  
+
+2.[异常] TBaseObject.IsAttackTarget Code:7
+
+3. [异常] TPlayObject.ClientCancelSellOffIng Code:1
+
+4.[异常] TBaseObject.SendMsg Code:1
+
+5.[异常] TBaseObject::Die 1 CheckCode:102
+
+6.[异常] TBaseObject::Die 1 CheckCode:7
+
+7.[异常] TBaseObject::EnterAnotherMap
+
+9.[异常] TBaseObject::Run 1 14 83
+
+10.[异常] TBaseObject::SearchViewRange 天之红野猪 D717C 28 35 7
+
+11.[异常] TBaseObject::SendRefMsg Code:31
+
+12.[异常] TMagicManager.MagMakeSinSuSlave  Code:3
+
+14.[异常] TUserEngine::ProcessMonsters 9 神兽1----***
+
+15.[异常] THeroObject.DoSpell MagID:46 X:159 Y:148
+
+17.[异常] TElfMonster.Run Code:8
+
+2008-9-7 10:51:10 [异常] TMonster.Run
+
+2008-9-7 10:51:33 [异常] TBaseObject.IsAttackTarget Code:109
+
+设定的放一个火云晶石+两件相同的装备.
+如:火云晶石+裁决之杖+裁决之杖
+但是,问题出现了。
+升级失败以后,升级装备栏保留两件相同的物品.火云晶石就没了.
+如果拿走第一件,只能保留第一件.第二件会自动消失...
+但是,如果从第二件开始拿出来..竟还能拿出来第一件....
+
+在一统传奇里发现的！安全区人多在开大地图都不是特别卡！但是你看见去卧龙的哪个动态NPC火塔就像背了1000斤大石头！非常吃力！大家可以测试下！
+
+
+群体施毒术不能自动换毒
+
+
+2.英雄包裹内的酒在重进游戏后无法双击，只有拿出来再放进去才可双击(没测试出来)
+3.建议大地图右键透明
+4.建议大、小地图主号显示的白点会跳闪
+5.建议M2支持商铺一次性购2物，如盛大的一元宝买2紫铜钥匙
+6.建议内挂支持检测未满3级技能，如图
+7.盛大的商铺是点一下打开，再点一下关闭的，WL现在点击打开了再点击没关闭
+8.增加右键点组队按钮的开头功能。
+
+英雄智能
+http://www.56m2.com.cn/read.php?tid=6803&fpage=0&toread=&page=1
+
+
+<欢迎光临/autocolor=155> <欢迎光临/fcolor=155>   这样写是连接，玩家不小心点到彩字，就很麻烦 
+我相信这个在技术上一定能做到，这个小细节，带来的是大方便。 
+
+
+气血石 等 加血不足量  比如气血石(小) +40000HP  DB持久设置是 4000  M2控制面版设置的是每次加HP 10  持久减少 100  游戏中实际+HP (其中自身的回血量+气血石的+血量)只有30000左右
+
+
+开行会战 杀英雄也会犯谋杀罪!   再就是行会战红名还是显示为红名  盛大上面是本人看到自己是红名 看行会其它人是原始颜色  行会人看红名还是显示为蓝色 
+再就是希望在行会那里增加可以在行会就可以开行会战 不需要那么麻烦跑去比奇皇宫开
+
+
+神兽智商过低，主人在打怪，神兽竟然装着没看到，还是7级的神兽呢，必须走到离怪非常近的地方才可以
+
+
+就是死亡触发,检测是被杀死的还是挂机死掉的
+---------------------------------------------------------
+1。被杀判断命令;是人杀的还是怪杀的
+KillByHum
+这个命令是其它M2的，是判断死后是被怪杀死还是被人杀死
+
+
+问题3：道士的无极真气，网篮是加双倍下限道术再+2，（网篮——例：道术22-50使用真气后为22-96） 
+           盛大是加双倍上限道术, (盛大——例：道术22-50使用真气后为：22-100) 
+           如不相信请去盛大测试!绝对是这样的。 
+道术上限增加：0级真气加40％，1级真气加60％， 2级真气加80％，3级真气加100％。
+
+
+

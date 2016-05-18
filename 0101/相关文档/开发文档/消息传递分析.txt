@@ -1,0 +1,82 @@
+  CM_QUERYCHR = 100;  //登录成功,客户端显出左右角色的那一瞬
+  CM_NEWCHR = 101;      //创建角色
+  CM_DELCHR = 102;      //删除角色
+  CM_SELCHR = 103;      //选择角色
+  CM_SELECTSERVER = 104; {选服务器,注意不是选区,盛大一区往往有(至多8个??group.dat中是这么写的)
+不止一个的服务器}
+  CM_SOFTCLOSE //小退
+  CM_LOGINNOTICEOK//---M2
+
+客户端(CM_SELECTSERVER--选区)-->LoginGate(7000)-->Loginsrv(SS_OPENSESSION)------->DBserver  创建Session
+                                              (SM_SELECTSERVER_OK)--->客户端(开门)
+                                                                      改变端口,连接selgate.exe(7100)
+
+
+客户端(开门)-->客户端(CM_QUERYCHR)-->selgate.exe-->DBserver(SM_QUERYCHR)---->客户端选择人物,-->连接Rungate.exe(7200)
+
+客户端(CM_SOFTCLOSE)-->M2(SM_OUTOFCONNECTION)-->超过人限,客户端下线
+
+客户端小退->角色网关selgate.exe(7100)
+
+CM_IDPASSWORD--发送密码
+CM_SELECTSERVER--选区
+CM_QUERYCHR--查询人物
+CM_SELCHR--选择人物
+
+
+
+loginGate:(ServerScork与客户端通讯)
+nPos := Pos('*', sReviceMsg);//接收客户端数据
+
+mir2.exe
+CSocket.Socket.SendText ('#' + IntToStr(code) + sendstr + '!');
+
+procedure TfrmMain.SendLogin (uid, passwd: string);
+procedure TfrmMain.SendSelectServer (svname: string);---->CM_SELECTSERVER
+
+memo1.Lines.Add('1');
+
+CSocket.Socket.SendText 
+
+
+CM_RANDOMCODE//取验证码
+SM_RANDOMCODE
+----------------------------------------------------------------------------
+  TDefaultMessage = record
+    Recog: Integer;//识别码
+    Ident: Word;
+    Param: Word;
+    Tag: Word;
+    Series: Word;
+    nSessionID: Integer;//客户端会话ID 20081210
+  end;
+
+
+body := Copy (datablock, DEFBLOCKSIZE+{1}7, Length(datablock)-DEFBLOCKSIZE);
+
+
+    sDefMsg := Copy(sMsg, 1, DEFBLOCKSIZE);
+    sData := Copy(sMsg, DEFBLOCKSIZE + {1}7, Length(sMsg) - DEFBLOCKSIZE - {6}12);---DBServer.exe
+
+Certification := Str_ToInt(certifystr, 0);//对应M2，DBServer中的nSession值   mir.exe
+
+Rungate.exe:
+sDefMsg := Copy(sData, 1, DEFBLOCKSIZE + 6);//20081210
+sDataMsg := Copy(sData, DEFBLOCKSIZE + 7, Length(sData) - DEFBLOCKSIZE);//20081210
+
+
+//需修改函数，M2，DBServer,LoginSrv,Mir 都需要修改
+function MakeDefaultMsg(wIdent: Word; nRecog: Integer; wParam, wTag, wSeries: Word; wSessionID: Integer): TDefaultMessage;
+begin
+  Result.Recog := nRecog;
+  Result.Ident := wIdent;
+  Result.Param := wParam;
+  Result.Tag := wTag;
+  Result.Series := wSeries;
+  Result.nSessionID := wSessionID;//20081210
+end;
+
+
+
+procedure TfrmMain.SendClientMessage (msg, Recog, param, tag, series: integer);//需研究下
+procedure TfrmMain.SendLogin (uid, passwd: string);

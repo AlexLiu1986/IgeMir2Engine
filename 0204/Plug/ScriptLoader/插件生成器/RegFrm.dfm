@@ -1,0 +1,93 @@
+object Form2: TForm2
+  Left = 481
+  Top = 391
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = #25554#20214#27880#20876
+  ClientHeight = 174
+  ClientWidth = 374
+  Color = clBtnFace
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #23435#20307
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poOwnerFormCenter
+  OnClose = FormClose
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 12
+  object Label1: TLabel
+    Left = 4
+    Top = 24
+    Width = 54
+    Height = 12
+    Caption = #30828#20214#20449#24687':'
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #23435#20307
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 4
+    Top = 80
+    Width = 54
+    Height = 12
+    Caption = #27880#20876#20449#24687':'
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #23435#20307
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 4
+    Top = 50
+    Width = 54
+    Height = 12
+    Caption = #25554#20214#23494#30721':'
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #23435#20307
+    Font.Style = []
+    ParentFont = False
+  end
+  object EditGameListURL: TEdit
+    Left = 67
+    Top = 19
+    Width = 286
+    Height = 20
+    MaxLength = 35
+    TabOrder = 0
+  end
+  object MemoPatchListURL: TMemo
+    Left = 67
+    Top = 72
+    Width = 286
+    Height = 54
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 264
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = #35745#31639
+    TabOrder = 2
+    OnClick = Button3Click
+  end
+  object EditBakGameListURL: TEdit
+    Left = 67
+    Top = 45
+    Width = 286
+    Height = 20
+    MaxLength = 50
+    TabOrder = 3
+  end
+end

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008-10-18 00:22:54.578.pas,E:\个人重要资料(勿删)\qingqing\My Documents\RAD Studio\Projects\Unit1.pas=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Login.pas</Transaction>
+    <Transaction>2008-10-18 00:22:54.578.dfm,E:\个人重要资料(勿删)\qingqing\My Documents\RAD Studio\Projects\Unit1.dfm=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Login.dfm</Transaction>
+    <Transaction>2008-10-18 00:23:03.593.dproj,E:\个人重要资料(勿删)\qingqing\My Documents\RAD Studio\Projects\Project1.dproj=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\RegLogin.dproj</Transaction>
+    <Transaction>2008-10-18 00:48:05.750.pas,E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Unit1.pas=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Main.pas</Transaction>
+    <Transaction>2008-10-18 00:48:05.750.dfm,E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Unit1.dfm=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Main.dfm</Transaction>
+    <Transaction>2008-10-18 01:24:48.781.pas,E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Unit1.pas=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\DM.pas</Transaction>
+    <Transaction>2008-10-18 01:24:48.781.dfm,E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\Unit1.dfm=E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\DM.dfm</Transaction>
+    <Transaction>2008-10-18 01:26:12.156.pas,E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\DM.pas=</Transaction>
+    <Transaction>2008-10-18 01:26:12.156.dfm,E:\我的文档\清客\商业\商业登陆器和网关测试\RegLogin\DM.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>

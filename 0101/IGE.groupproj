@@ -1,0 +1,214 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{f3932dd9-0618-49e0-803a-08b0f1a627d8}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="BlendHumData\BlendHumData.dproj" />
+    <Projects Include="Client\MIR2.dproj" />
+    <Projects Include="DBServer\DBServer.dproj" />
+    <Projects Include="EGameCenter\GameCenter.dproj" />
+    <Projects Include="EGameLogin\MakeGameLogin\MakeGameLogin.dproj" />
+    <Projects Include="EGameTools\GameTools.dproj" />
+    <Projects Include="ERunGate\RunGate.dproj" />
+    <Projects Include="LogDataServer\LogDataServer.dproj" />
+    <Projects Include="LoginGate\LoginGate.dproj" />
+    <Projects Include="LoginSrv\LoginSrv.dproj" />
+    <Projects Include="M2Engine\M2Server.dproj" />
+    <Projects Include="MirDBTools\MirDBTools.dproj" />
+    <Projects Include="PayClient\PayClient.dproj" />
+    <Projects Include="SelGate\SelGate.dproj" />
+    <Projects Include="商业\GameLogin\EGameLogin3\GameLogin.dproj" />
+    <Projects Include="商业\U2Client\U2Client.dproj" />
+    <Projects Include="商业\W2Client\W2Client.dproj" />
+    <Projects Include="商业\W2Gate\W2Gate.dproj" />
+    <Projects Include="商业\W2Server\W2Server.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="BlendHumData">
+    <MSBuild Projects="BlendHumData\BlendHumData.dproj" Targets="" />
+  </Target>
+  <Target Name="BlendHumData:Clean">
+    <MSBuild Projects="BlendHumData\BlendHumData.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="BlendHumData:Make">
+    <MSBuild Projects="BlendHumData\BlendHumData.dproj" Targets="Make" />
+  </Target>
+  <Target Name="DBServer">
+    <MSBuild Projects="DBServer\DBServer.dproj" Targets="" />
+  </Target>
+  <Target Name="DBServer:Clean">
+    <MSBuild Projects="DBServer\DBServer.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="DBServer:Make">
+    <MSBuild Projects="DBServer\DBServer.dproj" Targets="Make" />
+  </Target>
+  <Target Name="GameCenter">
+    <MSBuild Projects="EGameCenter\GameCenter.dproj" Targets="" />
+  </Target>
+  <Target Name="GameCenter:Clean">
+    <MSBuild Projects="EGameCenter\GameCenter.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="GameCenter:Make">
+    <MSBuild Projects="EGameCenter\GameCenter.dproj" Targets="Make" />
+  </Target>
+  <Target Name="GameTools">
+    <MSBuild Projects="EGameTools\GameTools.dproj" Targets="" />
+  </Target>
+  <Target Name="GameTools:Clean">
+    <MSBuild Projects="EGameTools\GameTools.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="GameTools:Make">
+    <MSBuild Projects="EGameTools\GameTools.dproj" Targets="Make" />
+  </Target>
+  <Target Name="RunGate">
+    <MSBuild Projects="ERunGate\RunGate.dproj" Targets="" />
+  </Target>
+  <Target Name="RunGate:Clean">
+    <MSBuild Projects="ERunGate\RunGate.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="RunGate:Make">
+    <MSBuild Projects="ERunGate\RunGate.dproj" Targets="Make" />
+  </Target>
+  <Target Name="LogDataServer">
+    <MSBuild Projects="LogDataServer\LogDataServer.dproj" Targets="" />
+  </Target>
+  <Target Name="LogDataServer:Clean">
+    <MSBuild Projects="LogDataServer\LogDataServer.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="LogDataServer:Make">
+    <MSBuild Projects="LogDataServer\LogDataServer.dproj" Targets="Make" />
+  </Target>
+  <Target Name="LoginSrv">
+    <MSBuild Projects="LoginSrv\LoginSrv.dproj" Targets="" />
+  </Target>
+  <Target Name="LoginSrv:Clean">
+    <MSBuild Projects="LoginSrv\LoginSrv.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="LoginSrv:Make">
+    <MSBuild Projects="LoginSrv\LoginSrv.dproj" Targets="Make" />
+  </Target>
+  <Target Name="M2Server">
+    <MSBuild Projects="M2Engine\M2Server.dproj" Targets="" />
+  </Target>
+  <Target Name="M2Server:Clean">
+    <MSBuild Projects="M2Engine\M2Server.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="M2Server:Make">
+    <MSBuild Projects="M2Engine\M2Server.dproj" Targets="Make" />
+  </Target>
+  <Target Name="MirDBTools">
+    <MSBuild Projects="MirDBTools\MirDBTools.dproj" Targets="" />
+  </Target>
+  <Target Name="MirDBTools:Clean">
+    <MSBuild Projects="MirDBTools\MirDBTools.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="MirDBTools:Make">
+    <MSBuild Projects="MirDBTools\MirDBTools.dproj" Targets="Make" />
+  </Target>
+  <Target Name="SelGate">
+    <MSBuild Projects="SelGate\SelGate.dproj" Targets="" />
+  </Target>
+  <Target Name="SelGate:Clean">
+    <MSBuild Projects="SelGate\SelGate.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="SelGate:Make">
+    <MSBuild Projects="SelGate\SelGate.dproj" Targets="Make" />
+  </Target>
+  <Target Name="PayClient">
+    <MSBuild Projects="PayClient\PayClient.dproj" Targets="" />
+  </Target>
+  <Target Name="PayClient:Clean">
+    <MSBuild Projects="PayClient\PayClient.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="PayClient:Make">
+    <MSBuild Projects="PayClient\PayClient.dproj" Targets="Make" />
+  </Target>
+  <Target Name="LoginGate">
+    <MSBuild Projects="LoginGate\LoginGate.dproj" Targets="" />
+  </Target>
+  <Target Name="LoginGate:Clean">
+    <MSBuild Projects="LoginGate\LoginGate.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="LoginGate:Make">
+    <MSBuild Projects="LoginGate\LoginGate.dproj" Targets="Make" />
+  </Target>
+  <Target Name="MIR2">
+    <MSBuild Projects="Client\MIR2.dproj" Targets="" />
+  </Target>
+  <Target Name="MIR2:Clean">
+    <MSBuild Projects="Client\MIR2.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="MIR2:Make">
+    <MSBuild Projects="Client\MIR2.dproj" Targets="Make" />
+  </Target>
+  <Target Name="GameLogin">
+    <MSBuild Projects="商业\GameLogin\EGameLogin3\GameLogin.dproj" Targets="" />
+  </Target>
+  <Target Name="GameLogin:Clean">
+    <MSBuild Projects="商业\GameLogin\EGameLogin3\GameLogin.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="GameLogin:Make">
+    <MSBuild Projects="商业\GameLogin\EGameLogin3\GameLogin.dproj" Targets="Make" />
+  </Target>
+  <Target Name="MakeGameLogin">
+    <MSBuild Projects="EGameLogin\MakeGameLogin\MakeGameLogin.dproj" Targets="" />
+  </Target>
+  <Target Name="MakeGameLogin:Clean">
+    <MSBuild Projects="EGameLogin\MakeGameLogin\MakeGameLogin.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="MakeGameLogin:Make">
+    <MSBuild Projects="EGameLogin\MakeGameLogin\MakeGameLogin.dproj" Targets="Make" />
+  </Target>
+  <Target Name="U2Client">
+    <MSBuild Projects="商业\U2Client\U2Client.dproj" Targets="" />
+  </Target>
+  <Target Name="U2Client:Clean">
+    <MSBuild Projects="商业\U2Client\U2Client.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="U2Client:Make">
+    <MSBuild Projects="商业\U2Client\U2Client.dproj" Targets="Make" />
+  </Target>
+  <Target Name="W2Client">
+    <MSBuild Projects="商业\W2Client\W2Client.dproj" Targets="" />
+  </Target>
+  <Target Name="W2Client:Clean">
+    <MSBuild Projects="商业\W2Client\W2Client.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="W2Client:Make">
+    <MSBuild Projects="商业\W2Client\W2Client.dproj" Targets="Make" />
+  </Target>
+  <Target Name="W2Gate">
+    <MSBuild Projects="商业\W2Gate\W2Gate.dproj" Targets="" />
+  </Target>
+  <Target Name="W2Gate:Clean">
+    <MSBuild Projects="商业\W2Gate\W2Gate.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="W2Gate:Make">
+    <MSBuild Projects="商业\W2Gate\W2Gate.dproj" Targets="Make" />
+  </Target>
+  <Target Name="W2Server">
+    <MSBuild Projects="商业\W2Server\W2Server.dproj" Targets="" />
+  </Target>
+  <Target Name="W2Server:Clean">
+    <MSBuild Projects="商业\W2Server\W2Server.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="W2Server:Make">
+    <MSBuild Projects="商业\W2Server\W2Server.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="BlendHumData;DBServer;GameCenter;GameTools;RunGate;LogDataServer;LoginSrv;M2Server;MirDBTools;SelGate;PayClient;LoginGate;MIR2;GameLogin;MakeGameLogin;U2Client;W2Client;W2Gate;W2Server" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="BlendHumData:Clean;DBServer:Clean;GameCenter:Clean;GameTools:Clean;RunGate:Clean;LogDataServer:Clean;LoginSrv:Clean;M2Server:Clean;MirDBTools:Clean;SelGate:Clean;PayClient:Clean;LoginGate:Clean;MIR2:Clean;GameLogin:Clean;MakeGameLogin:Clean;U2Client:Clean;W2Client:Clean;W2Gate:Clean;W2Server:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="BlendHumData:Make;DBServer:Make;GameCenter:Make;GameTools:Make;RunGate:Make;LogDataServer:Make;LoginSrv:Make;M2Server:Make;MirDBTools:Make;SelGate:Make;PayClient:Make;LoginGate:Make;MIR2:Make;GameLogin:Make;MakeGameLogin:Make;U2Client:Make;W2Client:Make;W2Gate:Make;W2Server:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

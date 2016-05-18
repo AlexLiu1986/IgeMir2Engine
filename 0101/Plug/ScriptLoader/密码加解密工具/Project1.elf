@@ -1,0 +1,701 @@
+EurekaLog 6.0.6
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Sun, 30 Nov 2008 08:56:54 +0800
+  1.2 Name/Description: Project1.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Mon, 3 Nov 2008 19:49:42 +0800
+  1.6 Up Time         : 1 second
+
+Exception:
+-----------------------------------------------------------
+  2.1 Date          : Sun, 30 Nov 2008 08:56:56 +0800
+  2.2 Address       : 
+  2.3 Module Name   : Project1.exe
+  2.4 Module Version: 
+  2.5 Type          : EMemoryLeak
+  2.6 Message       : Memory Leak: Total size=30 - Count=2.
+  2.7 ID            : 237C
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+-------------------------------------------------------
+  3.1 ID        : Guest
+  3.2 Name      : 微软用户
+  3.3 Email     : 
+  3.4 Company   : 微软中国
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - OFF
+                  SeBackupPrivilege               - OFF
+                  SeRestorePrivilege              - OFF
+                  SeSystemtimePrivilege           - OFF
+                  SeShutdownPrivilege             - OFF
+                  SeRemoteShutdownPrivilege       - OFF
+                  SeTakeOwnershipPrivilege        - OFF
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - OFF
+                  SeSystemProfilePrivilege        - OFF
+                  SeProfileSingleProcessPrivilege - OFF
+                  SeIncreaseBasePriorityPrivilege - OFF
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - OFF
+                  SeIncreaseQuotaPrivilege        - OFF
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - OFF
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------
+  4.1 Form Class   : CabinetWClass
+  4.2 Form Text    : 密码加解密工具
+  4.3 Control Class: 
+  4.4 Control Text : 
+
+Computer:
+-------------------------------------------------------------------------------------------------
+  5.1 Name          : PC-20081114
+  5.2 Total Memory  : 2038 Mb
+  5.3 Free Memory   : 1590 Mb
+  5.4 Total Disk    : 48.82 Gb
+  5.5 Free Disk     : 42.07 Gb
+  5.6 System Up Time: 54 minutes, 2 seconds
+  5.7 Processor     : Intel(R) Core(TM)2 Duo CPU     T5750  @ 2.00GHz
+  5.8 Display Mode  : 1280 x 800, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Mobile Intel(R) 965 Express Chipset Family (driver 6.14.10.4926 - RAM 0 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 3
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------------------------
+  7.1 IP Address: 000.000.000.000 - 000.000.000.000
+  7.2 Submask   : 000.000.000.000 - 000.000.000.000
+  7.3 Gateway   : 000.000.000.000 - 000.000.000.000
+  7.4 DNS 1     : 000.000.000.000 - 000.000.000.000
+  7.5 DNS 2     : 000.000.000.000 - 000.000.000.000
+  7.6 DHCP      : ON              - ON             
+
+Call Stack Information:
+------------------------------------------------------------------------
+|Address |Module      |Unit        |Class|Procedure/Method      |Line  |
+------------------------------------------------------------------------
+|+Memory Leak: Type=Data; Total size=16; Count=1                       |
+|----------------------------------------------------------------------|
+|004A8A50|Project1.exe|DCPcrypt.pas|     |DCPreghash            |845[1]|
+|004A76F0|Project1.exe|SHA1.pas    |     |Sha1                  |281[3]|
+|004AA69B|Project1.exe|Project1.dpr|     |                      |11[0] |
+|7C92DC9A|ntdll.dll   |            |     |NtSetInformationThread|      |
+|004A8A68|Project1.exe|DCPcrypt.pas|     |DCPreghash            |847[3]|
+|004A76F0|Project1.exe|SHA1.pas    |     |Sha1                  |281[3]|
+------------------------------------------------------------------------
+
+Modules Information:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name        |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|Project1.exe|                                                |               |836608 |2008-11-03 19:49:44|E:\系统补丁\清客\Plug\ScriptLoader\密码加解密工具                                                   |
+|10000000|safemon.dll |360安全卫士实时保护模块                         |4.2.0.1005     |169472 |2008-07-10 17:42:46|D:\Program Files\360safe\safemon                                                                    |
+|5ADC0000|uxtheme.dll |Microsoft UxTheme Library                       |6.0.2900.5512  |216064 |2008-06-12 10:01:12|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll|Common Controls Library                         |5.82.2900.5512 |617472 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|62C20000|LPK.DLL     |Language Pack                                   |5.1.2600.5512  |22016  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.5512  |19968  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll  |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.5512  |82432  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll |Windows Socket 32-Bit DLL                       |5.1.2600.5512  |28672  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv|Windows Spooler Driver                          |5.1.2600.5512  |145920 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime|Microsoft Text Frame Work Service IME           |5.1.2600.5512  |177152 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll   |Uniscribe Unicode script processor              |1.420.2600.5512|406016 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll   |MSCTF Server DLL                                |5.1.2600.5512  |296960 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL   |Windows XP IMM32 API Client DLL                 |5.1.2600.5512  |110080 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll   |Microsoft OLE for Windows                       |5.1.2600.5512  |1287168|2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL   |Process Status Helper                           |5.1.2600.5512  |23040  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll|                                                |5.1.2600.5512  |551936 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll|User Experience Controls Library                |6.0.2900.5512  |1054208|2008-04-14 20:00:00|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.5512_x-ww_35d4ce83|
+|77BD0000|version.dll |Version Checking and File Installation Libraries|5.1.2600.5512  |18944  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll  |Windows NT CRT DLL                              |7.0.2600.5512  |343040 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll  |Windows XP USER API Client DLL                  |5.1.2600.5512  |574976 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll|Advanced Windows 32 Base API                    |5.1.2600.5512  |674816 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll  |Remote Procedure Call Runtime                   |5.1.2600.5512  |584704 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll   |GDI Client DLL                                  |5.1.2600.5512  |285184 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll |Shell Light-weight Utility Library              |6.0.2900.5512  |473088 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll |Security Support Provider Interface             |5.1.2600.5512  |56320  |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll|Windows NT BASE API Client DLL                  |5.1.2600.5512  |1150464|2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll   |NT Layer DLL                                    |5.1.2600.5512  |589312 |2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll |Windows Shell Common Dll                        |6.0.2900.5512  |8318976|2008-04-14 20:00:00|C:\WINDOWS\system32                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name           |Description                              |Version      |Memory  |Priority|Threads|Path                                   |
+------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System         |                                         |             |290816  |Normal  |60     |                                       |
+|164 |RfwMain.exe    |Rising Personal FireWall Main Program    |7.0.1.70     |1089536 |Normal  |8      |C:\Program Files\Rising\Rfw            |
+|244 |safeboxTray.exe|360保险箱                                |2.4.0.1001   |6393856 |Normal  |6      |C:\Program Files\360Safebox            |
+|252 |360tray.exe    |360安全卫士实时保护模块                  |5.0.0.1002   |1912832 |Normal  |5      |D:\Program Files\360safe\safemon       |
+|260 |EDoceIn        |                                         |             |4407296 |Normal  |1      |E:\系统补丁\清客\Plug\SystemModule     |
+|264 |RavTask.exe    |RavTimer                                 |20.0.0.24    |675840  |Low     |3      |C:\Program Files\Rising\Rav            |
+|364 |ctfmon.exe     |CTF Loader                               |5.1.2600.5512|3964928 |Normal  |1      |C:\WINDOWS\system32                    |
+|416 |Ravmon.exe     |Rising realtime monitor shell            |20.0.1.27    |2097152 |Normal  |24     |C:\Program Files\Rising\Rav            |
+|576 |smss.exe       |                                         |             |409600  |Normal  |3      |\SystemRoot\System32                   |
+|644 |csrss.exe      |                                         |             |8646656 |Normal  |10     |C:\WINDOWS\system32                    |
+|672 |winlogon.exe   |                                         |             |3682304 |High    |16     |C:\WINDOWS\system32                    |
+|716 |services.exe   |Services and Controller app              |5.1.2600.5512|4157440 |Normal  |16     |C:\WINDOWS\system32                    |
+|728 |lsass.exe      |LSA Shell (Export Version)               |5.1.2600.5512|1208320 |Normal  |14     |C:\WINDOWS\system32                    |
+|876 |svchost.exe    |Generic Host Process for Win32 Services  |5.1.2600.5512|3624960 |Normal  |5      |C:\WINDOWS\system32                    |
+|948 |svchost.exe    |Generic Host Process for Win32 Services  |5.1.2600.5512|4554752 |Normal  |10     |C:\WINDOWS\system32                    |
+|980 |CCenter.exe    |CCenter                                  |20.0.0.33    |2629632 |Normal  |3      |C:\Program Files\Rising\Rav            |
+|996 |svchost.exe    |Generic Host Process for Win32 Services  |5.1.2600.5512|17080320|Normal  |39     |C:\WINDOWS\System32                    |
+|1068|ravmond.exe    |Rising Realtime Moniter                  |20.0.0.80    |8908800 |Normal  |35     |C:\PROGRAM FILES\RISING\RAV            |
+|1080|rfwsrv.exe     |Rising Personal FireWall Service         |7.0.0.77     |1572864 |Normal  |17     |C:\Program Files\Rising\Rfw            |
+|1108|rfwProxy.exe   |Rising Personal Proxy Service            |7.0.0.37     |1576960 |Normal  |10     |C:\Program Files\Rising\Rfw            |
+|1324|rfwstub.exe    |Rising Personal FireWall Service Rfwstub |7.0.0.12     |3469312 |Normal  |2      |C:\Program Files\Rising\Rfw            |
+|1524|RavStub.exe    |Rising RavStub                           |20.0.0.10    |3997696 |Normal  |2      |C:\PROGRAM FILES\RISING\RAV            |
+|1592|alg.exe        |Application Layer Gateway Service        |5.1.2600.5512|3571712 |Normal  |3      |C:\WINDOWS\System32                    |
+|1616|sqlservr.exe   |SQL Server Windows NT                    |2000.80.194.0|9867264 |Normal  |23     |D:\PROGRA~1\MICROS~1\MSSQL\binn        |
+|1628|svchost.exe    |Generic Host Process for Win32 Services  |5.1.2600.5512|5017600 |Normal  |8      |C:\WINDOWS\system32                    |
+|1644|UTSCSI.EXE     |UTSCSI Application                       |1.0.0.2      |2408448 |Normal  |2      |C:\WINDOWS\system32                    |
+|1984|Explorer.EXE   |Windows Explorer                         |6.0.2900.5512|40275968|Normal  |18     |C:\WINDOWS                             |
+|2680|密码加解密工具 |                                         |             |6602752 |Normal  |2      |E:\系统补丁\清客\Plug\ScriptLoader     |
+|2988|NOTEPAD.EXE    |记事本                                   |5.1.2600.5512|2838528 |Normal  |1      |C:\WINDOWS\system32                    |
+|3012|delphi32.exe   |Delphi-32 Development Environment        |7.0.8.1      |95559680|Normal  |11     |D:\Program Files\Delphi7\Bin           |
+|3040|P              |                                         |             |4894720 |Normal  |1      |E:\系统补丁\清客\M2Engine2\M2字符加解密|
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+----------------------
+
+Registers:
+----------
+
+
+
+EurekaLog 6.0.6
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Thu, 12 Feb 2009 22:15:29 +0800
+  1.2 Name/Description: Project1.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Tue, 2 Dec 2008 11:58:36 +0800
+  1.6 Up Time         : 8 seconds
+
+Exception:
+-----------------------------------------------------------
+  2.1 Date          : Thu, 12 Feb 2009 22:15:38 +0800
+  2.2 Address       : 
+  2.3 Module Name   : Project1.exe
+  2.4 Module Version: 
+  2.5 Type          : EMemoryLeak
+  2.6 Message       : Memory Leak: Total size=30 - Count=2.
+  2.7 ID            : 212B
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+-------------------------------------------------------
+  3.1 ID        : Administrator
+  3.2 Name      : 微软用户
+  3.3 Email     : 
+  3.4 Company   : 微软中国
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - OFF
+                  SeBackupPrivilege               - OFF
+                  SeRestorePrivilege              - OFF
+                  SeSystemtimePrivilege           - OFF
+                  SeShutdownPrivilege             - OFF
+                  SeRemoteShutdownPrivilege       - OFF
+                  SeTakeOwnershipPrivilege        - OFF
+                  SeDebugPrivilege                - OFF
+                  SeSystemEnvironmentPrivilege    - OFF
+                  SeSystemProfilePrivilege        - OFF
+                  SeProfileSingleProcessPrivilege - OFF
+                  SeIncreaseBasePriorityPrivilege - OFF
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - OFF
+                  SeIncreaseQuotaPrivilege        - OFF
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - OFF
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+------------------------------------------------
+  4.1 Form Class   : CabinetWClass
+  4.2 Form Text    : I:\1\清客\Plug\ScriptLoader
+  4.3 Control Class: 
+  4.4 Control Text : 
+
+Computer:
+------------------------------------------------------------------------------
+  5.1 Name          : 440A62A60DBE4A2
+  5.2 Total Memory  : 1022 Mb
+  5.3 Free Memory   : 530 Mb
+  5.4 Total Disk    : 1.86 Gb
+  5.5 Free Disk     : 0.06 Gb
+  5.6 System Up Time: 7 minutes, 7 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  T2330  @ 1.60GHz
+  5.8 Display Mode  : 1280 x 800, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : NVIDIA GeForce 8400M G (driver 6.14.11.128 - RAM 512 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------
+  7.1 IP Address: 192.168.001.009
+  7.2 Submask   : 255.255.255.000
+  7.3 Gateway   : 192.168.001.001
+  7.4 DNS 1     : 202.101.224.068
+  7.5 DNS 2     : 202.101.226.069
+  7.6 DHCP      : OFF            
+
+Call Stack Information:
+------------------------------------------------------------------------
+|Address |Module      |Unit        |Class|Procedure/Method      |Line  |
+------------------------------------------------------------------------
+|+Memory Leak: Type=Data; Total size=16; Count=1                       |
+|----------------------------------------------------------------------|
+|004A95C4|Project1.exe|DCPcrypt.pas|     |DCPreghash            |845[1]|
+|004A823B|Project1.exe|SHA1.pas    |     |Sha1                  |281[2]|
+|004AB213|Project1.exe|Project1.dpr|     |                      |11[0] |
+|7C92E64C|ntdll.dll   |            |     |NtSetInformationThread|      |
+|004A95DC|Project1.exe|DCPcrypt.pas|     |DCPreghash            |847[3]|
+|004A823B|Project1.exe|SHA1.pas    |     |Sha1                  |281[2]|
+------------------------------------------------------------------------
+
+Modules Information:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name        |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|Project1.exe|                                                |               |844288 |2008-12-02 11:58:38|I:\1\清客\Plug\ScriptLoader\密码加解密工具                                                          |
+|10000000|safemon.dll |360安全卫士实时保护模块                         |4.2.0.1007     |173576 |2008-12-10 01:14:32|D:\D盘内容（软件）\⑤杀毒软件\360安全卫士\safemon                                                   |
+|5ADC0000|uxtheme.dll |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-07 09:37:08|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll|Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|62C20000|LPK.DLL     |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll  |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv|Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime|Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll   |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll   |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL   |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll   |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL   |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll|                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll|User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 23:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll  |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll  |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll|Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll  |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll   |GDI Client DLL                                  |5.1.2600.3466  |283648 |2008-10-23 20:59:12|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll |Shell Light-weight Utility Library              |6.0.2900.3462  |473088 |2008-10-16 18:37:20|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll|Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll   |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll |Windows Shell Common Dll                        |6.0.2900.3453  |8312832|2008-09-30 14:37:42|C:\WINDOWS\system32                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name           |Description                                 |Version      |Memory  |Priority|Threads|Path                                                                     |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System         |                                            |             |307200  |Normal  |73     |                                                                         |
+|156 |ekrn.exe       |Eset Service                                |3.0.669.0    |46288896|Normal  |22     |D:\Program Files\ESET\ESET NOD32 Antivirus                               |
+|180 |nvsvc32.exe    |NVIDIA Driver Helper Service, Version 101.28|6.14.11.128  |5865472 |Normal  |5      |C:\WINDOWS\system32                                                      |
+|492 |ScriptTo       |                                            |             |6713344 |Normal  |1      |C:\Documents and Settings\Administrator\桌面\IGE090204\IGE090204\脚本加密|
+|656 |smss.exe       |                                            |             |827392  |Normal  |3      |\SystemRoot\System32                                                     |
+|736 |winlogon.exe   |                                            |             |31240192|High    |22     |C:\WINDOWS\system32                                                      |
+|780 |services.exe   |Services and Controller app                 |5.1.2600.2180|6586368 |Normal  |17     |C:\WINDOWS\system32                                                      |
+|792 |lsass.exe      |LSA Shell (Export Version)                  |5.1.2600.2180|1208320 |Normal  |22     |C:\WINDOWS\system32                                                      |
+|956 |svchost.exe    |Generic Host Process for Win32 Services     |5.1.2600.2180|6172672 |Normal  |19     |C:\WINDOWS\system32                                                      |
+|1124|svchost.exe    |Generic Host Process for Win32 Services     |5.1.2600.2180|39669760|Normal  |79     |C:\WINDOWS\System32                                                      |
+|1152|btwdins.exe    |Bluetooth Support Server                    |5.1.0.2500   |2838528 |Normal  |4      |C:\Program Files\Lenovo\Bluetooth Software\bin                           |
+|1524|spoolsv.exe    |Spooler SubSystem App                       |5.1.2600.2696|8933376 |Normal  |12     |C:\WINDOWS\system32                                                      |
+|1704|Explorer.EXE   |Windows Explorer                            |6.0.2900.2180|41570304|Normal  |20     |C:\WINDOWS                                                               |
+|1768|Thunder5.exe   |Thunder                                     |5.8.6.600    |40435712|Normal  |70     |C:\Program Files\Thunder Network\Thunder\Program                         |
+|1824|TXPlatform.exe |Tencent Instant Messaging Platform          |1.5.225.0    |2560000 |Normal  |4      |D:\Program Files\Tencent\QQ                                              |
+|1832|saf            |                                            |             |2007040 |Normal  |5      |D:\D盘内容（软件）\⑤杀毒软件\360安全卫士                                |
+|1868|SafeBoxTray.exe|360保险箱                                   |2.4.2.1002   |880640  |Normal  |10     |C:\Program Files\360Safebox                                              |
+|1888|realsched.exe  |RealNetworks Scheduler                      |0.1.1.68     |303104  |Normal  |5      |C:\Program Files\Common Files\Real\Update_OB                             |
+|1896|egui.exe       |Eset GUI                                    |3.0.669.0    |9502720 |Normal  |6      |D:\Program Files\ESET\ESET NOD32 Antivirus                               |
+|1904|ctfmon.exe     |CTF Loader                                  |5.1.2600.2180|3698688 |Normal  |1      |C:\WINDOWS\system32                                                      |
+|2068|QQ.exe         |                                            |             |69574656|Normal  |18     |                                                                         |
+|2708|Pro            |                                            |             |6844416 |Normal  |2      |I:\1\清客\Plug\ScriptLoader\密码加解密工具                               |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+----------------------
+
+Registers:
+----------
+
+
+
+EurekaLog 6.0.6
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Thu, 12 Feb 2009 22:23:55 +0800
+  1.2 Name/Description: Project1.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Tue, 2 Dec 2008 11:58:36 +0800
+  1.6 Up Time         : 3 seconds
+
+Exception:
+-----------------------------------------------------------
+  2.1 Date          : Thu, 12 Feb 2009 22:23:58 +0800
+  2.2 Address       : 
+  2.3 Module Name   : Project1.exe
+  2.4 Module Version: 
+  2.5 Type          : EMemoryLeak
+  2.6 Message       : Memory Leak: Total size=30 - Count=2.
+  2.7 ID            : 212B
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+-------------------------------------------------------
+  3.1 ID        : Administrator
+  3.2 Name      : 微软用户
+  3.3 Email     : 
+  3.4 Company   : 微软中国
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - OFF
+                  SeBackupPrivilege               - OFF
+                  SeRestorePrivilege              - OFF
+                  SeSystemtimePrivilege           - OFF
+                  SeShutdownPrivilege             - OFF
+                  SeRemoteShutdownPrivilege       - OFF
+                  SeTakeOwnershipPrivilege        - OFF
+                  SeDebugPrivilege                - OFF
+                  SeSystemEnvironmentPrivilege    - OFF
+                  SeSystemProfilePrivilege        - OFF
+                  SeProfileSingleProcessPrivilege - OFF
+                  SeIncreaseBasePriorityPrivilege - OFF
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - OFF
+                  SeIncreaseQuotaPrivilege        - OFF
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - OFF
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------
+  4.1 Form Class   : TForm1
+  4.2 Form Text    : 密码加解密工具
+  4.3 Control Class: 
+  4.4 Control Text : 
+
+Computer:
+------------------------------------------------------------------------------
+  5.1 Name          : 440A62A60DBE4A2
+  5.2 Total Memory  : 1022 Mb
+  5.3 Free Memory   : 558 Mb
+  5.4 Total Disk    : 1.86 Gb
+  5.5 Free Disk     : 0.06 Gb
+  5.6 System Up Time: 15 minutes, 21 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  T2330  @ 1.60GHz
+  5.8 Display Mode  : 1280 x 800, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : NVIDIA GeForce 8400M G (driver 6.14.11.128 - RAM 512 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------
+  7.1 IP Address: 192.168.001.009
+  7.2 Submask   : 255.255.255.000
+  7.3 Gateway   : 192.168.001.001
+  7.4 DNS 1     : 202.101.224.068
+  7.5 DNS 2     : 202.101.226.069
+  7.6 DHCP      : OFF            
+
+Call Stack Information:
+------------------------------------------------------------------------
+|Address |Module      |Unit        |Class|Procedure/Method      |Line  |
+------------------------------------------------------------------------
+|+Memory Leak: Type=Data; Total size=16; Count=1                       |
+|----------------------------------------------------------------------|
+|004A95C4|Project1.exe|DCPcrypt.pas|     |DCPreghash            |845[1]|
+|004A823B|Project1.exe|SHA1.pas    |     |Sha1                  |281[2]|
+|004AB213|Project1.exe|Project1.dpr|     |                      |11[0] |
+|7C92E64C|ntdll.dll   |            |     |NtSetInformationThread|      |
+|004A95DC|Project1.exe|DCPcrypt.pas|     |DCPreghash            |847[3]|
+|004A823B|Project1.exe|SHA1.pas    |     |Sha1                  |281[2]|
+------------------------------------------------------------------------
+
+Modules Information:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name        |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|Project1.exe|                                                |               |844288 |2008-12-02 11:58:38|I:\1\清客\Plug\ScriptLoader\密码加解密工具                                                          |
+|10000000|safemon.dll |360安全卫士实时保护模块                         |4.2.0.1007     |173576 |2008-12-10 01:14:32|D:\D盘内容（软件）\⑤杀毒软件\360安全卫士\safemon                                                   |
+|5ADC0000|uxtheme.dll |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-07 09:37:08|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll|Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|62C20000|LPK.DLL     |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll  |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv|Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime|Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll   |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll   |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL   |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll   |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL   |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll|                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll|User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 23:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll  |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll  |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll|Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll  |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll   |GDI Client DLL                                  |5.1.2600.3466  |283648 |2008-10-23 20:59:12|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll |Shell Light-weight Utility Library              |6.0.2900.3462  |473088 |2008-10-16 18:37:20|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll|Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll   |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll |Windows Shell Common Dll                        |6.0.2900.3453  |8312832|2008-09-30 14:37:42|C:\WINDOWS\system32                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name           |Description                                 |Version      |Memory  |Priority|Threads|Path                                            |
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System         |                                            |             |307200  |Normal  |73     |                                                |
+|156 |ekrn.exe       |Eset Service                                |3.0.669.0    |45445120|Normal  |19     |D:\Program Files\ESET\ESET NOD32 Antivirus      |
+|180 |nvsvc32.exe    |NVIDIA Driver Helper Service, Version 101.28|6.14.11.128  |5865472 |Normal  |4      |C:\WINDOWS\system32                             |
+|656 |smss.exe       |                                            |             |827392  |Normal  |3      |\SystemRoot\System32                            |
+|736 |winlogon.exe   |                                            |             |31600640|High    |19     |C:\WINDOWS\system32                             |
+|780 |services.exe   |Services and Controller app                 |5.1.2600.2180|6586368 |Normal  |17     |C:\WINDOWS\system32                             |
+|792 |lsass.exe      |LSA Shell (Export Version)                  |5.1.2600.2180|1380352 |Normal  |23     |C:\WINDOWS\system32                             |
+|956 |svchost.exe    |Generic Host Process for Win32 Services     |5.1.2600.2180|6152192 |Normal  |18     |C:\WINDOWS\system32                             |
+|1124|svchost.exe    |Generic Host Process for Win32 Services     |5.1.2600.2180|39727104|Normal  |73     |C:\WINDOWS\System32                             |
+|1152|btwdins.exe    |Bluetooth Support Server                    |5.1.0.2500   |2838528 |Normal  |4      |C:\Program Files\Lenovo\Bluetooth Software\bin  |
+|1524|spoolsv.exe    |Spooler SubSystem App                       |5.1.2600.2696|8912896 |Normal  |12     |C:\WINDOWS\system32                             |
+|1700|Pro            |                                            |             |5177344 |Normal  |1      |I:\1\清客\Plug\ScriptLoader\密码加解密工具      |
+|1704|Explorer.EXE   |Windows Explorer                            |6.0.2900.2180|10670080|Normal  |16     |C:\WINDOWS                                      |
+|1768|Thunder5.exe   |Thunder                                     |5.8.6.600    |40853504|Normal  |66     |C:\Program Files\Thunder Network\Thunder\Program|
+|1824|TXPlatform.exe |Tencent Instant Messaging Platform          |1.5.225.0    |2572288 |Normal  |4      |D:\Program Files\Tencent\QQ                     |
+|1832|saf            |                                            |             |2039808 |Normal  |6      |D:\D盘内容（软件）\⑤杀毒软件\360安全卫士       |
+|1868|SafeBoxTray.exe|360保险箱                                   |2.4.2.1002   |888832  |Normal  |9      |C:\Program Files\360Safebox                     |
+|1888|realsched.exe  |RealNetworks Scheduler                      |0.1.1.68     |241664  |Normal  |4      |C:\Program Files\Common Files\Real\Update_OB    |
+|1896|egui.exe       |Eset GUI                                    |3.0.669.0    |9502720 |Normal  |6      |D:\Program Files\ESET\ESET NOD32 Antivirus      |
+|1904|ctfmon.exe     |CTF Loader                                  |5.1.2600.2180|3981312 |Normal  |1      |C:\WINDOWS\system32                             |
+|2068|QQ.exe         |                                            |             |71192576|Normal  |18     |                                                |
+|2852|Pro            |                                            |             |6791168 |Normal  |2      |I:\1\清客\Plug\ScriptLoader\密码加解密工具      |
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+----------------------
+
+Registers:
+----------
+
+
+
+EurekaLog 6.0.6
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Thu, 12 Feb 2009 22:23:56 +0800
+  1.2 Name/Description: Project1.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Tue, 2 Dec 2008 11:58:36 +0800
+  1.6 Up Time         : 3 seconds
+
+Exception:
+-----------------------------------------------------------
+  2.1 Date          : Thu, 12 Feb 2009 22:24:00 +0800
+  2.2 Address       : 
+  2.3 Module Name   : Project1.exe
+  2.4 Module Version: 
+  2.5 Type          : EMemoryLeak
+  2.6 Message       : Memory Leak: Total size=30 - Count=2.
+  2.7 ID            : 212B
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+-------------------------------------------------------
+  3.1 ID        : Administrator
+  3.2 Name      : 微软用户
+  3.3 Email     : 
+  3.4 Company   : 微软中国
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - OFF
+                  SeBackupPrivilege               - OFF
+                  SeRestorePrivilege              - OFF
+                  SeSystemtimePrivilege           - OFF
+                  SeShutdownPrivilege             - OFF
+                  SeRemoteShutdownPrivilege       - OFF
+                  SeTakeOwnershipPrivilege        - OFF
+                  SeDebugPrivilege                - OFF
+                  SeSystemEnvironmentPrivilege    - OFF
+                  SeSystemProfilePrivilege        - OFF
+                  SeProfileSingleProcessPrivilege - OFF
+                  SeIncreaseBasePriorityPrivilege - OFF
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - OFF
+                  SeIncreaseQuotaPrivilege        - OFF
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - OFF
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+---------------------------------------------------------------
+  4.1 Form Class   : CabinetWClass
+  4.2 Form Text    : I:\1\清客\Plug\ScriptLoader\密码加解密工具
+  4.3 Control Class: 
+  4.4 Control Text : 
+
+Computer:
+------------------------------------------------------------------------------
+  5.1 Name          : 440A62A60DBE4A2
+  5.2 Total Memory  : 1022 Mb
+  5.3 Free Memory   : 559 Mb
+  5.4 Total Disk    : 1.86 Gb
+  5.5 Free Disk     : 0.06 Gb
+  5.6 System Up Time: 15 minutes, 23 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  T2330  @ 1.60GHz
+  5.8 Display Mode  : 1280 x 800, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : NVIDIA GeForce 8400M G (driver 6.14.11.128 - RAM 512 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------
+  7.1 IP Address: 192.168.001.009
+  7.2 Submask   : 255.255.255.000
+  7.3 Gateway   : 192.168.001.001
+  7.4 DNS 1     : 202.101.224.068
+  7.5 DNS 2     : 202.101.226.069
+  7.6 DHCP      : OFF            
+
+Call Stack Information:
+------------------------------------------------------------------------
+|Address |Module      |Unit        |Class|Procedure/Method      |Line  |
+------------------------------------------------------------------------
+|+Memory Leak: Type=Data; Total size=16; Count=1                       |
+|----------------------------------------------------------------------|
+|004A95C4|Project1.exe|DCPcrypt.pas|     |DCPreghash            |845[1]|
+|004A823B|Project1.exe|SHA1.pas    |     |Sha1                  |281[2]|
+|004AB213|Project1.exe|Project1.dpr|     |                      |11[0] |
+|7C92E64C|ntdll.dll   |            |     |NtSetInformationThread|      |
+|004A95DC|Project1.exe|DCPcrypt.pas|     |DCPreghash            |847[3]|
+|004A823B|Project1.exe|SHA1.pas    |     |Sha1                  |281[2]|
+------------------------------------------------------------------------
+
+Modules Information:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name        |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|Project1.exe|                                                |               |844288 |2008-12-02 11:58:38|I:\1\清客\Plug\ScriptLoader\密码加解密工具                                                          |
+|10000000|safemon.dll |360安全卫士实时保护模块                         |4.2.0.1007     |173576 |2008-12-10 01:14:32|D:\D盘内容（软件）\⑤杀毒软件\360安全卫士\safemon                                                   |
+|5ADC0000|uxtheme.dll |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-07 09:37:08|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll|Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|62C20000|LPK.DLL     |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll  |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv|Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime|Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll   |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll   |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL   |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll   |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL   |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll|                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll|User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 23:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll  |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll  |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll|Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll  |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll   |GDI Client DLL                                  |5.1.2600.3466  |283648 |2008-10-23 20:59:12|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll |Shell Light-weight Utility Library              |6.0.2900.3462  |473088 |2008-10-16 18:37:20|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll|Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll   |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 12:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll |Windows Shell Common Dll                        |6.0.2900.3453  |8312832|2008-09-30 14:37:42|C:\WINDOWS\system32                                                                                 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name           |Description                                 |Version      |Memory  |Priority|Threads|Path                                            |
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System         |                                            |             |307200  |Normal  |73     |                                                |
+|156 |ekrn.exe       |Eset Service                                |3.0.669.0    |45445120|Normal  |19     |D:\Program Files\ESET\ESET NOD32 Antivirus      |
+|180 |nvsvc32.exe    |NVIDIA Driver Helper Service, Version 101.28|6.14.11.128  |5865472 |Normal  |4      |C:\WINDOWS\system32                             |
+|656 |smss.exe       |                                            |             |827392  |Normal  |3      |\SystemRoot\System32                            |
+|736 |winlogon.exe   |                                            |             |31600640|High    |19     |C:\WINDOWS\system32                             |
+|780 |services.exe   |Services and Controller app                 |5.1.2600.2180|6586368 |Normal  |17     |C:\WINDOWS\system32                             |
+|792 |lsass.exe      |LSA Shell (Export Version)                  |5.1.2600.2180|1380352 |Normal  |23     |C:\WINDOWS\system32                             |
+|956 |svchost.exe    |Generic Host Process for Win32 Services     |5.1.2600.2180|6152192 |Normal  |18     |C:\WINDOWS\system32                             |
+|1124|svchost.exe    |Generic Host Process for Win32 Services     |5.1.2600.2180|39735296|Normal  |73     |C:\WINDOWS\System32                             |
+|1152|btwdins.exe    |Bluetooth Support Server                    |5.1.0.2500   |2838528 |Normal  |4      |C:\Program Files\Lenovo\Bluetooth Software\bin  |
+|1524|spoolsv.exe    |Spooler SubSystem App                       |5.1.2600.2696|8912896 |Normal  |12     |C:\WINDOWS\system32                             |
+|1700|Pro            |                                            |             |6819840 |Normal  |2      |I:\1\清客\Plug\ScriptLoader\密码加解密工具      |
+|1704|Explorer.EXE   |Windows Explorer                            |6.0.2900.2180|10661888|Normal  |16     |C:\WINDOWS                                      |
+|1768|Thunder5.exe   |Thunder                                     |5.8.6.600    |40857600|Normal  |66     |C:\Program Files\Thunder Network\Thunder\Program|
+|1824|TXPlatform.exe |Tencent Instant Messaging Platform          |1.5.225.0    |2572288 |Normal  |4      |D:\Program Files\Tencent\QQ                     |
+|1832|saf            |                                            |             |2043904 |Normal  |6      |D:\D盘内容（软件）\⑤杀毒软件\360安全卫士       |
+|1868|SafeBoxTray.exe|360保险箱                                   |2.4.2.1002   |888832  |Normal  |9      |C:\Program Files\360Safebox                     |
+|1888|realsched.exe  |RealNetworks Scheduler                      |0.1.1.68     |241664  |Normal  |4      |C:\Program Files\Common Files\Real\Update_OB    |
+|1896|egui.exe       |Eset GUI                                    |3.0.669.0    |9502720 |Normal  |6      |D:\Program Files\ESET\ESET NOD32 Antivirus      |
+|1904|ctfmon.exe     |CTF Loader                                  |5.1.2600.2180|3981312 |Normal  |1      |C:\WINDOWS\system32                             |
+|2068|QQ.exe         |                                            |             |71192576|Normal  |18     |                                                |
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+----------------------
+
+Registers:
+----------
+
+
+
+

@@ -1,0 +1,48 @@
+www.igem2.com:5231
+administrator
+密码:23205933...
+
+61.191.52.165:5231
+guoke
+dayeadmin
+
+sql.igem2.com
+
+数据库服务器是  www.igem2.com:5231
+账号:sa
+密码:23205933
+
+账号:IGEVIP
+密码:dayeadmin
+
+NPYAQ`aL      //IGEVIP
+UBAuURA`WRaj  //dayeadmin
+
+
+代理账号:wangwei
+密码:8983594
+
+
+
+用户登陆帐号：renaihaore
+用户登陆密码：23205933
+用户密钥：UGGYA-XF-BI3M1ZQNHTCHAZK1EV|GSW4IKVQ|GAP7XNY4H5M5NHSB81LF|H-LNCJV23K5QK-XJC19LW4YWQC7KXCT2=VZ38EL51I
+
+
+QQ:228589790 228589791 228589792 228589793 228589794 228589795
+
+
+//ZT 1-修改代理人余额 2-用户生成程序 3-注册用户 4-注册代理 5-用户修改密码 6-代理修改密码
+
+ULUserinfo ZT 0-普通代理 1-内部代理
+
+
+
+MakeScriptInfo
+
+ID   int 4             ID
+机器码  char(40)       MachineCode
+注册日期 datetime      RegDate
+使用日期 datetime      UsesDate
+价格  money 8          Price 
+备注char(100)          Notice  

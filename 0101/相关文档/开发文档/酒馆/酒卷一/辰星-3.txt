@@ -1,0 +1,288 @@
+(@@BuHero @PlayDrink )
+[@main]
+我毕身追求的目标是自然。在探求天道的过程中我懂得了许多，\
+但是，这还远远不够。我虽然能掌握声明那微妙的平衡，\
+但是却不知道如何言传， \
+也许让被寄与厚望的弟子们亲自去走一走，会有一些作用。\
+知识他们可能需要一个战友，或者说引路人。\
+　\
+<我想找卧龙英雄做为我的历练伙伴/@领取卧龙英雄>\
+<我想找您帮个忙，我想寄放英雄/@寄放英雄>       <我想领回英雄/@领回英雄> \
+<我不想再带领卧龙英雄/@不带英雄>\
+
+[@领回英雄]
+<$USERNAME>,想和你的英雄一起闯荡玛珐大陆吗？\ \
+<是的，我是来接他走的/@GetHero>\ \
+<不了，还要托你照顾一段时间/@exit>\
+
+
+[@GetHero]
+#if
+#act
+GetHero
+
+
+[~PlayDrink_Already]
+#if
+#act
+#Say
+嗯......真是香醇的美酒,令我心情舒畅。\<寄放英雄/@SaveHero>
+
+[~PlayDrink_Already_NotHero]
+#if
+#act
+#Say 
+你没喝多吧？你身边空无一人，还说要把英雄\托付我？\
+
+[~PlayDrink_Already_HeroBegin]
+#if
+#act
+#Say
+你没喝多吧？你身边空无一人，还说要把英雄\托付我？\<重新寄放英雄/@SaveHero>
+
+
+[@领取卧龙英雄]
+#if
+  HAVEHERO TRUE
+#say
+你已经有卧龙英雄了,还想再领取?\
+#elsesay
+<$USERNAME>，休息一下吧。不要忽视声明中的美好。\
+如同杯中的美酒一般，一起喝吗？\
+　\
+<没有问题，我这里有上好的美酒/@请喝酒>\
+　\
+<我不会喝酒……/@exit>\
+
+[@请喝酒]
+#if
+  HAVEHERO
+#say
+你精力有限,只能带领一位英雄在玛法大陆历练。\
+如果你想再带领一位英雄,可以先将身边的英雄安顿在我们这里\
+#elsesay
+好！好！快拿酒来，让小二倒进六个坛中。\
+每个坛里的酒有多有少，喝多喝少就看运气。\
+我们就来拿这六坛酒来斗一斗！\ \
+<好的，来吧/@斗酒规则>\
+
+[@斗酒规则]
+#if
+#act
+Mov M0 1 
+#say
+<斗酒规则提示>：双方猜拳胜者，将有权选择桌面上的一坛酒，\
+让双方的任一个人饮下，并会根据其酒精浓度，在酒量槽中相应显示。\
+在桌面上的全部饮完后，\
+且在双方均未喝醉（不超过酒槽内红线）的情况下，\
+如果玩家酒槽内酒值不超过NPC酒值，便可赢得斗酒。\
+<操作提示>：在选择出拳型后，点击出拳按钮，\
+双方将出猜拳胜负，如果赢了，\
+请单击桌面上的任一坛酒，并指定双方任一人喝下。\
+<我明白了,摆酒吧/@PlayDrink>\
+
+[@PlayDrink]
+请把酒放上去
+
+[~PlayDrink_Game]
+#if
+#act
+PLAYDRINKMSG 1 <$USERNAME>，酒之道也可以算作我修行的一部\分，让我看看你的表现吧。
+PLAYDRINKMSG 2 嘿嘿……我可不会比你先醉倒，保管陪\你喝爽了！
+OPENPLAYDRINK 2 晨星 DRINK
+
+[~PlayDrink_Self_Loss]
+#if
+#act
+PLAYDRINKMSG 1 这点酒量，我怎么放心让我的弟子\跟随你啊！
+PLAYDRINKMSG 2 惭愧惭愧，我一定努力!\<我下次再来/@CloseDrink>
+
+[~PlayDrink_SelfToNpc]
+#if
+#act
+PLAYDRINKMSG 1 好！
+PLAYDRINKMSG 2 就这坛了！请前辈来喝!
+
+[~PlayDrink_SelfToSelf]
+#if
+#act
+PLAYDRINKMSG 1 ……
+PLAYDRINKMSG 2 就这坛了！我自己喝！
+
+[~PlayDrink_NpcToSelf]
+#if
+#act
+PLAYDRINKMSG 1 就这坛了！你来喝吧！
+PLAYDRINKMSG 2 谢谢前辈！
+
+[~PlayDrink_NpcToNpc]
+#if
+#act
+PLAYDRINKMSG 1 就这坛了！我来喝！
+PLAYDRINKMSG 2 前辈尽管喝！
+
+[~PlayDrink_Dogfall]
+#if
+#act
+PLAYDRINKMSG 1 那再来一局吧。
+PLAYDRINKMSG 2 来就来！
+
+[~PlayDrink_NpcWil]
+#if
+#act
+PLAYDRINKMSG 1 嗯，不错，那我选了。
+PLAYDRINKMSG 2 真倒霉，我就不信赢不了你。
+
+[~PlayDrink_PlayWil]
+#if
+#act
+PLAYDRINKMSG 1 <$USERNAME>，你选吧。
+PLAYDRINKMSG 2 哈哈哈，还是我厉害吧~\选哪一坛好呢？
+
+[~PlayDrink_Self_Drunk]
+#if
+#act
+PLAYDRINKMSG 1 这点酒量，我怎么放心让我的弟子\跟随你啊！
+PLAYDRINKMSG 2 惭愧惭愧，我一定努力!\<我下次再来/@CloseDrink>
+
+[~PlayDrink_Npc_Drunk]
+#if
+#act
+PLAYDRINKMSG 1 呃,看来令天我是有点喝多了……！
+PLAYDRINKMSG 2 啊……前辈,您别醉呀……\<我下次再来/@CloseDrink>
+
+[@CloseDrink]
+#if
+#act
+CLOSEDRINK
+
+
+[~PlayDrink_Npc_Loss]
+#if
+equal M0 1
+#act
+PLAYDRINKMSG 1 好久没有这种感觉了,酒意可谓"点到\即止",看来你也深明其理啦.！
+PLAYDRINKMSG 2 呵呵,这次陪前辈喝酒,前辈已经喝得\尽兴,不知可否帮我个忙?\<招幕英雄/@CrHero>!
+#elseact
+PLAYDRINKMSG 1 好久没有这种感觉了,酒意可谓"点到\即止",看来你也深明其理啦.！
+PLAYDRINKMSG 2 呵呵,这次陪前辈喝酒,前辈已经喝得\尽兴,不知可否帮我个忙?\<删除英雄/@DelMyHero>!
+
+[@CrHero]
+#if
+#act
+CLOSEDRINK
+#say
+恩……好酒啊，既然你请我喝酒了。\
+请先给您的卧龙英雄取个名字吧。\
+<英雄起名/@@buHero>\
+
+[@@buHero]
+你要带一个男法师还是法师士卧龙英雄呢？\
+<卧龙男法师英雄/@CREATEHERO_TAOS_MAN>\
+<卧龙女法师英雄/@CREATEHERO_TAOS_WOM>\
+\
+
+[@CREATEHERO_TAOS_MAN]
+#ACT
+CREATEHERO 1 0 TRUE
+[@CREATEHERO_TAOS_WOM]
+#ACT
+CREATEHERO 1 1 TRUE
+//返回消息
+
+
+[@HaveHero]
+您已经有英雄了。\ \
+ <噢，也许是我记错了/@exit>
+
+[@SetHeroName]
+请先给您的卧龙英雄取个名字吧。\ \
+ <关闭/@exit>
+
+[@寄放英雄]
+<$USERNAME>，休息一下吧。不要忽视声明中的美好。\
+如同杯中的美酒一般，一起喝吗？\
+　\
+<没有问题，我这里有上好的美酒/@Drink>\
+　\
+<我不会喝酒……/@exit>\
+
+[@Drink]
+#if
+#act
+PLAYDRINKMSG 1 酒意需要品味，生命的动人之处常会在不经意\之间显现。我们在小酌中慢慢体会\吧。
+PLAYDRINKMSG 2 小提示：请将包裹栏中的酒放至酒碟上。
+OPENPLAYDRINK 2 辰星
+
+[~PlayDrink_Ok]
+#if
+#act
+PLAYDRINKMSG 1 天道自然，在自然之中追寻平衡本百易事，但\这酒令我有了一些顿悟。\<寄放英雄/@SaveHero>
+
+[@SaveHero]
+#if
+#act
+SAVEHERO
+
+[~PlayDrink_HeroOk]
+#if
+#act
+CLOSEDRINK
+
+[~PlayDrink_NotHero]
+#if
+#act
+CLOSEDRINK
+PLAYDRINKMSG 1 你没喝多吧？你身边空无一人，还说要把英雄\托付我？\
+
+[~PlayDrink_HeroBegin]
+#if
+#act
+PLAYDRINKMSG 1 你你没喝多吧？你身边空无一人，还说要把英雄\托付我？\<重新寄放英雄/@SaveHero>
+
+[@不带英雄]
+你想把你的伙伴送回卧龙山庄？\
+你要知道，修行结束回到卧龙山庄的子弟,\
+不可能再次像现在这样随你一同探索玛法大陆了。\
+你真的想这样么？你要是决定了，我们就来斗上一盘酒!\
+待我喝好了，我就帮你的伙伴送回山庄。\
+<是的，拜托你了/@是的> \
+　\
+<我还想与我的伙伴一起继续战斗/@exit>\
+
+[@是的]
+好！好！快拿酒来，让小二倒进六个酒坛中。\
+没个酒坛中的酒有多有少，喝多喝少就看运气了。\
+我们就拿这六个酒坛中的酒来斗一斗！\ \
+<好的，来吧/@DJSM>\
+
+[@DJSM]
+#if
+#act
+Mov M0 2
+#say
+<斗酒规则提示>：双方猜拳胜者，将有权选择桌面上的一坛酒，\
+让双方的任一个人饮下，并会根据其酒精浓度，在酒量槽中相应显示。\
+在桌面上的全部饮完后，\
+且在双方均未喝醉（不超过酒槽内红线）的情况下，\
+如果玩家酒槽内酒值不超过NPC酒值，便可赢得斗酒。\
+<操作提示>：在选择出拳型后，点击出拳按钮，\
+双方将出猜拳胜负，如果赢了，\
+请单击桌面上的任一坛酒，并指定双方任一人喝下。\
+<我明白了/@PlayDrink>\
+
+
+[@DelMyHero]
+#ACT
+  DELETEHERO
+[@NotHaveHero]
+你没有英雄。\ \
+ <噢，也许是我记错了/@exit>
+[@LogOutHeroFirst]
+请将英雄设置下线！在来找我吧！\ 
+　　\
+ <好的/@exit>
+[@DeleteHeroOK]
+既然你请我喝酒了，那我就答应你的要求。\ 
+我会尽快把你的英雄送回山庄的\\
+ <那谢谢你了/@exit>

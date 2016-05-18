@@ -1,0 +1,65 @@
+http://topic.csdn.net/t/20040716/14/3181124.html
+
+
+看来只能用   tsst(田sir)   的方法了：声明一个和list.add(记录指针)中（记录指针）一样类型的指针，用list.items[]建立联系，修改这个指针就可以了！   
+    
+  这个TList很奇怪，不能直接修改里面的数据，只能这样   
+  ARecord   :=   MyList.Items[B];   
+  Arecord.XXX   :=   要修改的值   
+  这样MyList里面的值才变了。   
+
+
+
+
+
+Delphi帮助里面的，参考一下吧：   
+  procedure   TForm1.FormButton1Click(Sender:   TObject);   
+    
+  type   
+      PMyList   =   ^AList;   
+      AList   =   record   
+          I:   Integer;   
+          C:   Char;   
+      end;   
+    
+  var   
+    
+      MyList:   TList;   
+      ARecord:   PMyList;   
+      B:   Byte;   
+      Y:   Word;   
+  begin   
+      MyList   :=   TList.Create;   
+      try   
+          New(ARecord);   
+          ARecord^.I   :=   100;   
+          ARecord^.C   :=   'Z';   
+          MyList.Add(ARecord);   {Add   integer   100   and   character   Z   to   list}   
+          New(ARecord);   
+          ARecord^.I   :=   200;   
+          ARecord^.C   :=   'X';   
+          MyList.Add(ARecord);   {Add   integer   200   and   character   X   to   list}   
+    
+          {   Now   paint   the   items   onto   the   paintbox}   
+          Y   :=   10;                           {Variable   used   in   TextOut   function}   
+    
+          for   B   :=   0   to   (MyList.Count   -   1)   do   
+          begin   
+              ARecord   :=   MyList.Items[B];   
+              Canvas.TextOut(10,   Y,   IntToStr(ARecord^.I));   {Display   I}   
+              Y   :=   Y   +   30;     {Increment   Y   Value   again}   
+              Canvas.TextOut(10,   Y,   ARecord^.C);     {Display   C}   
+              Y   :=   Y   +   30;     {Increment   Y   Value}   
+          end;   
+    
+          {   Cleanup:   must   free   the   list   items   as   well   as   the   list   }   
+        for   B   :=   0   to   (MyList.Count   -   1)   do   
+        begin   
+    
+            ARecord   :=   MyList.Items[B];   
+            Dispose(ARecord);   
+        end;   
+      finally   
+          MyList.Free;   
+      end;   
+  end;

@@ -1,0 +1,68 @@
+1.  去掉 DX全屏占用模式     
+
+procedure TfrmMain.FormCreate(Sender: TObject);   里的  
+
+     if g_boFullScreen then
+     DXDraw.Options:=DXDraw.Options + [doFullScreen];   //注释掉
+
+这样改后会颜色丢失    只要加个  g_boUseDIBSurface := TRUE;  就可以不让颜色丢失！！
+
+2.为什么图片只在屏幕的0，0显示 。
+
+因为 DxDraw.Primary.Draw (0, 0, DxDraw.Surface.ClientRect, DxDraw.Surface, FALSE); 这条函数引起的。
+
+只要把这条函数改 成   DXDraw.Flip   就OK了
+
+
+procedure TMainForm.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {如果按了Esc，则退出}
+  if Key=VK_ESCAPE then
+    Close;
+
+  {全屏模式和窗口模式的切换}
+  if (ssAlt in Shift) and (Key=VK_RETURN) then
+  begin
+    DXDraw.Finalize;
+
+    if doFullScreen in DXDraw.Options then
+    begin
+      RestoreWindow;
+
+      DXDraw.Cursor := crNone;
+      BorderStyle := bsSizeable;
+      DXDraw.Options := DXDraw.Options - [doFullScreen];
+    end else
+    begin
+      StoreWindow;
+
+      DXDraw.Cursor := crNone;
+      BorderStyle := bsNone;
+      DXDraw.Options := DXDraw.Options + [doFullScreen];
+    end;
+
+    DXDraw.Initialize;
+  end;
+end;
+
+
+//WNpcImg.Initialize;
+WEffectImg.Initialize;
+//ImageList.Items.MakeColorTable;
+
+// DXDraw.ColorTable := ImageList.Items.ColorTable;
+DXDraw.DefColorTable := g_WMainImages.MainPalette;
+//DXDraw.DefColorTable := ImageList.Items.ColorTable;
+DXDraw.ColorTable := DXDraw.DefColorTable;
+// DXDraw.UpdatePalette;
+DXDraw.UpdatePalette;
+
+
+//MainSurface := TDirectDrawSurface.Create (frmMain.DxDraw.DDraw);
+//MainSurface.SystemMemory := TRUE;
+//MainSurface.SetSize (SCREENWIDTH, SCREENHEIGHT);
+
+
+BackSprite:=TBackgroundSprite.Create(DXSpriteEngine.Engine);
+with TBackgroundSprite(BackSprite) do

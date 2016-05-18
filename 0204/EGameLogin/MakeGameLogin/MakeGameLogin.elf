@@ -1,0 +1,1072 @@
+EurekaLog 6.0.3
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Sun, 24 Aug 2008 15:01:59 +0800
+  1.2 Name/Description: MakeGameLogin.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Sun, 24 Aug 2008 15:01:58 +0800
+  1.6 Up Time         : 20 seconds
+
+Exception:
+-------------------------------------------------------------------------------------
+  2.1 Date          : Sun, 24 Aug 2008 15:02:20 +0800
+  2.2 Address       : 0000000C
+  2.3 Module Name   : MakeGameLogin.exe
+  2.4 Module Version: 
+  2.5 Type          : EAccessViolation
+  2.6 Message       : Access violation at address 0000000C. Read of address 0000000C.
+  2.7 ID            : 5351
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+------------------------------------------------------
+  3.1 ID        : qingqing
+  3.2 Name      : qingqing
+  3.3 Email     : 
+  3.4 Company   : qqwl
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - ON
+                  SeBackupPrivilege               - ON
+                  SeRestorePrivilege              - ON
+                  SeSystemtimePrivilege           - ON
+                  SeShutdownPrivilege             - ON
+                  SeRemoteShutdownPrivilege       - ON
+                  SeTakeOwnershipPrivilege        - ON
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - ON
+                  SeSystemProfilePrivilege        - ON
+                  SeProfileSingleProcessPrivilege - ON
+                  SeIncreaseBasePriorityPrivilege - ON
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - ON
+                  SeIncreaseQuotaPrivilege        - ON
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - ON
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------------------
+  4.1 Form Class   : TMainFrm
+  4.2 Form Text    : 网蓝登陆器配置器(反外挂版)
+  4.3 Control Class: TbsSkinButton
+  4.4 Control Text : 修改(&R)
+
+Computer:
+---------------------------------------------------------------------------------------------
+  5.1 Name          : QQWL-C88CFFE889
+  5.2 Total Memory  : 2039 Mb
+  5.3 Free Memory   : 1417 Mb
+  5.4 Total Disk    : 49.02 Gb
+  5.5 Free Disk     : 8.25 Gb
+  5.6 System Up Time: 1 day, 3 hours, 8 minutes, 5 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  E2160  @ 1.80GHz
+  5.8 Display Mode  : 1024 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Intel(R) 82945G Express Chipset Family (driver 6.14.10.4906 - RAM 0 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------------------------------------------
+  7.1 IP Address: 010.010.010.001 - 192.168.203.001 - 192.168.001.198
+  7.2 Submask   : 255.255.255.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway   : 000.000.000.000 - 000.000.000.000 - 192.168.001.001
+  7.4 DNS 1     : 000.000.000.000 - 000.000.000.000 - 061.128.128.068
+  7.5 DNS 2     : 000.000.000.000 - 000.000.000.000 - 061.128.192.068
+  7.6 DHCP      : OFF             - OFF             - OFF            
+
+Call Stack Information:
+------------------------------------------------------------------------------------------------------
+|Address |Module           |Unit             |Class                |Procedure/Method       |Line     |
+------------------------------------------------------------------------------------------------------
+|Running Thread: ID=4820; Priority=0; Class=; [Main]                                                 |
+|----------------------------------------------------------------------------------------------------|
+|004AD6C8|MakeGameLogin.exe|Controls         |TControl             |WndProc                |         |
+|004B04BC|MakeGameLogin.exe|Controls         |TWinControl          |WndProc                |         |
+|004997BE|MakeGameLogin.exe|ComCtrls         |TCustomListView      |WndProc                |         |
+|0049974C|MakeGameLogin.exe|ComCtrls         |TCustomListView      |WndProc                |         |
+|0050BFAA|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinCustomListView|WndProc                |14162[25]|
+|00404C80|MakeGameLogin.exe|System           |                     |_LStrClr               |         |
+|0050BFF4|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinCustomListView|WndProc                |14167[30]|
+|0041FD48|MakeGameLogin.exe|Classes          |TThreadList          |UnlockList             |         |
+|0041FD44|MakeGameLogin.exe|Classes          |TThreadList          |UnlockList             |         |
+|00480884|MakeGameLogin.exe|Graphics         |                     |FreeMemoryContexts     |         |
+|004B0290|MakeGameLogin.exe|Controls         |TWinControl          |MainWndProc            |         |
+|004807EC|MakeGameLogin.exe|Graphics         |                     |FreeMemoryContexts     |         |
+|004B02A5|MakeGameLogin.exe|Controls         |TWinControl          |MainWndProc            |         |
+|00429684|MakeGameLogin.exe|Classes          |                     |StdWndProc             |         |
+|004AD540|MakeGameLogin.exe|Controls         |TControl             |WndProc                |         |
+|004B0613|MakeGameLogin.exe|Controls         |TWinControl          |WndProc                |         |
+|004B04BC|MakeGameLogin.exe|Controls         |TWinControl          |WndProc                |         |
+|004C58E9|MakeGameLogin.exe|Forms            |TCustomForm          |WndProc                |         |
+|77D2F3C7|user32.dll       |                 |                     |SendMessageA           |         |
+|004AD498|MakeGameLogin.exe|Controls         |TControl             |Perform                |         |
+|004AD474|MakeGameLogin.exe|Controls         |TControl             |Perform                |         |
+|004AC23D|MakeGameLogin.exe|Controls         |TControl             |GetTextLen             |         |
+|004AC234|MakeGameLogin.exe|Controls         |TControl             |GetTextLen             |         |
+|004AC2C9|MakeGameLogin.exe|Controls         |TControl             |GetText                |         |
+|004AC2C0|MakeGameLogin.exe|Controls         |TControl             |GetText                |         |
+|004AC30E|MakeGameLogin.exe|Controls         |TControl             |SetText                |         |
+|004AC2F0|MakeGameLogin.exe|Controls         |TControl             |SetText                |         |
+|005B368E|MakeGameLogin.exe|AddGameList.pas  |TAddGameListFrm      |Change                 |126[1]   |
+|005B3634|MakeGameLogin.exe|AddGameList.pas  |TAddGameListFrm      |Change                 |125[0]   |
+|005BC573|MakeGameLogin.exe|Main.pas         |TMainFrm             |ChangeGameListClick    |373[3]   |
+|00500004|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton        |ButtonClick            |4900[18] |
+|00501B1B|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton        |MouseUp                |5646[14] |
+|00403F84|MakeGameLogin.exe|System           |                     |_CallDynaInst          |         |
+|004ADC4C|MakeGameLogin.exe|Controls         |TControl             |DoMouseUp              |         |
+|004ADC20|MakeGameLogin.exe|Controls         |TControl             |DoMouseUp              |         |
+|004ADCC1|MakeGameLogin.exe|Controls         |TControl             |WMLButtonUp            |         |
+|004AD6C8|MakeGameLogin.exe|Controls         |TControl             |WndProc                |         |
+|7C802540|kernel32.dll     |                 |                     |WaitForSingleObjectEx  |         |
+|7C80252D|kernel32.dll     |                 |                     |WaitForSingleObject    |         |
+|7C92E2EF|ntdll.dll        |                 |                     |ZwReleaseMutant        |         |
+|7C8024B1|kernel32.dll     |                 |                     |ReleaseMutex           |         |
+|004AD540|MakeGameLogin.exe|Controls         |TControl             |WndProc                |         |
+|004B0545|MakeGameLogin.exe|Controls         |TWinControl          |WndProc                |         |
+|77D2E0C9|user32.dll       |                 |                     |PostThreadMessageW     |         |
+|7C9210ED|ntdll.dll        |                 |                     |RtlLeaveCriticalSection|         |
+|0041FD48|MakeGameLogin.exe|Classes          |TThreadList          |UnlockList             |         |
+|0041FD44|MakeGameLogin.exe|Classes          |TThreadList          |UnlockList             |         |
+|00480884|MakeGameLogin.exe|Graphics         |                     |FreeMemoryContexts     |         |
+|004B0290|MakeGameLogin.exe|Controls         |TWinControl          |MainWndProc            |         |
+|004807EC|MakeGameLogin.exe|Graphics         |                     |FreeMemoryContexts     |         |
+|004B02A5|MakeGameLogin.exe|Controls         |TWinControl          |MainWndProc            |         |
+|77D194DA|user32.dll       |                 |                     |GetCapture             |         |
+|004B043B|MakeGameLogin.exe|Controls         |TWinControl          |IsControlMouseMsg      |         |
+|77D1F891|user32.dll       |                 |                     |CallNextHookEx         |         |
+|004AD540|MakeGameLogin.exe|Controls         |TControl             |WndProc                |         |
+|004B0613|MakeGameLogin.exe|Controls         |TWinControl          |WndProc                |         |
+|004B04BC|MakeGameLogin.exe|Controls         |TWinControl          |WndProc                |         |
+|00500393|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton        |WndProc                |5019[35] |
+|004B0290|MakeGameLogin.exe|Controls         |TWinControl          |MainWndProc            |         |
+|00429684|MakeGameLogin.exe|Classes          |                     |StdWndProc             |         |
+|77D196C2|user32.dll       |                 |                     |DispatchMessageA       |         |
+|77D196B8|user32.dll       |                 |                     |DispatchMessageA       |         |
+|004CBC8F|MakeGameLogin.exe|Forms            |TApplication         |ProcessMessage         |         |
+|004CBC0C|MakeGameLogin.exe|Forms            |TApplication         |ProcessMessage         |         |
+|004CBCC6|MakeGameLogin.exe|Forms            |TApplication         |HandleMessage          |         |
+|004CBCBC|MakeGameLogin.exe|Forms            |TApplication         |HandleMessage          |         |
+|004CBEE6|MakeGameLogin.exe|Forms            |TApplication         |Run                    |         |
+|004CBE50|MakeGameLogin.exe|Forms            |TApplication         |Run                    |         |
+|005BFB20|MakeGameLogin.exe|MakeGameLogin.dpr|                     |                       |21[5]    |
+|7C92E64C|ntdll.dll        |                 |                     |NtSetInformationThread |         |
+------------------------------------------------------------------------------------------------------
+
+Modules Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name             |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|MakeGameLogin.exe|                                                |               |7019008|2008-08-24 15:02:00|E:\我的文档\清客\EGameLogin\MakeGameLogin                                                           |
+|20000000|odbcint.dll      |Microsoft Data Access - ODBC Resources          |3.525.1117.0   |94208  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|4BDE0000|IDAPI32.DLL      |                                                |5.2.0.2        |589312 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C1E0000|idbat32.DLL      |                                                |5.2.0.2        |139264 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C5E0000|idsql32.DLL      |                                                |5.2.0.2        |464896 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C9E0000|IDR20009.DLL     |                                                |5.2.0.2        |116736 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4CDE0000|IDPDX32.DLL      |                                                |5.2.0.2        |255488 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4E8E0000|BANTAM.DLL       |                                                |1.0.0.8        |101376 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|5ADC0000|uxtheme.dll      |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll     |Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|62C20000|LPK.DLL          |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll      |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll       |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll      |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|MPR.dll          |Multiple Provider Router DLL                    |5.1.2600.2180  |59904  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv     |Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73540000|odbc32.DLL       |Microsoft Data Access - ODBC Driver Manager     |3.525.1117.0   |249856 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime     |Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll        |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll        |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL        |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76320000|comdlg32.dll     |Common Dialogs DLL                              |6.0.2900.2180  |269312 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll        |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL        |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll     |                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll     |User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 08:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll      |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll       |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll       |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll     |Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll       |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll        |GDI Client DLL                                  |5.1.2600.3316  |282624 |2008-02-20 14:50:30|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll      |Shell Light-weight Utility Library              |6.0.2900.3395  |473088 |2008-06-23 23:38:32|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll      |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll     |Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll        |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll      |Windows Shell Common Dll                        |6.0.2900.3241  |8312320|2007-10-26 00:54:52|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name          |Description                              |Version       |Memory  |Priority|Threads|Path                                                    |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System        |                                         |              |319488  |Normal  |74     |                                                        |
+|116 |RfwMain.exe   |Rising Personal FireWall Main Program    |7.0.1.70      |1556480 |Normal  |11     |F:\Program Files\Rising\Rfw                             |
+|128 |Explorer.EXE  |Windows Explorer                         |6.0.2900.2180 |16678912|Normal  |13     |C:\WINDOWS                                              |
+|392 |rfwstub.exe   |Rising Personal FireWall Service Rfwstub |7.0.0.12      |3837952 |Normal  |2      |F:\Program Files\Rising\Rfw                             |
+|652 |spoolsv.exe   |Spooler SubSystem App                    |5.1.2600.2696 |5484544 |Normal  |11     |C:\WINDOWS\system32                                     |
+|688 |acs.exe       |ACS                                      |5.2.0.103     |10448896|Normal  |14     |C:\WINDOWS\system32                                     |
+|796 |smss.exe      |                                         |              |438272  |Normal  |3      |\SystemRoot\System32                                    |
+|852 |csrss.exe     |                                         |              |16904192|Normal  |13     |C:\WINDOWS\system32                                     |
+|876 |winlogon.exe  |                                         |              |2764800 |High    |19     |C:\WINDOWS\system32                                     |
+|920 |services.exe  |Services and Controller app              |5.1.2600.2180 |5107712 |Normal  |15     |C:\WINDOWS\system32                                     |
+|932 |lsass.exe     |LSA Shell (Export Version)               |5.1.2600.2180 |1421312 |Normal  |25     |C:\WINDOWS\system32                                     |
+|1000|Maxthon.exe   |Maxthon Browser                          |2.1.3.2430    |12144640|Normal  |26     |F:\Program Files\Maxthon2                               |
+|1104|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5660672 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1152|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5976064 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1316|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |17403904|Normal  |6      |F:\Program Files\Borland\Delphi7\Bin                    |
+|1348|sqlservr.exe  |SQL Server Windows NT                    |2005.90.1399.0|8744960 |Normal  |27     |C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn|
+|1364|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |28114944|Normal  |80     |C:\WINDOWS\System32                                     |
+|1564|QQMusic.exe   |QQ音乐7.2                                |7.14.102.141  |11124736|Normal  |64     |F:\Program Files\Tencent\QQ                             |
+|1604|nod32krn.exe  |NOD32 Kernel Service                     |2.70.39.0     |30666752|Normal  |15     |F:\Program Files\ESET                                   |
+|1616|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5058560 |Normal  |9      |C:\WINDOWS\system32                                     |
+|1648|sqlwriter.exe |SQL Server VSS Writer                    |2005.90.1399.0|4796416 |Normal  |3      |C:\Program Files\Microsoft SQL Server\90\Shared         |
+|1772|alg.exe       |Application Layer Gateway Service        |5.1.2600.2180 |4984832 |Normal  |11     |C:\WINDOWS\System32                                     |
+|1796|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5939200 |Normal  |19     |C:\WINDOWS\system32                                     |
+|1812|vm            |                                         |              |3989504 |Normal  |6      |E:\系统空间\虚拟机\VMware\VMware                        |
+|1828|rfwsrv.exe    |Rising Personal FireWall Service         |7.0.0.76      |1601536 |Normal  |17     |F:\Program Files\Rising\Rfw                             |
+|1868|rfwProxy.exe  |Rising Personal Proxy Service            |7.0.0.37      |1613824 |Normal  |14     |F:\Program Files\Rising\Rfw                             |
+|1984|游戏通用窗口化|                                         |              |4648960 |Normal  |2      |E:\清清空间\私服\私服工具                               |
+|2060|MakeGameLog   |                                         |              |16834560|Normal  |2      |E:\我的文档\清客\EGameLogin\MakeGameLogin               |
+|2104|ctfmon.exe    |CTF Loader                               |5.1.2600.2180 |4988928 |Normal  |1      |C:\WINDOWS\system32                                     |
+|3072|VMnetD        |                                         |              |2998272 |Normal  |2      |E:\系统空间\虚拟机\VMware\VMware                        |
+|3352|P             |                                         |              |4403200 |Normal  |1      |E:\我的文档\清客\M2Engine2\M2字符加解密                 |
+|3520|WBService.exe |NetworkService Microsoft 基础类应用程序  |1.0.0.1       |5607424 |Normal  |6      |C:\WINDOWS\system32                                     |
+|3788|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |48418816|Normal  |4      |F:\Program Files\Borland\Delphi7\Bin                    |
+|4232|QQ.exe        |QQ                                       |8.0.978.1833  |30027776|Normal  |40     |F:\Program Files\Tencent\QQ                             |
+|4856|TXPlatform.exe|Tencent Instant Messaging Platform       |1.5.225.0     |2412544 |Normal  |4      |F:\Program Files\Tencent\QQ                             |
+|5872|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |4984832 |Normal  |5      |C:\WINDOWS\system32                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+EurekaLog 6.0.3
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Sun, 24 Aug 2008 15:08:19 +0800
+  1.2 Name/Description: MakeGameLogin.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Sun, 24 Aug 2008 15:07:43 +0800
+  1.6 Up Time         : 9 seconds
+
+Exception:
+-------------------------------------------------------------------------------------
+  2.1 Date          : Sun, 24 Aug 2008 15:08:28 +0800
+  2.2 Address       : 00000017
+  2.3 Module Name   : MakeGameLogin.exe
+  2.4 Module Version: 
+  2.5 Type          : EAccessViolation
+  2.6 Message       : Access violation at address 00000017. Read of address 00000017.
+  2.7 ID            : F5F5
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+------------------------------------------------------
+  3.1 ID        : qingqing
+  3.2 Name      : qingqing
+  3.3 Email     : 
+  3.4 Company   : qqwl
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - ON
+                  SeBackupPrivilege               - ON
+                  SeRestorePrivilege              - ON
+                  SeSystemtimePrivilege           - ON
+                  SeShutdownPrivilege             - ON
+                  SeRemoteShutdownPrivilege       - ON
+                  SeTakeOwnershipPrivilege        - ON
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - ON
+                  SeSystemProfilePrivilege        - ON
+                  SeProfileSingleProcessPrivilege - ON
+                  SeIncreaseBasePriorityPrivilege - ON
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - ON
+                  SeIncreaseQuotaPrivilege        - ON
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - ON
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------------------
+  4.1 Form Class   : TMainFrm
+  4.2 Form Text    : 网蓝登陆器配置器(反外挂版)
+  4.3 Control Class: TbsSkinButton
+  4.4 Control Text : 修改(&R)
+
+Computer:
+---------------------------------------------------------------------------------------------
+  5.1 Name          : QQWL-C88CFFE889
+  5.2 Total Memory  : 2039 Mb
+  5.3 Free Memory   : 1408 Mb
+  5.4 Total Disk    : 49.02 Gb
+  5.5 Free Disk     : 8.25 Gb
+  5.6 System Up Time: 1 day, 3 hours, 14 minutes, 14 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  E2160  @ 1.80GHz
+  5.8 Display Mode  : 1024 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Intel(R) 82945G Express Chipset Family (driver 6.14.10.4906 - RAM 0 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------------------------------------------
+  7.1 IP Address: 010.010.010.001 - 192.168.203.001 - 192.168.001.198
+  7.2 Submask   : 255.255.255.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway   : 000.000.000.000 - 000.000.000.000 - 192.168.001.001
+  7.4 DNS 1     : 000.000.000.000 - 000.000.000.000 - 061.128.128.068
+  7.5 DNS 2     : 000.000.000.000 - 000.000.000.000 - 061.128.192.068
+  7.6 DHCP      : OFF             - OFF             - OFF            
+
+Call Stack Information:
+----------------------------------------------------------------------------------------------
+|Address |Module           |Unit             |Class          |Procedure/Method      |Line    |
+----------------------------------------------------------------------------------------------
+|Running Thread: ID=3488; Priority=0; Class=; [Main]                                         |
+|--------------------------------------------------------------------------------------------|
+|77D2F3C7|user32.dll       |                 |               |SendMessageA          |        |
+|005B3691|MakeGameLogin.exe|AddGameList.pas  |TAddGameListFrm|Change                |126[1]  |
+|005B3634|MakeGameLogin.exe|AddGameList.pas  |TAddGameListFrm|Change                |125[0]  |
+|005BC573|MakeGameLogin.exe|Main.pas         |TMainFrm       |ChangeGameListClick   |373[3]  |
+|00500004|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton  |ButtonClick           |4900[18]|
+|00501B1B|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton  |MouseUp               |5646[14]|
+|77D1F891|user32.dll       |                 |               |CallNextHookEx        |        |
+|77D194DA|user32.dll       |                 |               |GetCapture            |        |
+|00500393|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton  |WndProc               |5019[35]|
+|77D196C2|user32.dll       |                 |               |DispatchMessageA      |        |
+|77D196B8|user32.dll       |                 |               |DispatchMessageA      |        |
+|005BFB20|MakeGameLogin.exe|MakeGameLogin.dpr|               |                      |21[5]   |
+|7C92E64C|ntdll.dll        |                 |               |NtSetInformationThread|        |
+----------------------------------------------------------------------------------------------
+
+Modules Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name             |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|MakeGameLogin.exe|                                                |               |7019008|2008-08-24 15:07:44|E:\我的文档\清客\EGameLogin\MakeGameLogin                                                           |
+|20000000|odbcint.dll      |Microsoft Data Access - ODBC Resources          |3.525.1117.0   |94208  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|4BDE0000|IDAPI32.DLL      |                                                |5.2.0.2        |589312 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C1E0000|idbat32.DLL      |                                                |5.2.0.2        |139264 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C5E0000|idsql32.DLL      |                                                |5.2.0.2        |464896 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C9E0000|IDR20009.DLL     |                                                |5.2.0.2        |116736 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4CDE0000|IDPDX32.DLL      |                                                |5.2.0.2        |255488 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4E8E0000|BANTAM.DLL       |                                                |1.0.0.8        |101376 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|5ADC0000|uxtheme.dll      |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll     |Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|603F0000|DShared.dll      |DShared DLL                                     |2.1.0.0        |173376 |2007-07-01 08:52:00|F:\Program Files\Tencent\QQ                                                                         |
+|62C20000|LPK.DLL          |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll      |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll       |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll      |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|MPR.dll          |Multiple Provider Router DLL                    |5.1.2600.2180  |59904  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv     |Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73540000|odbc32.DLL       |Microsoft Data Access - ODBC Driver Manager     |3.525.1117.0   |249856 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime     |Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll        |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll        |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL        |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76320000|comdlg32.dll     |Common Dialogs DLL                              |6.0.2900.2180  |269312 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll        |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL        |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll     |                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll     |User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 08:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll      |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll       |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll       |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll     |Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll       |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll        |GDI Client DLL                                  |5.1.2600.3316  |282624 |2008-02-20 14:50:30|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll      |Shell Light-weight Utility Library              |6.0.2900.3395  |473088 |2008-06-23 23:38:32|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll      |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll     |Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll        |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll      |Windows Shell Common Dll                        |6.0.2900.3241  |8312320|2007-10-26 00:54:52|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name          |Description                              |Version       |Memory  |Priority|Threads|Path                                                    |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System        |                                         |              |319488  |Normal  |73     |                                                        |
+|116 |RfwMain.exe   |Rising Personal FireWall Main Program    |7.0.1.70      |1335296 |Normal  |11     |F:\Program Files\Rising\Rfw                             |
+|128 |Explorer.EXE  |Windows Explorer                         |6.0.2900.2180 |18894848|Normal  |12     |C:\WINDOWS                                              |
+|392 |rfwstub.exe   |Rising Personal FireWall Service Rfwstub |7.0.0.12      |3837952 |Normal  |2      |F:\Program Files\Rising\Rfw                             |
+|652 |spoolsv.exe   |Spooler SubSystem App                    |5.1.2600.2696 |5476352 |Normal  |10     |C:\WINDOWS\system32                                     |
+|688 |acs.exe       |ACS                                      |5.2.0.103     |10448896|Normal  |14     |C:\WINDOWS\system32                                     |
+|796 |smss.exe      |                                         |              |438272  |Normal  |3      |\SystemRoot\System32                                    |
+|852 |csrss.exe     |                                         |              |16736256|Normal  |13     |C:\WINDOWS\system32                                     |
+|876 |winlogon.exe  |                                         |              |2772992 |High    |19     |C:\WINDOWS\system32                                     |
+|920 |services.exe  |Services and Controller app              |5.1.2600.2180 |5107712 |Normal  |15     |C:\WINDOWS\system32                                     |
+|932 |lsass.exe     |LSA Shell (Export Version)               |5.1.2600.2180 |1306624 |Normal  |25     |C:\WINDOWS\system32                                     |
+|1000|Maxthon.exe   |Maxthon Browser                          |2.1.3.2430    |13361152|Normal  |26     |F:\Program Files\Maxthon2                               |
+|1104|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5660672 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1152|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5976064 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1316|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |17854464|Normal  |6      |F:\Program Files\Borland\Delphi7\Bin                    |
+|1348|sqlservr.exe  |SQL Server Windows NT                    |2005.90.1399.0|8732672 |Normal  |26     |C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn|
+|1364|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |27963392|Normal  |80     |C:\WINDOWS\System32                                     |
+|1604|nod32krn.exe  |NOD32 Kernel Service                     |2.70.39.0     |30703616|Normal  |14     |F:\Program Files\ESET                                   |
+|1616|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5058560 |Normal  |9      |C:\WINDOWS\system32                                     |
+|1648|sqlwriter.exe |SQL Server VSS Writer                    |2005.90.1399.0|4796416 |Normal  |3      |C:\Program Files\Microsoft SQL Server\90\Shared         |
+|1772|alg.exe       |Application Layer Gateway Service        |5.1.2600.2180 |4984832 |Normal  |11     |C:\WINDOWS\System32                                     |
+|1796|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5939200 |Normal  |19     |C:\WINDOWS\system32                                     |
+|1812|vm            |                                         |              |3989504 |Normal  |6      |E:\系统空间\虚拟机\VMware\VMware                        |
+|1828|rfwsrv.exe    |Rising Personal FireWall Service         |7.0.0.76      |1581056 |Normal  |17     |F:\Program Files\Rising\Rfw                             |
+|1868|rfwProxy.exe  |Rising Personal Proxy Service            |7.0.0.37      |1613824 |Normal  |14     |F:\Program Files\Rising\Rfw                             |
+|1984|游戏通用窗口化|                                         |              |5156864 |Normal  |2      |E:\清清空间\私服\私服工具                               |
+|2104|ctfmon.exe    |CTF Loader                               |5.1.2600.2180 |5451776 |Normal  |1      |C:\WINDOWS\system32                                     |
+|3072|VMnetD        |                                         |              |2998272 |Normal  |2      |E:\系统空间\虚拟机\VMware\VMware                        |
+|3520|WBService.exe |NetworkService Microsoft 基础类应用程序  |1.0.0.1       |5996544 |Normal  |6      |C:\WINDOWS\system32                                     |
+|3788|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |55754752|Normal  |5      |F:\Program Files\Borland\Delphi7\Bin                    |
+|4232|QQ.exe        |QQ                                       |8.0.978.1833  |53313536|Normal  |42     |F:\Program Files\Tencent\QQ                             |
+|4704|MakeGameLog   |                                         |              |14290944|Normal  |2      |E:\我的文档\清客\EGameLogin\MakeGameLogin               |
+|4856|TXPlatform.exe|Tencent Instant Messaging Platform       |1.5.225.0     |2957312 |Normal  |4      |F:\Program Files\Tencent\QQ                             |
+|5872|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |4984832 |Normal  |5      |C:\WINDOWS\system32                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+EurekaLog 6.0.3
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Sun, 24 Aug 2008 15:09:35 +0800
+  1.2 Name/Description: MakeGameLogin.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Sun, 24 Aug 2008 15:09:33 +0800
+  1.6 Up Time         : 7 seconds
+
+Exception:
+-------------------------------------------------------------------------------------
+  2.1 Date          : Sun, 24 Aug 2008 15:09:43 +0800
+  2.2 Address       : 
+  2.3 Module Name   : MakeGameLogin.exe
+  2.4 Module Version: 
+  2.5 Type          : EAccessViolation
+  2.6 Message       : Access violation at address 00000000. Read of address 00000000.
+  2.7 ID            : 21A8
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+------------------------------------------------------
+  3.1 ID        : qingqing
+  3.2 Name      : qingqing
+  3.3 Email     : 
+  3.4 Company   : qqwl
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - ON
+                  SeBackupPrivilege               - ON
+                  SeRestorePrivilege              - ON
+                  SeSystemtimePrivilege           - ON
+                  SeShutdownPrivilege             - ON
+                  SeRemoteShutdownPrivilege       - ON
+                  SeTakeOwnershipPrivilege        - ON
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - ON
+                  SeSystemProfilePrivilege        - ON
+                  SeProfileSingleProcessPrivilege - ON
+                  SeIncreaseBasePriorityPrivilege - ON
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - ON
+                  SeIncreaseQuotaPrivilege        - ON
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - ON
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------------------
+  4.1 Form Class   : TMainFrm
+  4.2 Form Text    : 网蓝登陆器配置器(反外挂版)
+  4.3 Control Class: TbsSkinButton
+  4.4 Control Text : 修改(&R)
+
+Computer:
+---------------------------------------------------------------------------------------------
+  5.1 Name          : QQWL-C88CFFE889
+  5.2 Total Memory  : 2039 Mb
+  5.3 Free Memory   : 1406 Mb
+  5.4 Total Disk    : 49.02 Gb
+  5.5 Free Disk     : 8.25 Gb
+  5.6 System Up Time: 1 day, 3 hours, 15 minutes, 29 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  E2160  @ 1.80GHz
+  5.8 Display Mode  : 1024 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Intel(R) 82945G Express Chipset Family (driver 6.14.10.4906 - RAM 0 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------------------------------------------
+  7.1 IP Address: 010.010.010.001 - 192.168.203.001 - 192.168.001.198
+  7.2 Submask   : 255.255.255.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway   : 000.000.000.000 - 000.000.000.000 - 192.168.001.001
+  7.4 DNS 1     : 000.000.000.000 - 000.000.000.000 - 061.128.128.068
+  7.5 DNS 2     : 000.000.000.000 - 000.000.000.000 - 061.128.192.068
+  7.6 DHCP      : OFF             - OFF             - OFF            
+
+Call Stack Information:
+--------------------------------------------------------------------------------------------
+|Address |Module           |Unit             |Class        |Procedure/Method      |Line    |
+--------------------------------------------------------------------------------------------
+|Running Thread: ID=3216; Priority=0; Class=; [Main]                                       |
+|------------------------------------------------------------------------------------------|
+|005BC4F5|MakeGameLogin.exe|Main.pas         |TMainFrm     |ChangeGameListClick   |373[3]  |
+|00500004|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton|ButtonClick           |4900[18]|
+|00501B1B|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton|MouseUp               |5646[14]|
+|77D1F891|user32.dll       |                 |             |CallNextHookEx        |        |
+|77D194DA|user32.dll       |                 |             |GetCapture            |        |
+|00500393|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton|WndProc               |5019[35]|
+|77D196C2|user32.dll       |                 |             |DispatchMessageA      |        |
+|77D196B8|user32.dll       |                 |             |DispatchMessageA      |        |
+|005BFB28|MakeGameLogin.exe|MakeGameLogin.dpr|             |                      |21[5]   |
+|7C92E64C|ntdll.dll        |                 |             |NtSetInformationThread|        |
+--------------------------------------------------------------------------------------------
+
+Modules Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name             |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|MakeGameLogin.exe|                                                |               |7019008|2008-08-24 15:09:34|E:\我的文档\清客\EGameLogin\MakeGameLogin                                                           |
+|20000000|odbcint.dll      |Microsoft Data Access - ODBC Resources          |3.525.1117.0   |94208  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|4BDE0000|IDAPI32.DLL      |                                                |5.2.0.2        |589312 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C1E0000|idbat32.DLL      |                                                |5.2.0.2        |139264 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C5E0000|idsql32.DLL      |                                                |5.2.0.2        |464896 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C9E0000|IDR20009.DLL     |                                                |5.2.0.2        |116736 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4CDE0000|IDPDX32.DLL      |                                                |5.2.0.2        |255488 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4E8E0000|BANTAM.DLL       |                                                |1.0.0.8        |101376 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|5ADC0000|uxtheme.dll      |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll     |Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|603F0000|DShared.dll      |DShared DLL                                     |2.1.0.0        |173376 |2007-07-01 08:52:00|F:\Program Files\Tencent\QQ                                                                         |
+|62C20000|LPK.DLL          |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll      |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll       |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll      |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|MPR.dll          |Multiple Provider Router DLL                    |5.1.2600.2180  |59904  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv     |Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73540000|odbc32.DLL       |Microsoft Data Access - ODBC Driver Manager     |3.525.1117.0   |249856 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime     |Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll        |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll        |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL        |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76320000|comdlg32.dll     |Common Dialogs DLL                              |6.0.2900.2180  |269312 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll        |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL        |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll     |                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll     |User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 08:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll      |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll       |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll       |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll     |Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll       |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll        |GDI Client DLL                                  |5.1.2600.3316  |282624 |2008-02-20 14:50:30|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll      |Shell Light-weight Utility Library              |6.0.2900.3395  |473088 |2008-06-23 23:38:32|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll      |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll     |Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll        |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll      |Windows Shell Common Dll                        |6.0.2900.3241  |8312320|2007-10-26 00:54:52|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name          |Description                              |Version       |Memory  |Priority|Threads|Path                                                    |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System        |                                         |              |319488  |Normal  |73     |                                                        |
+|116 |RfwMain.exe   |Rising Personal FireWall Main Program    |7.0.1.70      |1736704 |Normal  |11     |F:\Program Files\Rising\Rfw                             |
+|128 |Explorer.EXE  |Windows Explorer                         |6.0.2900.2180 |18972672|Normal  |11     |C:\WINDOWS                                              |
+|392 |rfwstub.exe   |Rising Personal FireWall Service Rfwstub |7.0.0.12      |3837952 |Normal  |2      |F:\Program Files\Rising\Rfw                             |
+|652 |spoolsv.exe   |Spooler SubSystem App                    |5.1.2600.2696 |5484544 |Normal  |11     |C:\WINDOWS\system32                                     |
+|688 |acs.exe       |ACS                                      |5.2.0.103     |10448896|Normal  |14     |C:\WINDOWS\system32                                     |
+|796 |smss.exe      |                                         |              |438272  |Normal  |3      |\SystemRoot\System32                                    |
+|852 |csrss.exe     |                                         |              |16744448|Normal  |13     |C:\WINDOWS\system32                                     |
+|876 |winlogon.exe  |                                         |              |2768896 |High    |19     |C:\WINDOWS\system32                                     |
+|920 |services.exe  |Services and Controller app              |5.1.2600.2180 |5107712 |Normal  |15     |C:\WINDOWS\system32                                     |
+|932 |lsass.exe     |LSA Shell (Export Version)               |5.1.2600.2180 |1355776 |Normal  |25     |C:\WINDOWS\system32                                     |
+|1000|Maxthon.exe   |Maxthon Browser                          |2.1.3.2430    |13471744|Normal  |25     |F:\Program Files\Maxthon2                               |
+|1104|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5660672 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1152|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5976064 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1316|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |17854464|Normal  |6      |F:\Program Files\Borland\Delphi7\Bin                    |
+|1348|sqlservr.exe  |SQL Server Windows NT                    |2005.90.1399.0|8704000 |Normal  |23     |C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn|
+|1364|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |27963392|Normal  |80     |C:\WINDOWS\System32                                     |
+|1604|nod32krn.exe  |NOD32 Kernel Service                     |2.70.39.0     |30720000|Normal  |16     |F:\Program Files\ESET                                   |
+|1616|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5058560 |Normal  |9      |C:\WINDOWS\system32                                     |
+|1648|sqlwriter.exe |SQL Server VSS Writer                    |2005.90.1399.0|4796416 |Normal  |3      |C:\Program Files\Microsoft SQL Server\90\Shared         |
+|1772|alg.exe       |Application Layer Gateway Service        |5.1.2600.2180 |4984832 |Normal  |11     |C:\WINDOWS\System32                                     |
+|1796|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5939200 |Normal  |19     |C:\WINDOWS\system32                                     |
+|1812|vm            |                                         |              |3989504 |Normal  |6      |E:\系统空间\虚拟机\VMware\VMware                        |
+|1828|rfwsrv.exe    |Rising Personal FireWall Service         |7.0.0.76      |1613824 |Normal  |17     |F:\Program Files\Rising\Rfw                             |
+|1868|rfwProxy.exe  |Rising Personal Proxy Service            |7.0.0.37      |1748992 |Normal  |14     |F:\Program Files\Rising\Rfw                             |
+|1984|游戏通用窗口化|                                         |              |5156864 |Normal  |2      |E:\清清空间\私服\私服工具                               |
+|2104|ctfmon.exe    |CTF Loader                               |5.1.2600.2180 |5451776 |Normal  |1      |C:\WINDOWS\system32                                     |
+|3072|VMnetD        |                                         |              |2998272 |Normal  |2      |E:\系统空间\虚拟机\VMware\VMware                        |
+|3520|WBService.exe |NetworkService Microsoft 基础类应用程序  |1.0.0.1       |5996544 |Normal  |6      |C:\WINDOWS\system32                                     |
+|3704|MakeGameLog   |                                         |              |14266368|Normal  |2      |E:\我的文档\清客\EGameLogin\MakeGameLogin               |
+|3788|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |57184256|Normal  |5      |F:\Program Files\Borland\Delphi7\Bin                    |
+|4232|QQ.exe        |QQ                                       |8.0.978.1833  |54145024|Normal  |40     |F:\Program Files\Tencent\QQ                             |
+|4856|TXPlatform.exe|Tencent Instant Messaging Platform       |1.5.225.0     |2957312 |Normal  |4      |F:\Program Files\Tencent\QQ                             |
+|5872|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |4984832 |Normal  |5      |C:\WINDOWS\system32                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+EurekaLog 6.0.3
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Sun, 24 Aug 2008 15:12:49 +0800
+  1.2 Name/Description: MakeGameLogin.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Sun, 24 Aug 2008 15:12:48 +0800
+  1.6 Up Time         : 9 seconds
+
+Exception:
+-------------------------------------------------------------------------------------
+  2.1 Date          : Sun, 24 Aug 2008 15:12:59 +0800
+  2.2 Address       : 00000015
+  2.3 Module Name   : MakeGameLogin.exe
+  2.4 Module Version: 
+  2.5 Type          : EAccessViolation
+  2.6 Message       : Access violation at address 00000015. Read of address 00000015.
+  2.7 ID            : F126
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+------------------------------------------------------
+  3.1 ID        : qingqing
+  3.2 Name      : qingqing
+  3.3 Email     : 
+  3.4 Company   : qqwl
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - ON
+                  SeBackupPrivilege               - ON
+                  SeRestorePrivilege              - ON
+                  SeSystemtimePrivilege           - ON
+                  SeShutdownPrivilege             - ON
+                  SeRemoteShutdownPrivilege       - ON
+                  SeTakeOwnershipPrivilege        - ON
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - ON
+                  SeSystemProfilePrivilege        - ON
+                  SeProfileSingleProcessPrivilege - ON
+                  SeIncreaseBasePriorityPrivilege - ON
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - ON
+                  SeIncreaseQuotaPrivilege        - ON
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - ON
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------------------
+  4.1 Form Class   : TMainFrm
+  4.2 Form Text    : 网蓝登陆器配置器(反外挂版)
+  4.3 Control Class: TbsSkinButton
+  4.4 Control Text : 修改(&R)
+
+Computer:
+---------------------------------------------------------------------------------------------
+  5.1 Name          : QQWL-C88CFFE889
+  5.2 Total Memory  : 2039 Mb
+  5.3 Free Memory   : 1428 Mb
+  5.4 Total Disk    : 49.02 Gb
+  5.5 Free Disk     : 8.25 Gb
+  5.6 System Up Time: 1 day, 3 hours, 18 minutes, 44 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  E2160  @ 1.80GHz
+  5.8 Display Mode  : 1024 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Intel(R) 82945G Express Chipset Family (driver 6.14.10.4906 - RAM 0 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------------------------------------------
+  7.1 IP Address: 010.010.010.001 - 192.168.203.001 - 192.168.001.198
+  7.2 Submask   : 255.255.255.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway   : 000.000.000.000 - 000.000.000.000 - 192.168.001.001
+  7.4 DNS 1     : 000.000.000.000 - 000.000.000.000 - 061.128.128.068
+  7.5 DNS 2     : 000.000.000.000 - 000.000.000.000 - 061.128.192.068
+  7.6 DHCP      : OFF             - OFF             - OFF            
+
+Call Stack Information:
+--------------------------------------------------------------------------------------------
+|Address |Module           |Unit             |Class        |Procedure/Method      |Line    |
+--------------------------------------------------------------------------------------------
+|Running Thread: ID=6076; Priority=0; Class=; [Main]                                       |
+|------------------------------------------------------------------------------------------|
+|77D2F3C7|user32.dll       |                 |             |SendMessageA          |        |
+|005BC516|MakeGameLogin.exe|Main.pas         |TMainFrm     |ChangeGameListClick   |374[4]  |
+|00500004|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton|ButtonClick           |4900[18]|
+|00501B1B|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton|MouseUp               |5646[14]|
+|77D1F891|user32.dll       |                 |             |CallNextHookEx        |        |
+|77D194DA|user32.dll       |                 |             |GetCapture            |        |
+|00500393|MakeGameLogin.exe|bsSkinCtrls.pas  |TbsSkinButton|WndProc               |5019[35]|
+|77D196C2|user32.dll       |                 |             |DispatchMessageA      |        |
+|77D196B8|user32.dll       |                 |             |DispatchMessageA      |        |
+|005BFB54|MakeGameLogin.exe|MakeGameLogin.dpr|             |                      |21[5]   |
+|7C92E64C|ntdll.dll        |                 |             |NtSetInformationThread|        |
+--------------------------------------------------------------------------------------------
+
+Modules Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name             |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|MakeGameLogin.exe|                                                |               |7019008|2008-08-24 15:12:50|E:\我的文档\清客\EGameLogin\MakeGameLogin                                                           |
+|20000000|odbcint.dll      |Microsoft Data Access - ODBC Resources          |3.525.1117.0   |94208  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|4BDE0000|IDAPI32.DLL      |                                                |5.2.0.2        |589312 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C1E0000|idbat32.DLL      |                                                |5.2.0.2        |139264 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C5E0000|idsql32.DLL      |                                                |5.2.0.2        |464896 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C9E0000|IDR20009.DLL     |                                                |5.2.0.2        |116736 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4CDE0000|IDPDX32.DLL      |                                                |5.2.0.2        |255488 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4E8E0000|BANTAM.DLL       |                                                |1.0.0.8        |101376 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|5ADC0000|uxtheme.dll      |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll     |Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|603F0000|DShared.dll      |DShared DLL                                     |2.1.0.0        |173376 |2007-07-01 08:52:00|F:\Program Files\Tencent\QQ                                                                         |
+|62C20000|LPK.DLL          |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll      |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll       |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll      |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|MPR.dll          |Multiple Provider Router DLL                    |5.1.2600.2180  |59904  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv     |Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73540000|odbc32.DLL       |Microsoft Data Access - ODBC Driver Manager     |3.525.1117.0   |249856 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime     |Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll        |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll        |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL        |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76320000|comdlg32.dll     |Common Dialogs DLL                              |6.0.2900.2180  |269312 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll        |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL        |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll     |                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll     |User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 08:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll      |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll       |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll       |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll     |Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll       |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll        |GDI Client DLL                                  |5.1.2600.3316  |282624 |2008-02-20 14:50:30|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll      |Shell Light-weight Utility Library              |6.0.2900.3395  |473088 |2008-06-23 23:38:32|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll      |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll     |Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll        |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll      |Windows Shell Common Dll                        |6.0.2900.3241  |8312320|2007-10-26 00:54:52|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name          |Description                              |Version       |Memory  |Priority|Threads|Path                                                    |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System        |                                         |              |319488  |Normal  |73     |                                                        |
+|116 |RfwMain.exe   |Rising Personal FireWall Main Program    |7.0.1.70      |1359872 |Normal  |11     |F:\Program Files\Rising\Rfw                             |
+|128 |Explorer.EXE  |Windows Explorer                         |6.0.2900.2180 |18980864|Normal  |11     |C:\WINDOWS                                              |
+|392 |rfwstub.exe   |Rising Personal FireWall Service Rfwstub |7.0.0.12      |3837952 |Normal  |2      |F:\Program Files\Rising\Rfw                             |
+|652 |spoolsv.exe   |Spooler SubSystem App                    |5.1.2600.2696 |5484544 |Normal  |11     |C:\WINDOWS\system32                                     |
+|688 |acs.exe       |ACS                                      |5.2.0.103     |10448896|Normal  |14     |C:\WINDOWS\system32                                     |
+|796 |smss.exe      |                                         |              |438272  |Normal  |3      |\SystemRoot\System32                                    |
+|852 |csrss.exe     |                                         |              |16744448|Normal  |13     |C:\WINDOWS\system32                                     |
+|876 |winlogon.exe  |                                         |              |2768896 |High    |19     |C:\WINDOWS\system32                                     |
+|920 |services.exe  |Services and Controller app              |5.1.2600.2180 |5107712 |Normal  |15     |C:\WINDOWS\system32                                     |
+|932 |lsass.exe     |LSA Shell (Export Version)               |5.1.2600.2180 |966656  |Normal  |25     |C:\WINDOWS\system32                                     |
+|1000|Maxthon.exe   |Maxthon Browser                          |2.1.3.2430    |13463552|Normal  |24     |F:\Program Files\Maxthon2                               |
+|1104|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5660672 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1152|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5955584 |Normal  |13     |C:\WINDOWS\system32                                     |
+|1316|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |5525504 |Normal  |6      |F:\Program Files\Borland\Delphi7\Bin                    |
+|1348|sqlservr.exe  |SQL Server Windows NT                    |2005.90.1399.0|8724480 |Normal  |25     |C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn|
+|1364|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |27963392|Normal  |80     |C:\WINDOWS\System32                                     |
+|1604|nod32krn.exe  |NOD32 Kernel Service                     |2.70.39.0     |30720000|Normal  |16     |F:\Program Files\ESET                                   |
+|1616|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5058560 |Normal  |9      |C:\WINDOWS\system32                                     |
+|1648|sqlwriter.exe |SQL Server VSS Writer                    |2005.90.1399.0|4796416 |Normal  |3      |C:\Program Files\Microsoft SQL Server\90\Shared         |
+|1772|alg.exe       |Application Layer Gateway Service        |5.1.2600.2180 |4984832 |Normal  |11     |C:\WINDOWS\System32                                     |
+|1796|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5939200 |Normal  |19     |C:\WINDOWS\system32                                     |
+|1812|vm            |                                         |              |3989504 |Normal  |6      |E:\系统空间\虚拟机\VMware\VMware                        |
+|1828|rfwsrv.exe    |Rising Personal FireWall Service         |7.0.0.76      |1572864 |Normal  |17     |F:\Program Files\Rising\Rfw                             |
+|1868|rfwProxy.exe  |Rising Personal Proxy Service            |7.0.0.37      |1609728 |Normal  |14     |F:\Program Files\Rising\Rfw                             |
+|1984|游戏通用窗口化|                                         |              |5156864 |Normal  |2      |E:\清清空间\私服\私服工具                               |
+|2104|ctfmon.exe    |CTF Loader                               |5.1.2600.2180 |5451776 |Normal  |1      |C:\WINDOWS\system32                                     |
+|3072|VMnetD        |                                         |              |2998272 |Normal  |2      |E:\系统空间\虚拟机\VMware\VMware                        |
+|3520|WBService.exe |NetworkService Microsoft 基础类应用程序  |1.0.0.1       |5996544 |Normal  |6      |C:\WINDOWS\system32                                     |
+|3788|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |57552896|Normal  |5      |F:\Program Files\Borland\Delphi7\Bin                    |
+|4232|QQ.exe        |QQ                                       |8.0.978.1833  |37015552|Normal  |40     |F:\Program Files\Tencent\QQ                             |
+|4540|MakeGameLog   |                                         |              |14303232|Normal  |2      |E:\我的文档\清客\EGameLogin\MakeGameLogin               |
+|4856|TXPlatform.exe|Tencent Instant Messaging Platform       |1.5.225.0     |2953216 |Normal  |3      |F:\Program Files\Tencent\QQ                             |
+|5872|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |4984832 |Normal  |5      |C:\WINDOWS\system32                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+EurekaLog 6.0.3
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Sun, 24 Aug 2008 15:13:36 +0800
+  1.2 Name/Description: MakeGameLogin.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Sun, 24 Aug 2008 15:13:33 +0800
+  1.6 Up Time         : 21 seconds
+
+Exception:
+-------------------------------------------------------------------------------------------------------------------
+  2.1 Date          : Sun, 24 Aug 2008 15:13:58 +0800
+  2.2 Address       : 0052715C
+  2.3 Module Name   : MakeGameLogin.exe
+  2.4 Module Version: 
+  2.5 Type          : EAccessViolation
+  2.6 Message       : Access violation at address 0052715C in module 'MakeGameLogin.exe'. Read of address 00000348.
+  2.7 ID            : 1170
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+------------------------------------------------------
+  3.1 ID        : qingqing
+  3.2 Name      : qingqing
+  3.3 Email     : 
+  3.4 Company   : qqwl
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - ON
+                  SeBackupPrivilege               - ON
+                  SeRestorePrivilege              - ON
+                  SeSystemtimePrivilege           - ON
+                  SeShutdownPrivilege             - ON
+                  SeRemoteShutdownPrivilege       - ON
+                  SeTakeOwnershipPrivilege        - ON
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - ON
+                  SeSystemProfilePrivilege        - ON
+                  SeProfileSingleProcessPrivilege - ON
+                  SeIncreaseBasePriorityPrivilege - ON
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - ON
+                  SeIncreaseQuotaPrivilege        - ON
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - ON
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-----------------------------------------------
+  4.1 Form Class   : TMainFrm
+  4.2 Form Text    : 网蓝登陆器配置器(反外挂版)
+  4.3 Control Class: TbsSkinButton
+  4.4 Control Text : 修改(&R)
+
+Computer:
+---------------------------------------------------------------------------------------------
+  5.1 Name          : QQWL-C88CFFE889
+  5.2 Total Memory  : 2039 Mb
+  5.3 Free Memory   : 1431 Mb
+  5.4 Total Disk    : 49.02 Gb
+  5.5 Free Disk     : 8.25 Gb
+  5.6 System Up Time: 1 day, 3 hours, 19 minutes, 44 seconds
+  5.7 Processor     : Intel(R) Pentium(R) Dual  CPU  E2160  @ 1.80GHz
+  5.8 Display Mode  : 1024 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Intel(R) 82945G Express Chipset Family (driver 6.14.10.4906 - RAM 0 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------------------------------------------
+  7.1 IP Address: 010.010.010.001 - 192.168.203.001 - 192.168.001.198
+  7.2 Submask   : 255.255.255.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway   : 000.000.000.000 - 000.000.000.000 - 192.168.001.001
+  7.4 DNS 1     : 000.000.000.000 - 000.000.000.000 - 061.128.128.068
+  7.5 DNS 2     : 000.000.000.000 - 000.000.000.000 - 061.128.192.068
+  7.6 DHCP      : OFF             - OFF             - OFF            
+
+Call Stack Information:
+-----------------------------------------------------------------------------------------------------
+|Address |Module           |Unit              |Class                |Procedure/Method      |Line    |
+-----------------------------------------------------------------------------------------------------
+|Running Thread: ID=4544; Priority=0; Class=; [Main]                                                |
+|---------------------------------------------------------------------------------------------------|
+|0052715C|MakeGameLogin.exe|bsSkinBoxCtrls.pas|TbsSkinCustomComboBox|GetItems              |12463[1]|
+|005B3540|MakeGameLogin.exe|AddGameList.pas   |TAddGameListFrm      |Clear                 |109[1]  |
+|005B3534|MakeGameLogin.exe|AddGameList.pas   |TAddGameListFrm      |Clear                 |108[0]  |
+|005B3689|MakeGameLogin.exe|AddGameList.pas   |TAddGameListFrm      |Change                |127[2]  |
+|005B3634|MakeGameLogin.exe|AddGameList.pas   |TAddGameListFrm      |Change                |125[0]  |
+|005BC580|MakeGameLogin.exe|Main.pas          |TMainFrm             |ChangeGameListClick   |375[4]  |
+|00500004|MakeGameLogin.exe|bsSkinCtrls.pas   |TbsSkinButton        |ButtonClick           |4900[18]|
+|00501B1B|MakeGameLogin.exe|bsSkinCtrls.pas   |TbsSkinButton        |MouseUp               |5646[14]|
+|77D1F891|user32.dll       |                  |                     |CallNextHookEx        |        |
+|77D194DA|user32.dll       |                  |                     |GetCapture            |        |
+|00500393|MakeGameLogin.exe|bsSkinCtrls.pas   |TbsSkinButton        |WndProc               |5019[35]|
+|77D196C2|user32.dll       |                  |                     |DispatchMessageA      |        |
+|77D196B8|user32.dll       |                  |                     |DispatchMessageA      |        |
+|005BFB38|MakeGameLogin.exe|MakeGameLogin.dpr |                     |                      |21[5]   |
+|7C92E64C|ntdll.dll        |                  |                     |NtSetInformationThread|        |
+-----------------------------------------------------------------------------------------------------
+
+Modules Information:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name             |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|MakeGameLogin.exe|                                                |               |7019008|2008-08-24 15:13:34|E:\我的文档\清客\EGameLogin\MakeGameLogin                                                           |
+|20000000|odbcint.dll      |Microsoft Data Access - ODBC Resources          |3.525.1117.0   |94208  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|4BDE0000|IDAPI32.DLL      |                                                |5.2.0.2        |589312 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C1E0000|idbat32.DLL      |                                                |5.2.0.2        |139264 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C5E0000|idsql32.DLL      |                                                |5.2.0.2        |464896 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4C9E0000|IDR20009.DLL     |                                                |5.2.0.2        |116736 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4CDE0000|IDPDX32.DLL      |                                                |5.2.0.2        |255488 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|4E8E0000|BANTAM.DLL       |                                                |1.0.0.8        |101376 |2002-08-20 16:38:46|F:\Program Files\Common Files\Borland Shared\BDE                                                    |
+|5ADC0000|uxtheme.dll      |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll     |Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|603F0000|DShared.dll      |DShared DLL                                     |2.1.0.0        |173376 |2007-07-01 08:52:00|F:\Program Files\Tencent\QQ                                                                         |
+|62C20000|LPK.DLL          |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A10000|WS2HELP.dll      |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll       |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll      |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|MPR.dll          |Multiple Provider Router DLL                    |5.1.2600.2180  |59904  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv     |Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73540000|odbc32.DLL       |Microsoft Data Access - ODBC Driver Manager     |3.525.1117.0   |249856 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime     |Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll        |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll        |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL        |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76320000|comdlg32.dll     |Common Dialogs DLL                              |6.0.2900.2180  |269312 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll        |Microsoft OLE for Windows                       |5.1.2600.2726  |1284608|2005-07-26 12:39:50|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL        |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll     |                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll     |User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 08:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll      |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll       |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll       |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll     |Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll       |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll        |GDI Client DLL                                  |5.1.2600.3316  |282624 |2008-02-20 14:50:30|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll      |Shell Light-weight Utility Library              |6.0.2900.3395  |473088 |2008-06-23 23:38:32|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll      |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll     |Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll        |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll      |Windows Shell Common Dll                        |6.0.2900.3241  |8312320|2007-10-26 00:54:52|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name          |Description                              |Version       |Memory  |Priority|Threads|Path                                                    |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System        |                                         |              |319488  |Normal  |73     |                                                        |
+|116 |RfwMain.exe   |Rising Personal FireWall Main Program    |7.0.1.70      |1077248 |Normal  |11     |F:\Program Files\Rising\Rfw                             |
+|128 |Explorer.EXE  |Windows Explorer                         |6.0.2900.2180 |18993152|Normal  |11     |C:\WINDOWS                                              |
+|392 |rfwstub.exe   |Rising Personal FireWall Service Rfwstub |7.0.0.12      |3837952 |Normal  |2      |F:\Program Files\Rising\Rfw                             |
+|652 |spoolsv.exe   |Spooler SubSystem App                    |5.1.2600.2696 |5484544 |Normal  |11     |C:\WINDOWS\system32                                     |
+|688 |acs.exe       |ACS                                      |5.2.0.103     |10448896|Normal  |14     |C:\WINDOWS\system32                                     |
+|796 |smss.exe      |                                         |              |438272  |Normal  |3      |\SystemRoot\System32                                    |
+|852 |csrss.exe     |                                         |              |16658432|Normal  |13     |C:\WINDOWS\system32                                     |
+|876 |winlogon.exe  |                                         |              |2768896 |High    |19     |C:\WINDOWS\system32                                     |
+|920 |services.exe  |Services and Controller app              |5.1.2600.2180 |5107712 |Normal  |15     |C:\WINDOWS\system32                                     |
+|932 |lsass.exe     |LSA Shell (Export Version)               |5.1.2600.2180 |1265664 |Normal  |25     |C:\WINDOWS\system32                                     |
+|1000|Maxthon.exe   |Maxthon Browser                          |2.1.3.2430    |13492224|Normal  |25     |F:\Program Files\Maxthon2                               |
+|1104|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5660672 |Normal  |15     |C:\WINDOWS\system32                                     |
+|1152|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5955584 |Normal  |13     |C:\WINDOWS\system32                                     |
+|1316|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |5738496 |Normal  |6      |F:\Program Files\Borland\Delphi7\Bin                    |
+|1348|sqlservr.exe  |SQL Server Windows NT                    |2005.90.1399.0|8736768 |Normal  |26     |C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn|
+|1364|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |28098560|Normal  |80     |C:\WINDOWS\System32                                     |
+|1604|nod32krn.exe  |NOD32 Kernel Service                     |2.70.39.0     |30720000|Normal  |16     |F:\Program Files\ESET                                   |
+|1616|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5058560 |Normal  |9      |C:\WINDOWS\system32                                     |
+|1648|sqlwriter.exe |SQL Server VSS Writer                    |2005.90.1399.0|4796416 |Normal  |3      |C:\Program Files\Microsoft SQL Server\90\Shared         |
+|1772|alg.exe       |Application Layer Gateway Service        |5.1.2600.2180 |4984832 |Normal  |11     |C:\WINDOWS\System32                                     |
+|1796|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |5939200 |Normal  |19     |C:\WINDOWS\system32                                     |
+|1812|vm            |                                         |              |3989504 |Normal  |6      |E:\系统空间\虚拟机\VMware\VMware                        |
+|1828|rfwsrv.exe    |Rising Personal FireWall Service         |7.0.0.76      |1576960 |Normal  |17     |F:\Program Files\Rising\Rfw                             |
+|1868|rfwProxy.exe  |Rising Personal Proxy Service            |7.0.0.37      |1654784 |Normal  |14     |F:\Program Files\Rising\Rfw                             |
+|1984|游戏通用窗口化|                                         |              |5156864 |Normal  |2      |E:\清清空间\私服\私服工具                               |
+|2104|ctfmon.exe    |CTF Loader                               |5.1.2600.2180 |5451776 |Normal  |1      |C:\WINDOWS\system32                                     |
+|3072|VMnetD        |                                         |              |2998272 |Normal  |2      |E:\系统空间\虚拟机\VMware\VMware                        |
+|3520|WBService.exe |NetworkService Microsoft 基础类应用程序  |1.0.0.1       |5996544 |Normal  |6      |C:\WINDOWS\system32                                     |
+|3788|delphi32.exe  |Delphi-32 Development Environment        |7.0.4.453     |57163776|Normal  |5      |F:\Program Files\Borland\Delphi7\Bin                    |
+|4232|QQ.exe        |QQ                                       |8.0.978.1833  |33562624|Normal  |40     |F:\Program Files\Tencent\QQ                             |
+|4776|MakeGameLog   |                                         |              |14315520|Normal  |2      |E:\我的文档\清客\EGameLogin\MakeGameLogin               |
+|4856|TXPlatform.exe|Tencent Instant Messaging Platform       |1.5.225.0     |2953216 |Normal  |3      |F:\Program Files\Tencent\QQ                             |
+|5872|svchost.exe   |Generic Host Process for Win32 Services  |5.1.2600.2180 |4984832 |Normal  |5      |C:\WINDOWS\system32                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+-------------------------------------------------------------------------------
+; bsSkinBoxCtrls.TbsSkinCustomComboBox.GetItems (Line=12463 - Offset=1)
+; ---------------------------------------------------------------------
+0052715C  mov     eax, [eax+$0348]                              ; <-- EXCEPTION
+00527162  call    bsSkinBoxCtrls.TbsSkinCustomListBox.GetItems
+;
+; Line=12464 - Offset=2
+; ---------------------
+00527167  ret
+
+Registers:
+-----------------------------
+EAX: 00000000   EDI: 01440E30
+EBX: 014C4000   ESI: 00495BD8
+ECX: 014DF198   ESP: 0012FBCC
+EDX: 00000003   EIP: 0052715C
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+0012FBCC: 005B3545   0052715C: 8B 80 48 03 00 00 E8 BD D7 FF FF C3 55 8B EC 83  ..H.........U...
+0012FBD0: 014C4000   0052716C: C4 F4 53 56 57 88 4D FF 8B DA 8B F8 8B 45 0C 50  ..SVW.M......E.P
+0012FBD4: 0012FBFC   0052717C: 8B 45 08 50 8A 4D FF 8B D3 8B C7 E8 FC 66 F8 FF  .E.P.M.......f..
+0012FBD8: 005B368E   0052718C: 8B C7 66 BE B5 FF E8 ED CD ED FF 84 C0 75 13 83  ..f..........u..
+0012FBDC: 0012FC14   0052719C: BF 70 03 00 00 00 75 0A 8B C7 8B 10 FF 92 C4 00  .p....u.........
+0012FBE0: 0040454C   005271AC: 00 00 84 DB 0F 85 8D 00 00 00 80 BF 6E 03 00 00  ............n...
+0012FBE4: 0012FBFC   005271BC: 00 75 2D 8D 4D F4 8B 55 08 8B 45 0C E8 2B 6D EF  .u-.M..U..E..+m.
+0012FBE8: 00495BD8   005271CC: FF FF 75 F8 FF 75 F4 8D 87 4C 03 00 00 50 E8 E1  ..u..u...L...P..
+0012FBEC: 01469C64   005271DC: 0F EE FF 85 C0 74 4B 83 BF 70 03 00 00 00 75 42  .....tK..p....uB
+0012FBF0: 00000000   005271EC: C6 87 6F 03 00 00 01 8B C7 8B 10 FF 92 80 00 00  ..o.............
+0012FBF4: 00000000   005271FC: 00 8B 87 48 03 00 00 80 78 57 00 74 0B 33 D2 8B  ...H....xW.t.3..
+0012FBF8: 00000000   0052720C: C7 E8 A2 01 00 00 EB 2F C6 87 D9 02 00 00 00 C6  ......./........
+0012FBFC: 0012FC3C   0052721C: 87 34 03 00 00 01 8B C7 8B 10 FF 92 00 01 00 00  .4..............
+0012FC00: 005BC585   0052722C: EB 15 8B 87 48 03 00 00 80 78 57 00 74 09 33 D2  ....H....xW.t.3.
+0012FC04: 00000000   0052723C: 8B C7 E8 71 01 00 00 5F 5E 5B 8B E5 5D C2 08 00  ...q..._^[..]...
+0012FC08: 00000000   0052724C: 55 8B EC 83 C4 F4 53 56 57 88 4D FF 8B DA 8B F0  U.....SVW.M.....
+
+
+

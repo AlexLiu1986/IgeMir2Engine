@@ -1,0 +1,2 @@
+del *.~*
+del temp\*.dcu

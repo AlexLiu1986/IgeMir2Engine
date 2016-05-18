@@ -1,0 +1,38 @@
+[@cs]
+#IF
+#ACT
+MOV D0 1
+GOTO @实验0
+
+[@实验0]
+#IF
+equal D0 1500
+#SAY
+结果
+#ELSEACT
+INC D0 1
+GOTO @实验0
+
+
+把这里的1500改成3000，改成5000
+
+ScriptGotoCountLimit=65535
+
+
+
+
+HumData: pTHumData;
+FillChar(HumData, SizeOf(THumData), #0);//指针的填充，也会使程序死掉
+
+FillChar(HumData^, SizeOf(THumData), #0);//正确写法
+
+//20080820 增加
+
+
+-------------------------------------------------------------
+防封包跟踪
+
+1,游戏进程隐藏
+
+
+//20080812 增加

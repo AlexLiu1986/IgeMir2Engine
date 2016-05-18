@@ -1,0 +1,7 @@
+1.运行Clear.bat,清理文件
+
+2.先编译ScriptLoader.DLL,并复制到此目录下,加壳
+
+3.运行ScriptLoader.Bat,生成ScriptLoader.Res
+
+4.编译生成器

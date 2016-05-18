@@ -1,0 +1,1328 @@
+http://www.konggame.cn/dispbbs.asp?boardID=3&ID=5&page=1
+
+Mir2res优秀地方之二绘图相关(1):这是基础知识介绍部分,介绍一些我们要明白的基本概念
+
+先来用通俗的语句讲解位图和调色板的概念。
+
+我们知道，自然界中的所有颜色都可以由红、绿、蓝(R，G，B)三基色组合而成。针对含有红、绿、蓝色成分的多少，可以对其分别分成0～255个等级，而红、绿、蓝的不同组合共有256×256×256种，因此约能表示1600万种颜色(16m色)。对于人眼而言，这已经是"真彩色"了。这就是24位图或其以上的位图比如32,,34之类的,,,这种位图的图像数据中的每个像素都用了三个字节来描述记录它.
+
+什么是图像数据?接下来会谈到一个位图文件结构,它包括文件头(用来说明文件),文件信息头(位图属性),,图像数据(位图主体数据所在)
+
+对每个像素进行了（R，G，B）量化的图像就是位图，其在计算机中对应文件的扩展名一般为.bmp。既然用R，G，B的量化值就可以直接记录一张位图的所有像素，那我们需要调色板干什么呢？
+
+首先，我们可以计算完全利用（R，G，B）组合来存储一个800×600的位图所需要的空间为：
+
+800×600×3 = 1440000（字节）＝ 1.37M（字节）
+
+3是记录每个像素RGB值所用的字节数,这里说的是24位图,RGB值就用来描述一个像素,,位图是由像素组成的,,因此用一张位图大小乘它的像素数就可以直接描述一张位图
+
+惊人的大！因此，调色板横空出世了，它的功能在于缓解位图文件存储空间(显存或系统内存)过大的问题。
+
+在win os中存在三种调色板,,硬件调色板,逻辑调色板,系统调色板,,winos用"调色板管理器"机制来管理调色板,,调色板存在于一个位图文件中，一个窗体的DC中，，或OS中，，硬件调色板就是显卡适配器所能实际表达的颜色深度,,逻辑调色板就是winos通过调色板管理机制为每个窗体应用程序DC分配的调色板(系统调色板只有一个，而逻辑调色板可以有多个,,它的本质就是一块内存中的区域用于描述当前应用使用到的调色板,我们都知道调色板是一个结构),,所以逻辑调色板的用途在于模拟硬件调色板,,以使windows作为一个os可以为界面显示,图像显示等应用提供它们各自专用的活动的调色板,,当逻辑调色板色深小于或大小硬件调色板时，，winos通过调色板管理机制自动让二者谐和,,系统调色板就是winos当前正在使用到的调色板,逻辑调色板可以通过调色板管理机制转变为当前系统调色板,,,但是不管winos的调色板管理机制如何，，最终的调色板都要靠硬件调色板来实现
+
+假设一个位图为16色，16色就是上面谈到的可以表示多少种颜色,计算一下,2的4次方=16,因此它是4位图,我们只需要在图像数据中用4个bit就可以存储这个位图的每个像素在16种颜色中所处的等级，接下来会谈到调色板索引所占的空间字节数,,因为它只是一个索引,所占的空间会比图像数据RGB结构小很多,,,再设其像素总数为800×600(位图大小)。然后调色板提供了这16种等级对应的（R，G，B）值，这样，存这个16色位图只需要：
+
+800×600×4/8(0.5个字节) = 240000（字节）= 0.22 M（字节）  注意：16色图查询它在调色板中的RGB组合所用的索引需要占用4个BIT,,这是为什么？下面解释一下:
+
+4位2进制数可以表示16种情况，8位BIT可以表示现实中我们使用的十进制的0~255种情况,,
+
+额外的存储R，G，B表的开销（即调色板Palette，也称为颜色查找表LUT）仅仅为16×3＝48字节。
+
+存储空间被大为减少！
+
+常见的位图有单色(实际是1位图,,2的一次方为2,,因此它是2色图，，黑白色)、16色（实际是4位图,,2的4次方16,,因此它能表示16种颜色）、256色(实际是8位图,,这种位图的每个像素都用8位刚好一个字节来表示，2的8次方为256,因此它能表示256种颜色也即256种RGB的组合也即这种位图的色深)、16位（2的16次方=65536）及24位(2的24次方=1677万种颜色和256级灰度值
+色深差不了很多,所以效果其实与16位图不相差几多)真彩色5种，对于前三者（即不大于256色）都可以调色板方式进行存储，而对16位及24位真彩色以调色板进行存储是不划算的，它们直接按照R，G，B分量进行存储。
+
+在此基础上我们来分析DDB位图（Device-dependent bitmap，与设备相关的位图）与DIB位图（Device-independent bitmap，与设备无关的位图）的概念以及二者的区别。
+
+DDB依赖于具体设备，它只能存在于内存中（视频内存或系统内存），其颜色模式必须与特定的输出设备相一致，使用系统调色板。一般只能载入色彩较简单的DDB位图，对于颜色较丰富的位图，需使用DIB才能长期保存。
+
+DIB不依赖于具体设备，可以用来永久性地保存图象。DIB一般是以*.BMP文件的形式保存在磁盘中的，有时也会保存在*.DIB文件中。 DIB位图的特点是将颜色信息储存在位图文件自身的颜色表中，应用程序要根据此颜色表为DIB创建逻辑调色板。因此，在输出一幅DIB位图之前，程序应该将其逻辑调色板选入到相关的设备上下文并实现到系统调色板中。
+
+下面再介绍一下位图及位图文件的读写操作以及具体的对其的编程工作
+             
+一、位图文件结构
+            
+位图文件由三部分组成：文件头 + 位图信息 + 位图像素数据
+            
+1、位图文件头。位图文件头主要用于识别位图文件。以下是位图文件头结构的定义： 
+typedef struct tagBITMAPFILEHEADER { // bmfh 
+    WORD    bfType; 
+    DWORD   bfSize; 
+    WORD    bfReserved1; 
+    WORD    bfReserved2; 
+    DWORD   bfOffBits; 
+} BITMAPFILEHEADER;
+            
+其中的bfType值应该是“BM”（0x4d42），标志该文件是位图文件。bfSize的值是位图文件的大小。
+            
+2、位图信息中所记录的值用于分配内存，设置调色板信息，读取像素值等。
+            
+以下是位图信息结构的定义：
+ 
+typedef struct tagBITMAPINFO {
+    BITMAPINFOHEADER    bmiHeader;
+    RGBQUAD             bmiColors[1];
+} BITMAPINFO;
+
+            
+可见位图信息也是由两部分组成的：位图信息头 + 颜色表 
+
+2.1位图信息头。位图信息头包含了单个像素所用字节数以及描述颜色的格式，此外还包括位图的宽度、高度、目标设备的位平面数、图像的压缩格式。以下是位图信息头结构的定义：
+ 
+typedef struct tagBITMAPINFOHEADER{ // bmih 
+    DWORD  biSize; 
+    LONG   biWidth; 
+    LONG   biHeight; 
+    WORD   biPlanes; 
+    WORD   biBitCount 
+    DWORD  biCompression; 
+    DWORD  biSizeImage; 
+    LONG   biXPelsPerMeter; 
+    LONG   biYPelsPerMeter; 
+    DWORD  biClrUsed; 
+    DWORD  biClrImportant; 
+} BITMAPINFOHEADER; 
+
+            
+下表是对结构体当中各个成员的说明： 
+                  
+结构成员
+                  
+                  biSize结构BITMAPINFOHEADER的字节数，即sizeof(BITMAPINFOHEADER)*
+                  biWidth
+                  以像素为单位的图像宽度*
+                  biHeight
+                  以像素为单位的图像长度*
+                  biplanes
+                  目标设备的位平面数
+                  biBitCount
+                  每个像素的位数*（1）
+                  biCompression
+                  图像的压缩格式（这个值几乎总是为0）
+                  biSizeImage
+                  以字节为单位的图像数据的大小（对BI_RGB压缩方式而言）
+                  biXPelsPermeter
+                  水平方向上的每米的像素个数
+                  biYpelsPerMeter
+                  垂直方向上的每米的像素个数
+                  biClrused
+                  调色板中实际使用的颜色数（2）
+                  biClrImportant
+                  现实位图时必须的颜色数（3）
+
+            说明：*是需要加以注意的部分，(*的使用是一个行业规定)因为它们是我们在进行位图操作时经常参考的变量
+            （1）对于每个像素的字节数，分别有一下意义：
+            0，用在JPEG格式中
+            1，单色图，调色板中含有两种颜色，也就是我们通常说的黑白图片
+            4，16色图
+            8，256色图，通常说的灰度图
+            16，64K图，一般没有调色板，图像数据中每两个字节表示一个像素，5个或6个位表示一个RGB分量
+            24，16M真彩色图，一般没有调色板，图像数据中每3个字节表示一个像素，每个字节表示一个RGB分量
+            32，4G真彩色，一般没有调色板，每4个字节表示一个像素，相对24位真彩图而言，加入了一个透明度，即RGBA模式
+            （2）这个值通常为0，表示使用biBitCount确定的全部颜色，例外是使用的颜色树木小于制定的颜色深度的颜色数目的最大值。
+            （3）这个值通常为0，表示所有的颜色都是必需的
+
+            
+2.2颜色表。颜色表一般是针对16位以下的图像而设置的，对于16位和16位以上的图像，由于其位图像素数据中直接对对应像素的RGB(A)颜色进行描述，因而省却了调色板。而对于16位一下的图像，由于其位图像素数据中记录的只是调色板索引值，因而需要根据这个索引到调色板去取得相应的RGB(A)颜色。颜色表的作用就是创建调色板。
+            
+颜色表是由颜色表项组成的，颜色表项结构的定义如下：
+
+typedef struct tagRGBQUAD { // rgbq 
+    BYTE    rgbBlue; 
+    BYTE    rgbGreen; 
+    BYTE    rgbRed; 
+    BYTE    rgbReserved; 
+} RGBQUAD;
+            
+其中需要注意的问题是，RGBQUAD结构中的颜色顺序是BGR，而不是平常的RGB。 
+            
+3、位图数据。最后，在位图文件头、位图信息头、位图颜色表之后，便是位图的主体部分：位图数据。根据不同的位图，位图数据所占据的字节数也是不同的，比如，对于8位位图，每个字节代表了一个像素，对于16位位图，每两个字节代表了一个像素，对于24位位图，每三个字节代表了一个像素，对于32位位图，每四个字节代表了一个像素。 
+
+
+             
+二、位图文件读写操作
+            
+认识了位图文件的结构以后，对特定位图文件进行读写操作就显得简单了。本文附带的源代码中包含了一个能够方便进行位图读写操作的C++类。以下给出该类的使用参考，对于实现代码中的关键部分做出了讲解。
+            1、类的声明 
+class CFG_DIB : public CObject  一个dib类,,封装了与dib描述与操作有关的所有东东(结构，，函数,变量)
+{
+public:
+ //默认构造函数
+ CFG_DIB();
+ //构造函数,根据图象宽和高,以及记录每个象素所需字节数来初始化
+ CFG_DIB(int width, int height, int nBitCounts);
+ virtual ~CFG_DIB(); //析构函数
+
+public:
+ HBITMAP m_hBitmap; //注意位图文件文件头与位图信息文件头是不一样的,,这里定义了一个指向位图的指针
+ LPBYTE m_lpDIBits;          //DIB位的起始位置
+ LPBITMAPINFOHEADER m_lpBMPHdr;    //BITMAPINFOHEADER信息
+ LPVOID m_lpvColorTable;        //颜色表信息
+ HPALETTE m_hPalette;        //条调色板
+
+private:
+ DWORD m_dwImageSize;        //非BITMAPINFOHEADER或BITMAPFILEHEADER的位
+ int m_nColorEntries;        //颜色表项的个数
+
+//显示参数
+public:
+ CPoint m_Dest;            //目的矩形域的左上角坐标
+ CSize m_DestSize;          //显示矩形的宽度和高度
+ CPoint m_Src;            //原矩形左下角坐标
+ CSize m_SrcSize;          //原矩形宽度和高度
+
+public:
+ void InitDestroy();              //初始化变量
+ void ComputePaletteSize(int nBitCounts);  //计算调色板大小
+ void ComputeImage();            //计算图象大小
+
+ //从BMP文件中读入DIB信息
+ BOOL ReadFile(CFile* pFile);
+ //从BMP文件中读入DIB信息,与ReadFile不同的是使用CreateSection创建位图位
+ BOOL ReadSection(CFile* pFile, CDC* pDC = NULL);
+ //将DIB写入文件，保存成BMP图片格式
+ BOOL WriteFile(CFile* pFile);
+ //创建新的位图文件，根据参数width,height,nBitCounts分配内存空间
+ BOOL NewFile(int width, int height, int nBitCounts);
+ //关闭位图文件
+ BOOL CloseFile();
+
+ //显示位图
+ BOOL Display(CDC* pDC);
+
+ HBITMAP CreateBitmap(CDC* pDC);        //用DIB创建DDB
+ HBITMAP CreateSection(CDC* pDC = NULL);    //创建位图位数据，即象素数据
+ //如果DIB没有颜色表，可以用逻辑调色板
+ BOOL SetLogPalette(CDC* pDC);
+ //如果DIB有颜色表，可以创建系统调色板 //一个位图文件可以有颜色表也可以没有
+ BOOL SetWinPalette();
+ //把DIB对象的逻辑调色板选进设备环境里，然后实现调色板
+ UINT UseLogPalette(CDC* pDC);
+
+ //得到BitmapInfoHeader的大小，包含颜色表数据
+ int GetHeaderSize()
+ {
+   return sizeof(BITMAPINFOHEADER) + sizeof(RGBQUAD) * m_nColorEntries;
+ }
+ //得到图像的高度
+ int GetHeight()
+ {
+   if(m_lpBMPHdr == NULL) return 0;
+   return m_lpBMPHdr->biHeight;
+ }
+ //得到图像的宽度
+ int GetWidth()
+ {
+   if(m_lpBMPHdr == NULL) return 0;
+   return m_lpBMPHdr->biWidth;
+ }
+ //得到图像的大小
+ int GetImageSize()
+ {
+   return m_dwImageSize;
+ }
+ long GetLineBit();    //得到一行的象素数
+};
+            
+2、位图的读取。
+            
+CFG_DIB提供了两个从位图文件读取位图数据的方法：ReadFile和ReadSection，二者不同之处，前者使用动态分配内存的方法初始化存储位位图数据的指针，后者则使用API函数，根据位图信息初始化存储位图数据的指针。 
+
+
+            
+方法1 m_lpDIBits = (LPBYTE) new char[m_dwImageSize];
+            
+方法2 m_hBitmap = ::CreateDIBSection(pDC->GetSafeHdc(), (LPBITMAPINFO) m_lpBMPHdr, DIB_RGB_COLORS,
+(LPVOID*) &m_lpDIBits, NULL, 0);
+            
+3、位图读取过程中的调色板的创建和调用。
+            
+关于调色板的详细情况，本文不作详细介绍，只是对读取位图的过程中需要调用的对调色板进行操作的相关函数进行说明。 
+读取文件的过程中，计算出调色板大小，然后调用创建调色板函数：
+
+ComputePaletteSize(m_lpBMPHdr->biBitCount);
+SetWinPalette();
+            
+在显示位图之前，设置调色板：if(m_hPalette != NULL) {
+     ::SelectPalette(pDC->GetSafeHdc(), m_hPalette, TRUE);
+}
+            
+4、位图的显示。
+            
+位图的显示还是调用Windows的API函数来进行，需要传递的参数包括当前位图信息头，位图数据等： ::StretchDIBits(pDC->GetSafeHdc(), m_Dest.x, m_Dest.y,
+                             m_DestSize.cx, m_DestSize.cy,
+                             m_Src.x, m_Src.y,
+                             m_SrcSize.cx, m_SrcSize.cy,
+                             m_lpDIBits, (LPBITMAPINFO) m_lpBMPHdr, 
+                             DIB_RGB_COLORS, SRCCOPY);
+            
+其中的m_Dest，m_DestSize，m_Src，m_SrcSize分别代表了图像在当前设备上显示的左上角坐标和范围以及需要显示的源图像的左下角坐标和范围。此处需要说明的是，位图数据的字节数组是从图像的最下面一行开始逐行想上存储的，所以用户在选取源位图的现实范围的时候需要特别注意！
+            
+m_Dest，m_DestSize，m_Src，m_SrcSize需要在现实之前设置好。 
+
+            
+5、位图的存储。位图的存储用WriteFile实现。
+            
+6、新位图的创建。新位图的创建由NewFile实现。需要的参数是位图的宽度、高度、以及位图像素占用的位数。
+            
+7、其它问题。存取位图数据的字节数组有个问题需要引起开发人员的注意：字节数组中每个扫描行的字节数必需是4的倍数，如果不足要用0补齐。
+            
+以下是处理的办法：DWORD dwBytes = ((DWORD) m_lpBMPHdr->biWidth * m_lpBMPHdr->biBitCount) / 32;
+if(((DWORD) m_lpBMPHdr->biWidth * m_lpBMPHdr->biBitCount) % 32) {
+     dwBytes++;
+}
+dwBytes *= 4;
+m_dwImageSize = dwBytes * m_lpBMPHdr->biHeight;
+            
+这段代码按照要求算出了用于记录图像数据的字节数组的大小。
+
+             
+三、CFG_DIB的使用 
+            
+以下是CFG_DIB的使用示例代码。
+#include "fg_dib.h"
+
+CFG_DIB m_fgdib;
+
+//new file
+m_fgdib.NewFile(width, height, nbitnum);
+
+//open file
+CFile* pf;
+pf = new CFile;
+pf->Open(sFileName, CFile::modeRead);
+m_fgdib.ReadFile(pf);
+pf->Close();
+delete pf;
+
+//draw BMP
+m_fgdib.m_Dest.x = 0;
+m_fgdib.m_Dest.y = 0;
+m_fgdib.m_DestSize.cx = m_fgdib.GetWidth();
+m_fgdib.m_DestSize.cy = m_fgdib.GetHeight();
+m_fgdib.m_Src.x = 0;
+m_fgdib.m_Src.y = 0;
+m_fgdib.m_SrcSize.cx = m_fgdib.GetWidth();
+m_fgdib.m_SrcSize.cy = m_fgdib.GetHeight();
+CDC* pDC = GetDC();
+m_fgdib.Display(pDC);
+
+//close BMP
+m_fgdib.CloseFile();
+
+这个例子过后,你对Mir2res优秀地方之二绘图相关(2)的理解应该会很顺利了,(2)中的TWilFile:mir2图片文件解压与读取单元就相当于这里的cfg_dib类,,不过它的功能更强,,不但能读取位图,还能显示位图,并且在这之前加入了一个图片解压的功能，，因而说它更加复杂些
+
+
+
+{------------------------------------------------------------------------------}
+{ 单元名称: MirWil.pas                                                         }
+{                                                                              }
+{ 单元作者: savetime (savetime2k@hotmail.com, http://savetime.delphibbs.com)   }
+{ 创建日期: 2005-01-02 20:30:00                                                }
+{                                                                              }
+{ 功能介绍:                                                                    }
+{   传奇2 Wil 文件读取单元                                                     }
+{                                                                              }
+{ 使用说明:                                                                    }
+{                                                                              }
+{   WIL 位图文件: 由 文件头+调色板(256色)+(TImageInfo+位图 Bits)*N项 组成      }
+{   WIX 索引文件: 实际上就是一个文件头+指针数组, 指针指向 TImageInfo 结构      }
+{                                                                              }
+{ 更新历史:                                                                    }
+{                                                                              }
+{ 尚存问题:                                                                    }
+{                                                                              }
+{    WIL 的调色板是不是都是一样的？如果是，则可以省略                          }
+{    注意： WIL 的数据格式定义都是没有 pack 的 record                          }
+{                                                                              }
+{    Weapon.wix 数据有误: 索引文件头设置的图片数量为 40856, 实际能读出的数量   }
+{      为 40855, 传奇源代码可以正常运行的原因是它没有检测可读出的内容.         }
+{      可能需要重建索引. 目前的解决方法是在 LoadIndexFile 中根据读出的实际内   }
+{      容对 FImageCount 进行修正.                                              }
+{                                                                              }
+{------------------------------------------------------------------------------}
+
+Mir2res优秀地方之二绘图相关(2)：mir2 图片文件解压与读取，显示单元(读显操作单元，，就相当于CFG_DIB)
+
+unit MirWil;
+
+interface
+
+uses
+  SysUtils, Windows, DirectX,{DirectDraw, Assist,} AdvDraw;
+
+{------------------------------------------------------------------------------}
+// WIL 常量定义
+{------------------------------------------------------------------------------}
+var
+  UseDIBSurface: Boolean = True;  // 是否在创建 WIL Surface 时使用 DIB 绘制
+                                  // 如果直接使用 WIL 文件中的位图 Bits 会出现少量颜色
+                                  // 显示不正确，在传奇源代码中的结果也是如此。
+
+{------------------------------------------------------------------------------}
+// WIL 文件格式定义
+{------------------------------------------------------------------------------}
+type
+  // WIL 文件头格式 (56Byte)
+  PImageHeader = ^TImageHeader;
+  TImageHeader = record
+    Title       : string[40];   // 库文件标题 'WEMADE Entertainment inc.'
+    ImageCount  : Integer;      // 图片数量
+    ColorCount  : Integer;      // 色彩数量
+    PaletteSize : Integer;      // 调色板大小
+  end;
+
+  // WIL 图像信息 (注意, 没有 pack record)
+  PImageInfo = ^TImageInfo;
+  TImageInfo = record
+    Width  : SmallInt;   // 位图宽度
+    Height : SmallInt;   // 位图高度
+    PX     : SmallInt;   // 未知,似乎不用也可
+    PY     : SmallInt;   // 未知,似乎不用也可
+    Bits   : PByte;      // 未使用, 实际从文件读出时,要少读 4 字节, 即是此值未读
+  end;
+
+  // WIX 索引文件头格式
+  PIndexHeader = ^TIndexHeader;
+  TIndexHeader = record
+    Title      : string[40];    // 'WEMADE Entertainment inc.'
+    IndexCount : integer;       // 索引总数
+  end;
+
+{------------------------------------------------------------------------------}
+// TWilFile class
+{------------------------------------------------------------------------------}
+
+  // TWilFile
+  TWilFile = class(TObject)
+  private
+    FFileName: string;            // WIL 文件名
+    FFileHandle: THandle;         // 文件句柄
+    FFileMapping: THandle;        // 文件映射句柄
+    FFilePointer: Pointer;        // 文件内容指针(使用文件映射)
+
+    FIndexArr: array of Integer;  // 图片索引数组(从 WIX 文件中读取)
+    FMainColorTable: PRGBQuads;   // 调色板指针(直接指向 WIL 文件中)
+    FImageCount: Integer;         // 图片数量
+    FBitmapInfo: TBitmapInfo256;  // 位图信息头部(用于 SetDIBitsToDevice)
+
+    FDDSurfaceDesc2: TDDSurfaceDesc2;
+    FSurfaces: array of IDirectDrawSurface7;
+    FMainDirectDraw: IDirectDraw7;
+
+    procedure LoadIndexFile;      // 读入 WIX 文件至 IndexArr 中
+    procedure CreateMapView;      // 创建 WIL 文件映射
+    function GetSurfaces(AIndex: Integer): IDirectDrawSurface7;
+    function GetImageInfo(AIndex: Integer): PImageInfo;
+  public
+    constructor Create(const AFileName: string; ADirectDraw: IDirectDraw7 = nil);
+    destructor Destroy; override;
+
+    // Draw: 将 Index 位置的图片绘制至 Surface 的 X, Y 位置
+    procedure Draw(Index: Integer; DstSurf: IDirectDrawSurface7; X, Y,
+      DstWidth, DstHeight: Integer; Transparent: Boolean);
+    // DrawEx: 将 Index 位置的图片绘制至 Surface 的 X, Y 位置, 包含 Image 的偏移位置
+    procedure DrawEx(Index: Integer; DstSurf: IDirectDrawSurface7; X, Y,
+      DstWidth, DstHeight: Integer; Transparent: Boolean);
+
+
+    // BitBlt: 将 Index 位置的图片绘制至 DC 的 X, Y 位置
+    procedure BitBlt(Index: Integer; DC: HDC; X, Y: Integer); 
+    // StretchBlt: 以缩放方式将图片绘制至 DC
+    procedure StretchBlt(Index: Integer; DC: HDC; X, Y, Width, Height: Integer;
+      ROP: Cardinal);
+    // SaveToFile: 将索引位置的图片保存为 BMP 文件
+    procedure SaveToFile(Index: Integer; const FileName: string);
+
+    // 已打开的 WIL 文件名
+    property FileName: string read FFileName;
+    // 主调色板指针
+    property MainColorTable: PRGBQuads read FMainColorTable;
+    // IDirectDraw7, 用于创建 Surfaces 数组, 如果不指定也可以使用 BitBlt
+    property MainDirectDraw: IDirectDraw7 read FMainDirectDraw write FMainDirectDraw;
+    // 图片总数
+    property ImageCount: Integer read FImageCount;
+    // 图片的 Surface
+    property Surfaces[AIndex: Integer]: IDirectDrawSurface7 read GetSurfaces;
+    // 图片的信息
+    property ImageInfo[AIndex: Integer]: PImageInfo read GetImageInfo;
+  end;
+
+
+implementation
+
+{ TWilFile }
+function IncPointer(const P: Pointer; IncSize: Integer): Pointer;
+begin
+  Result := Pointer(Integer(P) + IncSize);
+end;
+
+constructor TWilFile.Create(const AFileName: string; ADirectDraw: IDirectDraw7 = nil);
+begin
+  FFileName := AFileName;
+
+  FMainDirectDraw := ADirectDraw;
+  
+  // 读入图片索引文件
+  LoadIndexFile;
+
+  // 创建 WIL 文件的映射
+  CreateMapView;
+
+  // 读入 WIL 文件头数据
+
+  // 读入文件头中的图片数量, (图片数量已由 LoadIndexFile 设置, 这是由
+  // 于 Weapon.wix 中的数量错误导致的修改, savetime 2005.1.3)
+  // FImageCount := PImageHeader(FFilePointer)^.ImageCount;
+
+  // 设置 FSurfaces 数组大小
+  SetLength(FSurfaces, FImageCount);
+  // 保存调色板指针
+  FMainColorTable := IncPointer(FFilePointer, SizeOf(TImageHeader));
+
+  // 设置位图固定信息，以免每次 Blt 时设置
+  // TODO: 位图文件头还可进一步压缩
+  with FBitmapInfo.bmiHeader do
+  begin
+    biSize := SizeOf(TBitmapInfoHeader);
+    // 这二项由读入图片后设置
+    // biWidth := ImagePos^.Width;
+    // biHeight := ImagePos^.Height;
+    biPlanes := 1;
+    biBitCount := 8;
+    biCompression := BI_RGB;    // 注意，这里只使用未压缩数据
+    biSizeImage := 0;           // 压缩时才需要 biSizeImage
+    biXPelsPerMeter := 0;
+    biYPelsPerMeter := 0;
+    biClrUsed := 0;
+    biClrImportant := 0;
+  end;
+
+  // 初始化 FDDSurfaceDesc2, 以免每次创建 Surface 时初始化
+  // 此处不用 FillChar(FDDSurfaceDesc2)
+  FDDSurfaceDesc2.dwSize := SizeOf(FDDSurfaceDesc2);
+  FDDSurfaceDesc2.dwFlags := DDSD_CAPS or DDSD_WIDTH or DDSD_HEIGHT;
+  FDDSurfaceDesc2.ddsCaps.dwCaps := DDSCAPS_OFFSCREENPLAIN or DDSCAPS_SYSTEMMEMORY;
+end;
+
+procedure TWilFile.CreateMapView;
+var
+  ContentFileName: string;
+begin
+  // WIL 文件名
+  ContentFileName := FFileName + '.WIL';
+
+  // 打开 WIL 文件
+  FFileHandle := CreateFile(PChar(ContentFileName), GENERIC_READ, FILE_SHARE_READ, nil,
+    OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL or FILE_FLAG_RANDOM_ACCESS, 0);
+
+  if FFileHandle = INVALID_HANDLE_VALUE then
+    raise Exception.CreateFmt('打开文件 "%s" 失败!', [ContentFileName]);
+
+  // 创建文件映射对象
+  FFileMapping := CreateFileMapping(FFileHandle, nil, PAGE_READONLY, 0, 0, nil);
+
+  if FFileMapping = 0 then
+  begin
+    CloseHandle(FFileHandle);
+    raise Exception.CreateFmt('创建文件映射 "%s" 失败!', [ContentFileName]);
+  end;
+
+  // 映射文件至内存
+  FFilePointer := MapViewOfFile(FFileMapping, FILE_MAP_READ, 0, 0, 0);
+  if FFilePointer = nil then
+  begin
+    CloseHandle(FFileMapping);
+    CloseHandle(FFileHandle);
+    raise Exception.CreateFmt('映射文件 "%s" 失败!', [ContentFileName]);
+  end;
+end;
+
+destructor TWilFile.Destroy;
+var
+  I: Integer;
+begin
+  // 清除索引文件内容
+  SetLength(FIndexArr, 0);
+
+  // 清除 FSurfaces 数组
+  for I := 0 to Length(FSurfaces) - 1 do
+    FSurfaces[I] := nil;
+  SetLength(FSurfaces, 0);
+
+  // 清除 FMainDirectDraw
+  FMainDirectDraw := nil;
+
+  // 关闭文件映射及相关句柄
+  UnmapViewOfFile(FFilePointer);
+  CloseHandle(FFileMapping);
+  CloseHandle(FFileHandle);
+
+  inherited;
+end;
+
+procedure TWilFile.LoadIndexFile;
+var
+  F: file;
+  IdxHeader: TIndexHeader;
+  NumRead: Integer;
+  IndexFileName: string;
+begin
+  // 索引文件名
+  IndexFileName := FFileName + '.WIX';
+
+  // 打开索引文件
+  FileMode := fmOpenRead;
+  AssignFile(F, IndexFileName);
+  Reset(F, 1);
+  try
+    // 读索引文件头
+    BlockRead(F, IdxHeader, SizeOf(IdxHeader), NumRead);
+    if NumRead <> SizeOf(IdxHeader) then
+      raise Exception.CreateFmt('"%s" 文件头错误!', [IndexFileName]);
+
+    // 设置索引数组大小
+    SetLength(FIndexArr, IdxHeader.IndexCount);
+
+    // 读索引内存至数组
+    BlockRead(F, PInteger(FIndexArr)^, IdxHeader.IndexCount * 4, NumRead);
+    if NumRead = IdxHeader.IndexCount * 4 then
+      FImageCount := IdxHeader.IndexCount
+    else
+      // 由于 Weapon.wix 的索引文件头中的图片数与实际的索引个数不同, 为了兼容,
+      // 即不触发异常, 详细情况见此文件最上标注.
+      // raise Exception.CreateFmt('"%s" 文件内容错误!', [IndexFileName]);
+      FImageCount := NumRead div 4;
+  finally
+    CloseFile(F);
+  end;
+end;
+
+procedure TWilFile.BitBlt(Index: Integer; DC: HDC; X, Y: Integer);
+var
+  ImageInfo: PImageInfo;
+  PBits: Pointer;
+begin
+  // 检查 Index 是否合法
+  if (Index < 0) or (Index >= FImageCount) then
+    raise Exception.Create('TWilFile.BitBlt 数组超界!');
+
+  // 定位到图片位置
+  ImageInfo := IncPointer(FFilePointer, FIndexArr[Index]);
+
+  // 设置位图大小
+  with FBitmapInfo.bmiHeader do
+  begin
+    biWidth := ImageInfo^.Width;
+    biHeight := ImageInfo^.Height;
+  end;
+
+  // 填充调色板
+  Move(MainColorTable^, FBitmapInfo.bmiColors, SizeOf(FBitMapInfo.bmiColors));
+
+  // PBits 指向位图的 Bits
+  PBits := IncPointer(ImageInfo, SizeOf(TImageInfo) - 4);
+
+  // 直接将 DIB Bits 写到设备环境
+  SetDIBitsToDevice(DC, X, Y, ImageInfo^.Width, ImageInfo^.Height, 0, 0, 0,
+    ImageInfo^.Height, PBits, PBitmapInfo(PBitmapInfo256(@FBitmapInfo))^,
+    DIB_RGB_COLORS);
+end;
+
+procedure TWilFile.StretchBlt(Index: Integer; DC: HDC; X, Y, Width, Height: Integer;
+  ROP: Cardinal);
+var
+  ImageInfo: PImageInfo;
+  PBits: Pointer;
+begin
+  // 检查 Index 是否合法
+  if (Index < 0) or (Index >= FImageCount) then
+    raise Exception.Create('TWilFile.StretchBlt 数组超界!');
+
+  // 定位到图片位置
+  ImageInfo := IncPointer(FFilePointer, FIndexArr[Index]);
+
+  // 设置位图大小
+  with FBitmapInfo.bmiHeader do
+  begin
+    biWidth := ImageInfo^.Width;
+    biHeight := ImageInfo^.Height;
+  end;
+  
+  // 填充调色板
+  Move(MainColorTable^, FBitmapInfo.bmiColors, SizeOf(FBitMapInfo.bmiColors));
+
+  // PBits 指向位图的 Bits
+  PBits := IncPointer(ImageInfo, SizeOf(TImageInfo) - 4);
+
+  // 缩放方式将 DIB Bits 写到设备环境
+  StretchDIBits(DC, X, Y, Width, Height, 0, 0, ImageInfo^.Width, ImageInfo^.Height,
+    PBits, PBitmapInfo(PBitmapInfo256(@FBitmapInfo))^, DIB_RGB_COLORS, ROP);
+end;
+
+function TWilFile.GetSurfaces(AIndex: Integer): IDirectDrawSurface7;
+var
+  InfoPtr: PImageInfo;    // 图像信息, 使用临时变量将加快速度
+  ColorKey: TDDColorKey;  // 透明色值
+  DDSD: TDDSurfaceDesc2;  // 用于 Surface.Lock
+  Y: Integer;             // Surface 的行值
+  PBits: PByte;           // 指向 Bits 的指针
+  DC: HDC;                // 用于 Surface.GetDC
+begin
+  // 检查 AIndex 是否合法
+  if (AIndex < 0) or (AIndex >= FImageCount) then
+    raise Exception.Create('TWilFile.GetSurfaces 数组超界!');
+
+  // 检查 MainDirectDraw 是否存在
+  if FMainDirectDraw = nil then
+    raise Exception.Create('必须指定 MainDirectDraw!');
+
+  // 如果索引位置的 FSurface 已经创建, 则直接返回该值
+  Result := FSurfaces[AIndex];
+  if FSurfaces[AIndex] <> nil then Exit;
+
+  // 否则创建新的 FSurface[AIndex]
+  InfoPtr := ImageInfo[AIndex];
+
+  FDDSurfaceDesc2.dwWidth := InfoPtr^.Width;
+  FDDSurfaceDesc2.dwHeight := InfoPtr^.Height;
+
+  if FMainDirectDraw.CreateSurface(FDDSurfaceDesc2, FSurfaces[AIndex], nil) <> DD_OK then
+    raise Exception.Create('不能创建 WIL Surface!');
+
+  if UseDIBSurface then // 写入表面位图方法之一：使用 DC, BitBlt
+  begin
+    if FSurfaces[AIndex].GetDC(DC) = DD_OK then
+    begin
+      SelectObject(DC, NULL_BRUSH);
+      Rectangle(DC, 0, 0, ImageInfo[AIndex]^.Width, ImageInfo[AIndex]^.Height);
+      BitBlt(AIndex, DC, 0, 0);
+      FSurfaces[AIndex].ReleaseDC(DC);
+    end
+    else
+    begin   // 如果获取 DC 失败, 则关闭当前 FSurface
+      FSurfaces[AIndex] := nil;
+      Exit;
+    end;
+  end
+  else // 写入表面位图方法之二：直接拷贝 WIL Bits 数据至 Surface
+  begin
+    DDSD.dwSize := SizeOf(DDSD);
+    if FSurfaces[AIndex].Lock(nil, DDSD, DDLOCK_WAIT, 0) <> DD_OK then Exit;
+    // 这里比较奇怪，需要从位图的最后一行写入表面第一行，逆行序
+    PBits := IncPointer(InfoPtr, (SizeOf(TImageInfo) - 4) +
+      ((InfoPtr^.Height - 1) * InfoPtr^.Width));
+    try
+      for Y := 0 to InfoPtr^.Height - 1 do
+      begin
+        Move(PBits^, DDSD.lpSurface^, InfoPtr^.Width);
+        Inc(PByte(DDSD.lpSurface), DDSD.lPitch);
+        Dec(PBits, InfoPtr^.Width);
+      end;
+    finally
+      FSurfaces[AIndex].Unlock(nil);
+    end;
+  end;
+
+  // 设置 ColorKey (黑色)
+  ColorKey.dwColorSpaceLowValue := 0;
+  ColorKey.dwColorSpaceHighValue := 0;
+  FSurfaces[AIndex].SetColorKey(DDCKEY_SRCBLT, @ColorKey);
+
+  // 返回当前 Surface
+  Result := FSurfaces[AIndex];
+end;
+
+function TWilFile.GetImageInfo(AIndex: Integer): PImageInfo;
+begin
+  // 检查 AIndex 是否合法
+  if (AIndex < 0) or (AIndex >= FImageCount) then
+    raise Exception.Create('TWilFile.GetImageInfo 数组超界!');
+
+  // 定位到图片位置
+  Result := IncPointer(FFilePointer, FIndexArr[AIndex]);
+end;
+
+procedure TWilFile.SaveToFile(Index: Integer; const FileName: string);
+var
+  FileHeader: BITMAPFILEHEADER;
+  InfoHeader: BITMAPINFOHEADER;
+  ColorTableSize: Integer;
+  InfoPtr: PImageInfo;
+  PBits: PByte;
+  F: file;
+begin
+  // 检查 AIndex 是否合法
+  if (Index < 0) or (Index >= FImageCount) then
+    raise Exception.Create('TWilFile.SaveToFile 数组超界!');
+
+  // 图片信息指针
+  InfoPtr := ImageInfo[Index];
+
+  // 色彩表内存大小
+  ColorTableSize := SizeOf(TRGBQuad) * 256;
+
+  // 位图文件头
+  FileHeader.bfType := MakeWord(Ord('B'), Ord('M'));
+  FileHeader.bfSize := SizeOf(FileHeader) + SizeOf(InfoHeader) + ColorTableSize +
+    InfoPtr^.Width * InfoPtr^.Height;
+  FileHeader.bfReserved1 := 0;
+  FileHeader.bfReserved2 := 0;
+  FileHeader.bfOffBits := SizeOf(FileHeader) + SizeOf(InfoHeader) + ColorTableSize;
+
+  // 位图信息头
+  InfoHeader.biSize := SizeOf(InfoHeader);
+  InfoHeader.biWidth := InfoPtr^.Width;
+  InfoHeader.biHeight := InfoPtr^.Height;
+  InfoHeader.biPlanes := 1;
+  InfoHeader.biBitCount := 8;
+  InfoHeader.biCompression := 0;
+  InfoHeader.biSizeImage := 0;
+  InfoHeader.biXPelsPerMeter := 0;
+  InfoHeader.biYPelsPerMeter := 0;
+  InfoHeader.biClrUsed := 0;
+  InfoHeader.biClrImportant := 0;
+
+  // 开始保存文件
+  FileMode := fmOpenWrite;
+  AssignFile(F, FileName);
+  Rewrite(F, 1);
+
+  try
+    BlockWrite(F, FileHeader, SizeOf(FileHeader));
+    BlockWrite(F, InfoHeader, SizeOf(InfoHeader));
+    if ColorTableSize > 0 then
+      BlockWrite(F, FMainColorTable^, ColorTableSize);
+    PBits := IncPointer(InfoPtr, SizeOf(TImageInfo) - 4);
+    BlockWrite(F, PBits^, InfoPtr^.Width * InfoPtr^.Height);
+  finally
+    CloseFile(F);
+  end;
+end;
+
+procedure TWilFile.Draw(Index: Integer; DstSurf: IDirectDrawSurface7;
+  X, Y, DstWidth, DstHeight: Integer; Transparent: Boolean);
+var
+  R: TRect;
+  SizePtr: PImageInfo;
+begin
+  SizePtr := ImageInfo[Index];
+  SetRect(R, X, Y, X + SizePtr.Width, Y + SizePtr.Height);
+  FastBlt(DstSurf, X, Y, DstWidth, DstHeight, Surfaces[Index], SizePtr.Width,
+    SizePtr.Height, Transparent);
+end;
+
+procedure TWilFile.DrawEx(Index: Integer; DstSurf: IDirectDrawSurface7;
+  X, Y, DstWidth, DstHeight: Integer; Transparent: Boolean);
+var
+  SizePtr: PImageInfo;
+begin
+  SizePtr := ImageInfo[Index];
+  FastBlt(DstSurf, X + SizePtr.PX, Y + SizePtr.PY, DstWidth, DstHeight,
+    Surfaces[Index], SizePtr.Width, SizePtr.Height, Transparent);
+end;
+
+end. 
+
+
+
+--------------------------------------------------------------
+
+Mir2res优秀地方之二绘图相关(3): mir2res中自定义的一些图形处理函数,,建立在(2)"mir2 图片文件读取单元"之上，所以是"高级图形处理函数",,,这些高级图形处理函数主要是一些绘图函数,,, 因为首先要从wil中读出位图文件,这是(2)的作用,,再进行贴图绘制,在(2)中也有贴图绘制功能,,如mirwil.draw(),,还有就是这里的"高级图形处理函数"的贴图绘制功能，，而wil单元的作用不但在于读取,显示其中的图片，而且在这之前要经过一个解压过程，(2),,(3)的大致逻辑如下（解压部分，读取部分，显示部分）
+wil解压资源-------------->wil读取图片--------------wil显示图片,附加:advdraw高级处理：建立idx文件与显示图片过程:为mirwil单元提供一些高级贴图绘制函数如drawblend
+
+unit AdvDraw;
+
+interface
+
+uses SysUtils, Windows, Math,DirectX{ DirectDraw, DebugUnit};
+
+const
+   MAXGRADE = 64;
+   DIVUNIT = 4;
+   NEARESTPALETTEINDEX_FILE = 'Nearest.idx';
+   
+var
+  Color256Mix: array[0..255, 0..255] of byte;
+  Color256Anti: array[0..255, 0..255] of byte;
+  HeavyDarkColorLevel: array[0..255, 0..255] of byte;
+  LightDarkColorLevel: array[0..255, 0..255] of byte;
+  DengunColorLevel: array[0..255, 0..255] of byte;
+{  BrightColorLevel: array[0..255] of byte;
+  GrayScaleLevel: array[0..255] of byte;
+  RedishColorLevel: array[0..255] of byte;
+  BlackColorLevel: array[0..255] of byte;
+  WhiteColorLevel: array[0..255] of byte;
+  GreenColorLevel: array[0..255] of byte;
+  YellowColorLevel: array[0..255] of byte;
+  BlueColorLevel: array[0..255] of byte;
+  FuchsiaColorLevel: array[0..255] of byte;
+  RgbIndexTable: array[0..MAXGRADE-1, 0..MAXGRADE-1, 0..MAXGRADE-1] of byte;}
+  
+type
+
+{------------------------------------------------------------------------------}
+// 256 色位图信息 mir2使用到的位图色深都是256色的，，因此需要用到调色板
+{------------------------------------------------------------------------------}
+
+  // 256色调色板 
+  PRGBQuads = ^TRGBQuads;
+  TRGBQuads = array[0..255] of TRGBQuad;
+
+  // 256色位图信息结构
+  PBitmapInfo256 = ^TBitmapInfo256;
+  TBitmapInfo256 = packed record
+    bmiHeader: TBitmapInfoHeader;
+    bmiColors: TRGBQuads;
+  end;
+
+  // 256色调色板
+  PPaletteEntries = ^TPaletteEntries;
+  TPaletteEntries = array[0..255] of TPaletteEntry;
+
+  // TODO: 将这个定义去除
+  TNearestIndexHeader = record
+    Title: string[30];
+    IndexCount: integer;
+    desc: array[0..10] of byte;
+  end;
+
+{------------------------------------------------------------------------------}
+// 工具函数
+{------------------------------------------------------------------------------}
+procedure RGBQuadToPaletteEntry(const ARGBQuad: TRGBQuad; var APaletteEntry: TPaletteEntry);
+
+// FastBlt - 自动对要绘制的矩形区域进行剪裁
+procedure FastBlt(DstSurf: IDirectDrawSurface7; X, Y, DstWidth, DstHeight: Integer;
+  SrcSurf: IDirectDrawSurface7; SrcWidth, SrcHeight: Integer; Transparent: Boolean);
+
+procedure BrightEffect(Surface: IDirectDrawSurface7; Width, Height: Integer);
+
+procedure BuildNearestIndex (const ColorTable: TRGBQuads);
+procedure SaveNearestIndex (flname: string);
+function LoadNearestIndex (flname: string): Boolean;
+
+procedure DrawBlend(DstSurf: IDirectDrawSurface7; DstX, DstY, DstWidth,
+  DstHeight: Integer; SrcSurf: IDirectDrawSurface7; SrcWidth, SrcHeight: Integer;
+  BlendMode: Integer);
+
+procedure DrawSurfaceText(const Surface: IDirectDrawSurface7; Text: string;
+  X, Y: Integer; Font: HFont; Color: TColorRef);
+
+
+implementation
+
+
+procedure DrawSurfaceText(const Surface: IDirectDrawSurface7; Text: string;
+  X, Y: Integer; Font: HFont; Color: TColorRef);
+var
+  DC: HDC;
+begin
+  if Surface.GetDC(DC) <> DD_OK then Exit;
+  try
+    SetBkMode(DC, TRANSPARENT);
+    SelectObject(DC, Font);
+    SetTextColor(DC, RGB(64, 64, 0));
+    TextOut(DC, X+1, Y+1, PChar(Text), Length(Text));
+//    TextOut(DC, X-1, Y-1, PChar(Text), Length(Text));
+//    TextOut(DC, X-1, Y+1, PChar(Text), Length(Text));
+//    TextOut(DC, X+1, Y-1, PChar(Text), Length(Text));
+    SetTextColor(DC, Color);
+    TextOut(DC, X, Y, PChar(Text), Length(Text));
+  finally
+    Surface.ReleaseDC(DC);
+  end;
+end;
+
+procedure RGBQuadToPaletteEntry(const ARGBQuad: TRGBQuad; var APaletteEntry: TPaletteEntry);
+begin
+  with APaletteEntry do
+    with ARGBQuad do
+    begin
+      peRed := rgbRed;
+      peGreen := rgbGreen;
+      peBlue := rgbBlue;
+      peFlags := 0;
+    end;
+end;
+
+procedure FastBlt(DstSurf: IDirectDrawSurface7; X, Y, DstWidth, DstHeight: Integer;
+  SrcSurf: IDirectDrawSurface7; SrcWidth, SrcHeight: Integer; Transparent: Boolean);
+const
+  BltFastFlags: array[Boolean] of Integer =
+    (DDBLTFAST_WAIT or DDBLTFAST_NOCOLORKEY,
+     DDBLTFAST_WAIT or DDBLTFAST_SRCCOLORKEY);
+var
+  SrcR: TRect;
+  Result: HRESULT;
+begin
+  if DstSurf = nil then raise Exception.Create('DstSurf = nil!');
+  if SrcSurf = nil then raise Exception.Create('SrcSurf = nil!');
+
+  if X >= 0 then
+  begin
+    if X > DstWidth then Exit;
+    SrcR.Left := 0;
+  end
+  else begin
+    if -X >= SrcWidth then Exit;
+    SrcR.Left := -X;
+  end;
+
+  if Y >= 0 then
+  begin
+    if Y > DstHeight then Exit;
+    SrcR.Top := 0;
+  end
+  else begin
+    if -Y >= SrcHeight then Exit;
+    SrcR.Top := -Y;
+  end;
+
+  SrcR.Right := SrcWidth;
+  if X + SrcWidth > DstWidth then
+    Dec(SrcR.Right, (X + SrcWidth - DstWidth));
+
+  SrcR.Bottom := SrcHeight;
+  if Y + SrcHeight > DstHeight then
+    Dec(SrcR.Bottom, (Y + SrcHeight - DstHeight));
+
+  if (SrcR.Right = SrcR.Left) or (SrcR.Top = SrcR.Bottom) then Exit;
+
+  if X < 0 then X := 0;
+  if Y < 0 then Y := 0;
+
+  Result := DstSurf.BltFast(X, Y, SrcSurf, @SrcR, BltFastFlags[Transparent]);
+  if Result <> DD_OK then
+  begin
+   // DebugOut('_debugout.txt', format('%d, %d, %d, %d', [srcr.Left, SrcR.top,
+   //   srcr.Right, srcr.Bottom]));
+    raise exception.Create('FastBlt failed in AdvDraw!');
+  end;
+end;
+
+
+
+var
+// BRIGHTMASK: Int64 = $0000000; //要减暗或加亮的程度，应为
+ BRIGHTMASK: Int64 = $4040404040404040; //要减暗或加亮的程度，应为
+                                       //0xABCDEFGHABCDEFGH格式
+                                        //改一改就可以做出彩色灯光效果
+procedure BrightEffect(Surface: IDirectDrawSurface7; Width, Height: Integer);
+var
+  DDSD: TDDSurfaceDesc2;
+  SurfaceBits: Pointer;
+  Pitch: Integer;
+begin
+  FillChar(DDSD, SizeOf(DDSD), #0);
+  DDSD.dwSize := SizeOf(DDSD);
+  if Surface.Lock(nil, DDSD, DDLOCK_WAIT, 0) <> DD_OK then Exit;
+  SurfaceBits := DDSD.lpSurface;
+  Pitch := DDSD.lPitch;
+  Width := Width div 2;
+  try
+    asm
+      MOVQ mm1,BRIGHTMASK
+      MOV EAX,SurfaceBits;  // 应为后台缓存的指针 lpSurfase
+//      add eax,Pitch;
+      MOV ECX,Height        // 要处理的区域的高度
+
+    @@OUTLOOP:
+      PUSH EAX
+      MOV EBX,Width         // 要处理的区域的宽度/2
+//      SHR EBX,1
+    @@INLOOP:
+      MOVQ mm0,[EAX]
+      PADDUSB mm0,mm1       // 如果要加亮，请把 PUSBUSB 改成 PADDUSB
+      MOVQ [EAX],mm0
+      ADD EAX,8
+      DEC EBX
+      JNZ @@INLOOP
+      POP EAX
+      ADD EAX,Pitch
+      DEC ECX
+      JNZ @@OUTLOOP
+          
+      EMMS
+    end;
+  finally
+    if Surface.Unlock(nil) <> DD_OK then raise exception.create('error');
+  end;
+end;
+
+procedure BuildNearestIndex (const ColorTable: TRGBQuads);
+var
+   MinDif, ColDif: Integer;
+   MatchColor: Byte;
+   pal0, pal1, pal2: TRGBQuad;
+
+    //调色板混合256X256
+   procedure BuildMix;
+   var
+      i, j, n: integer;
+   begin
+      for i:= 0 to 255 do begin
+         pal0 := ColorTable[i];
+         for j:=0 to 255 do begin
+            pal1 := ColorTable[j];
+            pal1.rgbRed := pal0.rgbRed div 2 + pal1.rgbRed div 2;
+            pal1.rgbGreen := pal0.rgbGreen div 2 + pal1.rgbGreen div 2;
+            pal1.rgbBlue := pal0.rgbBlue div 2 + pal1.rgbBlue div 2;
+            MinDif := 768;
+            MatchColor := 0;
+            for n:=0 to 255 do begin
+               pal2 := ColorTable[n];
+               ColDif := Abs(pal2.rgbRed - pal1.rgbRed) +
+                         Abs(pal2.rgbGreen - pal1.rgbGreen) +
+                         Abs(pal2.rgbBlue - pal1.rgbBlue);
+               if ColDif < MinDif then begin
+                  MinDif := ColDif;
+                  MatchColor := n;
+               end;
+            end;
+            Color256Mix[i, j] := MatchColor;
+         end;
+      end;
+   end;
+
+   //调色板动画颜色表256X256
+   procedure BuildAnti;
+   var
+      i, j, n: integer;
+   begin
+      for i:= 0 to 255 do begin
+         pal0 := ColorTable[i];
+         for j:= 0 to 255 do begin
+            pal1 := ColorTable[j];
+            pal1.rgbRed   := Min(255, Round(pal0.rgbRed   + (255-pal0.rgbRed)   / 255 * pal1.rgbRed));
+            pal1.rgbGreen := Min(255, Round(pal0.rgbGreen + (255-pal0.rgbGreen) / 255 * pal1.rgbGreen));
+            pal1.rgbBlue  := Min(255, Round(pal0.rgbBlue  + (255-pal0.rgbBlue)  / 255 * pal1.rgbBlue));
+            MinDif := 768;
+            MatchColor := 0;
+            for n:=0 to 255 do begin
+               pal2 := ColorTable[n];
+               ColDif := Abs(pal2.rgbRed - pal1.rgbRed) +
+                         Abs(pal2.rgbGreen - pal1.rgbGreen) +
+                         Abs(pal2.rgbBlue - pal1.rgbBlue);
+               if ColDif < MinDif then begin
+                  MinDif := ColDif;
+                  MatchColor := n;
+               end;
+            end;
+            Color256Anti[i,j] := MatchColor;
+         end;
+      end;
+   end;
+
+   //灰阶颜色表256X256
+   procedure BuildColorLevels;
+   var
+      n, i, j, rr, gg, bb: integer;
+   begin
+      for n:= 0 to 30 do begin
+         for i:=0 to 255 do begin
+            pal1 := ColorTable[i];
+            rr := Min(Round(pal1.rgbRed * (n+1) / 31) - 5, 255);      //(n + (n-1)*3) / 121);
+            gg := Min(Round(pal1.rgbGreen * (n+1) / 31) - 5, 255);  //(n + (n-1)*3) / 121);
+            bb := Min(Round(pal1.rgbBlue * (n+1) / 31) - 5, 255);    //(n + (n-1)*3) / 121);
+            pal1.rgbRed := Max(0, rr);
+            pal1.rgbGreen := Max(0, gg);
+            pal1.rgbBlue := Max(0, bb);
+            MinDif := 768;
+            MatchColor := 0;
+            for j:= 0 to 255 do begin
+               pal2 := ColorTable[j];
+               ColDif := Abs(pal2.rgbRed - pal1.rgbRed) +
+                         Abs(pal2.rgbGreen - pal1.rgbGreen) +
+                         Abs(pal2.rgbBlue - pal1.rgbBlue);
+               if ColDif < MinDif then begin
+                  MinDif := ColDif;
+                  MatchColor := j;
+               end;
+            end;
+            HeavyDarkColorLevel[n, i] := MatchColor;
+         end;
+      end;
+      for n:=0 to 30 do begin
+         for i:=0 to 255 do begin
+            pal1 := ColorTable[i];
+            pal1.rgbRed := Min(Round(pal1.rgbRed * (n*3+47) / 140), 255);
+            pal1.rgbGreen := Min(Round(pal1.rgbGreen * (n*3+47) / 140), 255);
+            pal1.rgbBlue := Min(Round(pal1.rgbBlue * (n*3+47) / 140), 255);
+            MinDif := 768;
+            MatchColor := 0;
+            for j:=0 to 255 do begin
+               pal2 := ColorTable[j];
+               ColDif := Abs(pal2.rgbRed - pal1.rgbRed) +
+                         Abs(pal2.rgbGreen - pal1.rgbGreen) +
+                         Abs(pal2.rgbBlue - pal1.rgbBlue);
+               if ColDif < MinDif then begin
+                  MinDif := ColDif;
+                  MatchColor := j;
+               end;
+            end;
+            LightDarkColorLevel[n, i] := MatchColor;
+         end;
+      end;
+      for n:=0 to 30 do begin
+         for i:=0 to 255 do begin
+            pal1 := ColorTable[i];
+            pal1.rgbRed := Min(Round(pal1.rgbRed * (n*3+120) / 214), 255);
+            pal1.rgbGreen := Min(Round(pal1.rgbGreen * (n*3+120) / 214), 255);
+            pal1.rgbBlue := Min(Round(pal1.rgbBlue * (n*3+120) / 214), 255);
+            MinDif := 768;
+            MatchColor := 0;
+            for j:=0 to 255 do begin
+               pal2 := ColorTable[j];
+               ColDif := Abs(pal2.rgbRed - pal1.rgbRed) +
+                         Abs(pal2.rgbGreen - pal1.rgbGreen) +
+                         Abs(pal2.rgbBlue - pal1.rgbBlue);
+               if ColDif < MinDif then begin
+                  MinDif := ColDif;
+                  MatchColor := j;
+               end;
+            end;
+            DengunColorLevel[n, i] := MatchColor;
+         end;
+      end;
+
+      {for i:=0 to 255 do begin
+         HeavyDarkColorLevel[0, i] := HeavyDarkColorLevel[1, i];
+         LightDarkColorLevel[0, i] := LightDarkColorLevel[1, i];
+         DengunColorLevel[0, i] := DengunColorLevel[1, i];
+      end;}
+      for n:=31 to 255 do
+         for i:=0 to 255 do begin
+            HeavyDarkColorLevel[n, i] := HeavyDarkColorLevel[30, i];
+            LightDarkColorLevel[n, i] := LightDarkColorLevel[30, i];
+            DengunColorLevel[n, i] := DengunColorLevel[30, i];
+         end;
+
+   end;
+begin
+   BuildMix;
+   BuildAnti;
+   BuildColorLevels;
+end;
+
+
+procedure SaveNearestIndex (flname: string);
+var
+   nih: TNearestIndexHeader;
+   fhandle: integer;
+begin
+   nih.Title := 'WEMADE Entertainment Inc.';
+   nih.IndexCount := Sizeof(Color256Mix);
+   if FileExists (flname) then begin
+      fhandle := FileOpen (flname, fmOpenWrite or fmShareDenyNone);
+   end else
+      fhandle := FileCreate (flname);
+   if fhandle > 0 then begin
+      FileWrite (fhandle, nih, sizeof(TNearestIndexHeader));
+      FileWrite (fhandle, Color256Mix, sizeof(Color256Mix));
+      FileWrite (fhandle, Color256Anti, sizeof(Color256Anti));
+      FileWrite (fhandle, HeavyDarkColorLevel, sizeof(HeavyDarkColorLevel));
+      FileWrite (fhandle, LightDarkColorLevel, sizeof(LightDarkColorLevel));
+      FileWrite (fhandle, DengunColorLevel, sizeof(DengunColorLevel));
+      FileClose (fhandle);
+   end;
+end;
+
+function LoadNearestIndex (flname: string): Boolean;
+var
+   nih: TNearestIndexHeader;
+   fhandle, rsize: integer;
+begin
+   Result := FALSE;
+   if FileExists (flname) then begin
+      fhandle := FileOpen (flname, fmOpenRead or fmShareDenyNone);
+      if fhandle > 0 then begin
+         FileRead (fhandle, nih, sizeof(TNearestIndexHeader));
+         if nih.IndexCount = Sizeof(Color256Mix) then begin
+            Result := TRUE;
+            rsize := 256*256;
+            if rsize <> FileRead (fhandle, Color256Mix, sizeof(Color256Mix)) then Result := FALSE;
+            if rsize <> FileRead (fhandle, Color256Anti, sizeof(Color256Anti)) then Result := FALSE;
+            if rsize <> FileRead (fhandle, HeavyDarkColorLevel, sizeof(HeavyDarkColorLevel)) then Result := FALSE;
+            if rsize <> FileRead (fhandle, LightDarkColorLevel, sizeof(LightDarkColorLevel)) then Result := FALSE;
+            if rsize <> FileRead (fhandle, DengunColorLevel, sizeof(DengunColorLevel)) then Result := FALSE;
+         end;
+         FileClose (fhandle);
+      end;
+   end;
+end;
+
+
+
+//混合显示:DayBright:ssurface + dsurface => dsurface
+procedure DrawBlend(DstSurf: IDirectDrawSurface7; DstX, DstY, DstWidth,    //这个绘图函数在mir2中是很重要的
+  DstHeight: Integer; SrcSurf: IDirectDrawSurface7; SrcWidth, SrcHeight: Integer;
+  BlendMode: Integer);
+var
+  SrcDDSD, DstDDSD: TDDSurfaceDesc2;
+  SrcBits, DstBits, SrcP, DstP: PByte;
+  X, Y: Integer;      // X/Y 方向的计数器
+  SrcRect: TRect;     // 源表面需要绘制的区域
+begin
+  if (DstSurf = nil) or (SrcSurf = nil) then Exit;
+
+  // 绘制点超过目标区域则退出
+  if DstX >= DstWidth then Exit;
+  if DstY >= DstHeight then Exit;
+
+  // 计算左边裁剪
+  if DstX >= 0 then
+    SrcRect.Left := 0 else
+    SrcRect.Left := -DstX;
+  if SrcRect.Left >= SrcWidth then Exit;
+
+  // 计算上方裁剪
+  if DstY >= 0 then
+    SrcRect.Top := 0 else
+    SrcRect.Top := -DstY;
+  if SrcRect.Top >= SrcHeight then Exit;
+
+  // 计算右方裁剪
+  if (DstWidth - 1) - DstX >= SrcWidth then
+    SrcRect.Right := SrcWidth else
+    SrcRect.Right := (DstWidth - 1) - DstX;
+
+  // 计算下方裁剪
+  if (DstHeight - 1) - DstY >= SrcHeight then
+    SrcRect.Bottom := SrcHeight else
+    SrcRect.Bottom := (DstHeight - 1) - DstY;
+
+  if (SrcRect.Left >= SrcRect.Right) or (SrcRect.Top >= SrcRect.Bottom) then
+    Exit;
+//    raise Exception.Create('SrcRect error');
+
+  SrcDDSD.dwSize := SizeOf(SrcDDSD);
+  DstDDSD.dwSize := SizeOf(DstDDSD);
+
+  try
+    if DstSurf.Lock(nil, DstDDSD, DDLOCK_WAIT, 0) <> DD_OK then Exit;
+    if SrcSurf.Lock(nil, SrcDDSD, DDLOCK_WAIT, 0) <> DD_OK then Exit;
+
+    SrcBits := SrcDDSD.lpSurface;
+    DstBits := DstDDSD.lpSurface;
+
+    for Y :=  SrcRect.Top to SrcRect.Bottom - 1 do
+    begin
+      DstP := PByte(Integer(DstBits) + DstDDSD.lPitch * (Y + DstY) + DstX + SrcRect.Left);
+      SrcP := PByte(Integer(SrcBits) + SrcDDSD.lPitch * Y + SrcRect.Left);
+      for X := SrcRect.Left to SrcRect.Right - 1 do
+      begin
+        DstP^ := Color256Anti[DstP^][SrcP^];
+        Inc(DstP);
+        Inc(SrcP);
+      end;
+    end;
+
+  finally
+    SrcSurf.UnLock(nil);
+    DstSurf.UnLock(nil);
+  end;
+end;
+
+end. 

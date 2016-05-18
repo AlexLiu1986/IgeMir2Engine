@@ -1,0 +1,237 @@
+EurekaLog 6.0.6
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Tue, 17 Feb 2009 13:32:46 +0800
+  1.2 Name/Description: MakeServer.exe
+  1.3 Version Number  : 1.0.0.0
+  1.4 Parameters      : 
+  1.5 Compilation Date: Tue, 2 Dec 2008 12:00:37 +0800
+  1.6 Up Time         : 3 seconds
+
+Exception:
+----------------------------------------------------------------------------------------------------------------
+  2.1 Date          : Tue, 17 Feb 2009 13:32:50 +0800
+  2.2 Address       : 004CE0C7
+  2.3 Module Name   : MakeServer.exe
+  2.4 Module Version: 1.0.0.0
+  2.5 Type          : EAccessViolation
+  2.6 Message       : Access violation at address 004CE0C7 in module 'MakeServer.exe'. Read of address 00000040.
+  2.7 ID            : 5F15
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+-------------------------------------------------------
+  3.1 ID        : qingqing
+  3.2 Name      : 清清
+  3.3 Email     : 
+  3.4 Company   : IGE网络
+  3.5 Privileges: SeChangeNotifyPrivilege         - ON
+                  SeSecurityPrivilege             - ON
+                  SeBackupPrivilege               - OFF
+                  SeRestorePrivilege              - OFF
+                  SeSystemtimePrivilege           - ON
+                  SeShutdownPrivilege             - ON
+                  SeRemoteShutdownPrivilege       - ON
+                  SeTakeOwnershipPrivilege        - ON
+                  SeDebugPrivilege                - ON
+                  SeSystemEnvironmentPrivilege    - ON
+                  SeSystemProfilePrivilege        - ON
+                  SeProfileSingleProcessPrivilege - ON
+                  SeIncreaseBasePriorityPrivilege - ON
+                  SeLoadDriverPrivilege           - ON
+                  SeCreatePagefilePrivilege       - ON
+                  SeIncreaseQuotaPrivilege        - ON
+                  SeUndockPrivilege               - ON
+                  SeManageVolumePrivilege         - ON
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+
+Active Controls:
+-------------------------------------------------------------------------------------------------
+  4.1 Form Class   : TFrmMain
+  4.2 Form Text    : 登陆器和网关生成引擎
+  4.3 Control Class: TMemo
+  4.4 Control Text : [2009-02-17 13:32:47] 正在启动服务... [2009-02-17 13:32:47] 启动服务完成... 
+
+Computer:
+--------------------------------------------------------------------------
+  5.1 Name          : IGE-DBBF1EEFE05
+  5.2 Total Memory  : 959 Mb
+  5.3 Free Memory   : 622 Mb
+  5.4 Total Disk    : 23.28 Gb
+  5.5 Free Disk     : 6.26 Gb
+  5.6 System Up Time: 14 minutes, 38 seconds
+  5.7 Processor     : Mobile AMD Sempron(tm) Processor 3200+
+  5.8 Display Mode  : 1280 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : NVIDIA GeForce Go 6100 (driver 8.4.6.4 - RAM 256 MB)
+  5.11 Printer      : 
+
+Operating System:
+------------------------------------
+  6.1 Type    : Microsoft Windows XP
+  6.2 Build # : 2600
+  6.3 Update  : Service Pack 2
+  6.4 Language: Chinese
+  6.5 Charset : 134
+
+Network:
+---------------------------------
+  7.1 IP Address: 000.000.000.000
+  7.2 Submask   : 000.000.000.000
+  7.3 Gateway   : 000.000.000.000
+  7.4 DNS 1     : 000.000.000.000
+  7.5 DNS 2     : 000.000.000.000
+  7.6 DHCP      : ON             
+
+Call Stack Information:
+-----------------------------------------------------------------------------------------
+|Address |Module        |Unit          |Class           |Procedure/Method      |Line    |
+-----------------------------------------------------------------------------------------
+|*Exception Thread: ID=2964; Priority=0; Class=; [Main]                                 |
+|---------------------------------------------------------------------------------------|
+|004CE0C7|MakeServer.exe|JSocket.pas   |TCustomWinSocket|Lock                  |681[1]  |
+|004CE0C4|MakeServer.exe|JSocket.pas   |TCustomWinSocket|Lock                  |680[0]  |
+|004CEAD5|MakeServer.exe|JSocket.pas   |TCustomWinSocket|SendBuf               |1123[1] |
+|004CEAB0|MakeServer.exe|JSocket.pas   |TCustomWinSocket|SendBuf               |1122[0] |
+|004CE8D6|MakeServer.exe|JSocket.pas   |TCustomWinSocket|SendText              |1034[1] |
+|004CE8C0|MakeServer.exe|JSocket.pas   |TCustomWinSocket|SendText              |1033[0] |
+|0050A3EA|MakeServer.exe|Main.pas      |TFrmMain        |SendUserSocket        |560[1]  |
+|0050A394|MakeServer.exe|Main.pas      |TFrmMain        |SendUserSocket        |559[0]  |
+|004FDB33|MakeServer.exe|Main.pas      |TFrmMain        |MakeLogin             |520[105]|
+|004FCF7C|MakeServer.exe|Main.pas      |TFrmMain        |MakeLogin             |415[0]  |
+|0050A4D0|MakeServer.exe|Main.pas      |TFrmMain        |N2Click               |584[2]  |
+|77D1F891|user32.dll    |              |                |CallNextHookEx        |        |
+|77D196C2|user32.dll    |              |                |DispatchMessageA      |        |
+|77D196B8|user32.dll    |              |                |DispatchMessageA      |        |
+|0050AAEC|MakeServer.exe|MakeServer.dpr|                |                      |23[5]   |
+|7C92E64C|ntdll.dll     |              |                |NtSetInformationThread|        |
+-----------------------------------------------------------------------------------------
+
+Modules Information:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name          |Description                                     |Version        |Size   |Modified           |Path                                                                                                |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|MakeServer.exe|                                                |1.0.0.0        |1307136|2008-12-02 12:00:38|E:\最新源玛\商业\MakeServer                                                                         |
+|02050000|FYMon.dll     |风云防火墙 DLL                                  |1.2.3.238      |442880 |2007-12-13 23:48:06|E:\Program Files\FengYun                                                                            |
+|023B0000|idmmbc.dll    |Internet Download Manager LSP dll               |4.0.2.2        |202424 |2007-06-19 21:22:10|C:\WINDOWS\system32                                                                                 |
+|02A50000|idmmkb.dll    |Internet Download Manager module                |4.0.0.1        |34488  |2007-01-15 20:18:32|E:\Program Files\Internet Download Manager                                                          |
+|10000000|safemon.dll   |360安全卫士实时保护模块                         |5.0.0.1003     |173576 |2008-12-10 01:19:02|E:\Program Files\360safe\safemon                                                                    |
+|20B00000|imon.dll      |NOD32 IMON - Internet scanning support          |2.70.39.0      |298104 |2009-02-02 05:27:24|C:\WINDOWS\system32                                                                                 |
+|20C00000|pr_imon.dll   |                                                |               |39992  |2009-02-02 05:27:24|E:\Program Files\Eset                                                                               |
+|5ADC0000|uxtheme.dll   |Microsoft UxTheme Library                       |6.0.2900.2180  |216064 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|5D170000|comctl32.dll  |Common Controls Library                         |5.82.2900.2982 |617472 |2006-08-25 23:49:44|C:\WINDOWS\system32                                                                                 |
+|60FD0000|hnetcfg.dll   |Home Networking Configuration Manager           |5.1.2600.2180  |333824 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|62C20000|LPK.DLL       |Language Pack                                   |5.1.2600.2180  |22016  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|719C0000|mswsock.dll   |Microsoft Windows Sockets 2.0 Service Provider  |5.1.2600.3394  |240640 |2008-06-21 01:39:48|C:\WINDOWS\system32                                                                                 |
+|71A00000|wshtcpip.dll  |Windows Sockets Helper DLL                      |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\System32                                                                                 |
+|71A10000|WS2HELP.dll   |Windows Socket 2.0 Helper for Windows NT        |5.1.2600.2180  |19968  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A20000|WS2_32.dll    |Windows Socket 2.0 32-Bit DLL                   |5.1.2600.2180  |82944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|71A40000|wsock32.dll   |Windows Socket 32-Bit DLL                       |5.1.2600.2180  |28672  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|72F70000|winspool.drv  |Windows Spooler Driver                          |5.1.2600.2180  |145920 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73640000|msctfime.ime  |Microsoft Text Frame Work Service IME           |5.1.2600.2180  |177152 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|73FA0000|USP10.dll     |Uniscribe Unicode script processor              |1.420.2600.2180|406528 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|74680000|MSCTF.dll     |MSCTF Server DLL                                |5.1.2600.3284  |293376 |2007-12-31 20:09:22|C:\WINDOWS\system32                                                                                 |
+|76300000|IMM32.DLL     |Windows XP IMM32 API Client DLL                 |5.1.2600.2180  |110080 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76320000|comdlg32.dll  |Common Dialogs DLL                              |6.0.2900.2180  |269312 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|76990000|ole32.dll     |Microsoft OLE for Windows                       |5.1.2600.2665  |1284608|2005-04-29 03:32:02|C:\WINDOWS\system32                                                                                 |
+|76BC0000|PSAPI.DLL     |Process Status Helper                           |5.1.2600.2180  |23040  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|770F0000|oleaut32.dll  |                                                |5.1.2600.3266  |550912 |2007-12-05 02:40:02|C:\WINDOWS\system32                                                                                 |
+|77180000|comctl32.dll  |User Experience Controls Library                |6.0.2900.2982  |1054208|2006-08-25 08:49:42|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03|
+|77BD0000|version.dll   |Version Checking and File Installation Libraries|5.1.2600.2180  |18944  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77BE0000|msvcrt.dll    |Windows NT CRT DLL                              |7.0.2600.2180  |343040 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77D10000|user32.dll    |Windows XP USER API Client DLL                  |5.1.2600.3099  |573952 |2007-03-08 23:37:22|C:\WINDOWS\system32                                                                                 |
+|77DA0000|advapi32.dll  |Advanced Windows 32 Base API                    |5.1.2600.2180  |674304 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|RPCRT4.dll    |Remote Procedure Call Runtime                   |5.1.2600.3173  |584192 |2007-07-09 21:09:42|C:\WINDOWS\system32                                                                                 |
+|77EF0000|GDI32.dll     |GDI Client DLL                                  |5.1.2600.3466  |283648 |2008-10-23 20:59:12|C:\WINDOWS\system32                                                                                 |
+|77F40000|SHLWAPI.dll   |Shell Light-weight Utility Library              |6.0.2900.3462  |473088 |2008-10-16 18:37:20|C:\WINDOWS\system32                                                                                 |
+|77FC0000|Secur32.dll   |Security Support Provider Interface             |5.1.2600.2180  |55808  |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll  |Windows NT BASE API Client DLL                  |5.1.2600.3119  |1145344|2007-04-16 23:54:26|C:\WINDOWS\system32                                                                                 |
+|7C920000|ntdll.dll     |NT Layer DLL                                    |5.1.2600.2180  |591360 |2004-08-17 20:00:00|C:\WINDOWS\system32                                                                                 |
+|7D590000|shell32.dll   |Windows Shell Common Dll                        |6.0.2900.3453  |8312832|2008-09-30 14:37:42|C:\WINDOWS\system32                                                                                 |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Name              |Description                                                              |Version      |Memory  |Priority|Threads|Path                                         |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System            |                                                                         |             |352256  |Normal  |73     |                                             |
+|136 |QQiPPro           |                                                                         |             |7020544 |Normal  |8      |E:\Program Files\兰飞软件\QQiPPro            |
+|200 |Explorer.EXE      |Windows Explorer                                                         |6.0.2900.2180|7106560 |Normal  |15     |C:\WINDOWS                                   |
+|432 |RegCertTool.exe   |RegCertTool MFC Application                                              |1.0.0.12     |4571136 |Normal  |1      |C:\Program Files\95599 Certificate Tools\CIDC|
+|476 |360Tray.exe       |360安全卫士实时保护模块                                                  |5.0.0.1006   |1777664 |Normal  |4      |E:\Program Files\360safe\safemon             |
+|496 |FYFireWall.exe    |风云防火墙个人版                                                         |1.2.7.10     |1810432 |Normal  |4      |E:\Program Files\FengYun                     |
+|516 |nod32kui.exe      |NOD32 Control Center GUI                                                 |2.70.39.0    |4866048 |Normal  |2      |E:\Program Files\Eset                        |
+|580 |HideDr            |                                                                         |             |3829760 |Normal  |1      |E:\系统空间\常用软件\HideDragon              |
+|592 |ctfmon.exe        |CTF Loader                                                               |5.1.2600.2180|4222976 |Normal  |1      |C:\WINDOWS\system32                          |
+|600 |smss.exe          |                                                                         |             |413696  |Normal  |3      |\SystemRoot\System32                         |
+|620 |idman.exe         |Internet Download Manager (IDM)                                          |5.0.11.2     |12632064|Normal  |5      |E:\Program Files\Internet Download Manager   |
+|664 |csrss.exe         |                                                                         |             |7700480 |Normal  |10     |C:\WINDOWS\system32                          |
+|688 |winlogon.exe      |                                                                         |             |3407872 |High    |19     |C:\WINDOWS\system32                          |
+|732 |services.exe      |Services and Controller app                                              |5.1.2600.2180|4435968 |Normal  |15     |C:\WINDOWS\system32                          |
+|744 |lsass.exe         |LSA Shell (Export Version)                                               |5.1.2600.2180|1531904 |Normal  |23     |C:\WINDOWS\system32                          |
+|892 |svchost.exe       |Generic Host Process for Win32 Services                                  |5.1.2600.2180|4747264 |Normal  |16     |C:\WINDOWS\system32                          |
+|952 |svchost.exe       |Generic Host Process for Win32 Services                                  |5.1.2600.2180|5193728 |Normal  |13     |C:\WINDOWS\system32                          |
+|1000|svchost.exe       |Generic Host Process for Win32 Services                                  |5.1.2600.2180|20545536|Normal  |65     |C:\WINDOWS\System32                          |
+|1048|svchost.exe       |Generic Host Process for Win32 Services                                  |5.1.2600.2180|3338240 |Normal  |5      |C:\WINDOWS\system32                          |
+|1108|svchost.exe       |Generic Host Process for Win32 Services                                  |5.1.2600.2180|5316608 |Normal  |15     |C:\WINDOWS\system32                          |
+|1300|SCardSvr.exe      |Smart Card Resource Management Server                                    |5.1.2600.2180|2940928 |Normal  |8      |C:\WINDOWS\System32                          |
+|1424|HD_CertService.exe|HD_CertService Microsoft 基础类应用程序                                  |1.0.0.4      |2920448 |Normal  |2      |C:\Program Files\95599 Certificate Tools\CIDC|
+|1492|nod32krn.exe      |NOD32 Kernel Service                                                     |2.70.39.0    |31965184|Normal  |17     |E:\Program Files\Eset                        |
+|1508|nvsvc32.exe       |NVIDIA Driver Helper Service, Version 84.64                              |6.14.10.8464 |3993600 |Normal  |3      |C:\WINDOWS\system32                          |
+|1840|alg.exe           |Application Layer Gateway Service                                        |5.1.2600.2180|4591616 |Normal  |8      |C:\WINDOWS\System32                          |
+|2000|IEMonitor.exe     |Internet Download Manager agent for click monitoring in IE-based browsers|3.0.0.1      |5943296 |Normal  |5      |E:\Program Files\Internet Download Manager   |
+|2796|delphi32.exe      |Delphi-32 Development Environment                                        |7.0.4.453    |59047936|Normal  |4      |E:\Program Files\Borland\Delphi7\Bin         |
+|2892|Pr                |                                                                         |             |5615616 |Normal  |1      |E:\最新源玛\Client\字符串加解密              |
+|2960|MakeServ          |                                                                         |             |8073216 |Normal  |7      |E:\最新源玛\商业\MakeServer                  |
+|3504|NOTEPAD.EXE       |记事本                                                                   |5.1.2600.2180|5095424 |Normal  |1      |C:\WINDOWS\system32                          |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+------------------------------------------------------------------
+; JSocket.TCustomWinSocket.Lock (Line=680 - Offset=0)
+; ---------------------------------------------------
+004CE0C4  push    ebp
+004CE0C5  mov     ebp, esp
+;
+; Line=681 - Offset=1
+; -------------------
+004CE0C7  mov     eax, [eax+$40]                   ; <-- EXCEPTION
+004CE0CA  call    SyncObjs.TCriticalSection.Enter
+;
+; Line=682 - Offset=2
+; -------------------
+004CE0CF  pop     ebp
+004CE0D0  ret
+
+Registers:
+-----------------------------
+EAX: 00000000   EDI: 0012FEA0
+EBX: 00E895F8   ESI: 0000007B
+ECX: 0000007B   ESP: 00122FA8
+EDX: 00E895F8   EIP: 004CE0C7
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+00122FA8: 00122FEC   004CE0C7: 8B 40 40 E8 B1 6A FB FF 5D C3 8D 40 00 55 8B EC  .@@..j..]..@.U..
+00122FAC: 004CEADA   004CE0D7: 8B 40 40 E8 A9 6A FB FF 5D C3 8D 40 00 55 8B EC  .@@..j..]..@.U..
+00122FB0: 00123004   004CE0E7: 83 C4 F8 56 8B 45 08 8B 40 FC 66 8B 40 0A 66 85  ...V.E..@.f.@.f.
+00122FB4: 004047E4   004CE0F7: C0 74 6B C6 45 FF 00 8B 55 08 8B 52 FC 0F B7 C0  .tk.E...U..R....
+00122FB8: 00122FEC   004CE107: 89 45 F8 8B 45 08 8B 40 FC 0F B7 40 08 83 F8 08  .E..E..@...@....
+00122FBC: 00E895F8   004CE117: 7F 0A 74 24 48 74 19 48 74 1A EB 20 83 E8 10 74  ..t$Ht.Ht.. ...t
+00122FC0: 00000000   004CE127: 07 83 E8 10 74 06 EB 14 B0 03 EB 12 B0 04 EB 0E  ....t...........
+00122FC4: 00000000   004CE137: B0 02 EB 0A B0 01 EB 06 B0 05 EB 02 33 C0 8D 55  ............3..U
+00122FC8: 00000000   004CE147: F8 52 8B 55 08 8B 52 F8 8B 4D 08 8B 49 F8 91 66  .R.U..R..M..I..f
+00122FCC: 00E89673   004CE157: BE FE FF E8 B5 60 F3 FF 83 7D F8 00 EB 04 C6 45  .....`...}.....E
+00122FD0: 00405346   004CE167: FF 01 8A 45 FF 5E 59 59 5D C3 8D 40 00 55 8B EC  ...E.^YY]..@.U..
+00122FD4: 00E895F8   004CE177: 83 C4 F8 89 55 FC 89 45 F8 55 E8 5E FF FF FF 59  ....U..E.U.^...Y
+00122FD8: 0040535B   004CE187: 84 C0 74 6F 8B 45 FC 0F B7 40 08 83 F8 08 7F 0A  ..to.E...@......
+00122FDC: 00000005   004CE197: 74 54 48 74 31 48 74 3E EB 59 83 E8 10 74 07 83  tTHt1Ht>.Y...t..
+00122FE0: 0012FEA0   004CE1A7: E8 10 74 12 EB 4D 8B 55 FC 8B 52 04 8B 45 F8 8B  ..t..M.U..R..E..
+00122FE4: 00000000   004CE1B7: 08 FF 51 04 EB 3D 8B 55 FC 8B 52 04 8B 45 F8 8B  ..Q..=.U..R..E..
+
+
+

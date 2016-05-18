@@ -1,0 +1,93 @@
+传奇服务器结构
+MirServer(传奇服务端) 
+├Client(传奇私服客户端补丁,直接覆盖原客户端) 
+├Documents(说明文件) 
+├GameLog(游戏物品日志) 
+│ └LogDataSrv(物品日志服务端) 
+│ ├LogBase(包含物品日志文件) 
+│ ├LogData.ini(物品日志配置文件) 
+│ └LogDataServer.exe(日志服务端程序) 
+├Gate_Server(客服接口) 
+│ ├LoginGate(ID登录接口) 
+│ │ ├LoginGate.exe(ID登录接口程序) 
+│ │ └MirGate.ini(ID登录接口配置文件) 
+│ ├SelChrGate(角色登录接口) 
+│ │ ├Gate30.exe(角色登录接口程序) 
+│ │ └Mirgate.ini(角色登录接口配置文件) 
+│ └RunGate(游戏运行接口) 
+│ ├RunGate.exe(游戏运行接口程序) 
+│ ├Mirgate.ini(游戏运行接口配置文件) 
+│ └WordFilt.ini(脏话信息) 
+├Mir200(传奇游戏服务端，服务于RunGate) 
+│ ├ConLog(登录日志) 
+│ ├Envir(环境设置) 
+│ │ ├Castle(城堡状态) 
+│ │ │ ├AttackSabukWall.txt(攻城信息) 
+│ │ │ └Sabukw.txt(沙巴克状态信息) 
+│ │ ├Defines 
+│ │ ├MapQuest_def 
+│ │ ├Market_def(商人信息，与Merchant.txt对应) 
+│ │ ├Market_prices(商品物价信息) 
+│ │ ├Market_saved(商品存储信息) 
+│ │ ├Market_upg 
+│ │ ├MonItems(怪物所爆物品及几率，与Monster.DB对应) 
+│ │ ├Npc_def(NPC人物信息，与NPCs.txt对应) 
+│ │ ├QuestDiary 
+│ │ ├AdminList.txt(GM列表文件) 
+│ │ ├GuardList.txt(守卫坐标文件) 
+│ │ ├MakeItem.txt(毒药配方文件) 
+│ │ ├MapInfo.txt(地图信息文件) 
+│ │ ├MapQuest.txt 
+│ │ ├Merchant.txt(商人信息文件) 
+│ │ ├Merchant.txt.pre10 
+│ │ ├MiniMap.txt(小地图信息文件) 
+│ │ ├Mongen.txt(怪物刷新配置文件) 
+│ │ ├Npcs.txt(NPC信息文件) 
+│ │ ├StartPoint.txt(复活点信息文件) 
+│ │ └UnbindList.txt(打捆物品拆包信息文件) 
+│ ├GuildBase(行会信息) 
+│ │ ├Guilds(行会信息) 
+│ │ └GuildList.txt(行会列表文件) 
+│ ├Log(游戏运行服务端日志) 
+│ ├Map(地图文件) 
+│ ├Notice(提示信息) 
+│ │ ├LineNotice.txt(游戏运行中的提示，蓝字部分) 
+│ │ └Notice.txt(选择服务器之后出现的版权信息) 
+│ ├Share 
+│ ├ShareL 
+│ ├ShareV 
+│ ├!Abuse.txt(脏话信息) 
+│ ├!RunAddr.txt 
+│ ├!ServerTable.txt 
+│ ├!Setup.txt(游戏运行服务端配置文件) 
+│ ├M2Server.exe(游戏运行服务端) 
+│ └Mir.dat(与客户端的Mir.exe对应) 
+├Mud2(服务端) 
+│ ├DB(数据库Paradox) 
+│ │ ├Magic.DB(技能数据库) 
+│ │ ├Monster.DB(怪物数据库) 
+│ │ └StdItems.DB(物品数据库) 
+│ ├DBSrv200(角色选择服务端，服务于ChrSelGate) 
+│ │ ├Connection 
+│ │ ├FDB(人物数据库，数据库格式为传奇自定义格式) 
+│ │ ├Log(角色选择服务端日志) 
+│ │ ├!AddrTable.txt 
+│ │ ├!IdList.txt(交费账号列表，!Setup.exe中ServiceMode=TRUE时起作用) 
+│ │ ├!ServerInfo.txt 
+│ │ ├DBServer.exe(角色选择服务端) 
+│ │ └DBSrc.ini(角色选择服务端配置文件) 
+│ └LogSrv(ID登录服务端，服务于LoginGate) 
+│ ├ChrLog(ID创建、修改日志) 
+│ ├ConLog(ID登录日志) 
+│ ├CountLog(ID登录数量统计日志) 
+│ ├IDDB(ID数据库，数据库格式为传奇自定义格式) 
+│ │ ├ID.DB(ID数据库) 
+│ │ ┕ID.DB.idx(ID数据库索引) 
+│ ├!AddrTable.txt 
+│ ├!ServerAddr.txt 
+│ ├!UserLimit.txt 
+│ ├LoginSrv.exe(ID登录服务端程序) 
+│ └LogSrv.ini(ID登录服务端配置文件) 
+┕Share 
+├Feed 
+└GameWFolder

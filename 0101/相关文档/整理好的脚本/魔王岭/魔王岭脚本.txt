@@ -1,0 +1,889 @@
+检查M2目录里的Command.ini文件是否有 Mission=Mission
+MobPlace=MobPlace    这两个命令   没有则添之 
+ 
+
+;魔王岭杀怪触发
+;在QFunction-0.txt中加入如下一段：
+;[@KillMissionMob] 
+;#if
+;large M1 0 //检查人物是否在任务中
+;#act
+;INC M30 1 //增加杀怪计数
+
+;数据库中增加
+;弓箭手1;135;45;71;99;0;6;1;2000;0;200;400;100;200;0;0;20;15;500;1;0;1500;
+;白野猪99;136;19;112;50;1;0;1600;1000;0;0;0;0;0;0;0;25;17;800;1;0;1800; //请要添加爆率文件，不然没有东西爆
+
+;地图文件设置
+;[K004 魔王岭] NORECONNECT(0159) MISSION NOCALLHERO NORECALL NOGUILDRECALL NODEARRECALL NOMasterRECALL NORANDOMMOVE RUNHUMAN
+
+
+
+;脚本
+[@main]
+赶快召唤出弓箭手，盗走天关宝物的怪物就要出现了！ \
+拦截逃离的怪物，夺回被盗的宝物！ \
+每次用5个弩牌换取弓箭手，都需要付出一张灵符哦 \
+请<选择摆放弓箭手位置/@位置>摆放第一个弓箭手， \
+如果移动弓箭手的位置错误，也可以在这里重新放置 \ \
+<使用5个弩牌换取弓箭手/@使用>　　<使用1个弩牌移动弓箭手/@移动> \ \
+<领奖/@领>　　　　　　　　　　　　<查看规则/@规则>\
+
+[@首次寻路]
+#if
+FINDMAPPATH k004 29 23 58 43   //该命令在所在NPC下只有首次使用才会生效
+#act
+Mov M20 59  //设置刷怪总数量，设置为59实际是60个怪物
+Mov M21 20  //设置每波刷怪物，也就是每刷多少个后换另外一种怪物继续
+Mov M22 0   //设置已刷怪数量为 0
+Mov M23 0   //设置波数为0
+Mov M24 0   //设置正在刷怪波数为0
+Mov M30 0   //设置人物击杀怪物数为0
+Delaygoto 2 @刷怪
+
+close
+#elsesay
+无法到达终点!
+
+[@刷怪]
+#if
+equal M1 0 //中止任务，但怪尚未刷完成，则中断刷怪
+#act
+break
+
+#if
+CHECKMAPNAME Self K004 //检查人物是否还在当前地图，不在则停止刷怪
+#elseact
+break
+
+#if 
+large M22 M20 //如果刷怪数大于总数量则停止刷怪
+#act
+break
+
+#if
+equal M23 M24 //检查当前刷怪波数是否等于上面记算出的波数，是的话取怪物名称
+#act
+INC M23 1 //将刷怪波数加1，不然会一直随机取名称，刷怪效果不好
+MOV S1 白野猪99 //这里为测试，所以只刷白野猪，要随机取，请使用下面代码，并增加相应文件
+;GetRandomName ..\QuestDiary\魔王岭\刷怪.txt S1 //随机取怪物名称  传给S1字符变量 
+
+
+#if
+CheckRangeMonCount <$MAP> 29 23 0 = 0 //检测出怪坐标是否有怪，有怪则不刷新
+#act
+GMEXECUTE MobPlace 29 23 S1 1 //召唤怪物 
+Inc M22 1    //增加刷怪数量
+DVI M24 M22 M21  //刷怪数量 整除 每波刷怪数 = 正在刷怪波数
+Delaygoto 2 @刷怪
+#elseact
+Delaygoto 1 @刷怪
+
+[@位置]
+　　　　　　　　 请选择放置弓箭手的位置 \
+　　 ■ <◎1号/@1号> 　　　　　　　　　　　　　　　　<◎10号/@10号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎2号/@2号> 　　　　　　　　　　　　　　　　<◎09号/@9号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎3号/@3号> 　<◎4号/@4号> 　<◎5号/@5号> 　<◎6号/@6号> 　<◎7号/@7号> <◎08号/@8号>■ \
+　　 ■■■■■■■■■■■■■■■■■■■■■■■■ \ 
+
+[@使用]
+　　　　　　　　 请选择放置弓箭手的位置 \
+　　 ■ <◎1号/@11号> 　　　　　　　　　　　　　　　　<◎10号/@110号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎2号/@22号> 　　　　　　　　　　　　　　　　<◎09号/@99号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎3号/@33号> 　<◎4号/@44号> 　<◎5号/@55号> 　<◎6号/@66号> 　<◎7号/@77号> <◎08号/@88号>■ \
+　　 ■■■■■■■■■■■■■■■■■■■■■■■■ \ 
+
+[@移动]
+　　　　　　　　 请选择移动弓箭手的位置 \
+　　 ■ <◎1号/@211号> 　　　　　　　　　　　　　　　　<◎10号/@2110号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎2号/@222号> 　　　　　　　　　　　　　　　　<◎09号/@299号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎3号/@233号> 　<◎4号/@244号> 　<◎5号/@255号> 　<◎6号/@266号> 　<◎7号/@277号> <◎08号/@288号>■ \
+　　 ■■■■■■■■■■■■■■■■■■■■■■■■ \ 
+
+[@放置]
+　　　　　　　　 请选择放置弓箭手的位置 \
+　　 ■ <◎1号/@3211号> 　　　　　　　　　　　　　　　　<◎10号/@32110号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎2号/@3222号> 　　　　　　　　　　　　　　　　<◎09号/@3299号>■ \
+　　 ■　　　　　　　　　　　　　　　　　　　　　　■ \ 
+　　 ■ <◎3号/@3233号> 　<◎4号/@3244号> 　<◎5号/@3255号> 　<◎6号/@3266号> 　<◎7号/@3277号> <◎08号/@3288号>■ \
+　　 ■■■■■■■■■■■■■■■■■■■■■■■■ \ 
+
+[@32110号]
+#if 
+CheckMapMobCount <$MAP> 51 43 弓箭手1 > 0
+#act
+Messagebox 6号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 51 43
+close
+
+
+[@3299号]
+#if 
+CheckMapMobCount <$MAP> 48 47 弓箭手1 > 0
+#act
+Messagebox 6号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 48 47
+close
+
+[@3288号]
+#if 
+CheckMapMobCount <$MAP> 45 51 弓箭手1 > 0
+#act
+Messagebox 6号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 45 51
+close
+
+[@3277号]
+#if 
+CheckMapMobCount <$MAP> 41 49 弓箭手1 > 0
+#act
+Messagebox 6号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 41 49
+close
+
+[@3266号]
+#if 
+CheckMapMobCount <$MAP> 38 46 弓箭手1 > 0
+#act
+Messagebox 6号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 38 46
+close
+
+[@3255号]
+#if 
+CheckMapMobCount <$MAP> 34 44 弓箭手1 > 0
+#act
+Messagebox 5号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 34 44
+close
+
+[@3244号]
+#if 
+CheckMapMobCount <$MAP> 31 41 弓箭手1 > 0
+#act
+Messagebox 4号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 31 41
+close
+
+[@3233号]
+#if 
+CheckMapMobCount <$MAP> 29 37 弓箭手1 > 0
+#act
+Messagebox 3号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 29 37
+close
+
+[@3222号]
+#if 
+CheckMapMobCount <$MAP> 27 33 弓箭手1 > 0
+#act
+Messagebox 2号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 27 33
+close
+
+[@3211号]
+#if 
+CheckMapMobCount <$MAP> 30 30 弓箭手1 > 0
+#act
+Messagebox 1号位置，已经有弓箭手。
+#elseact
+MOVEMOBTO 弓箭手1 <$MAP> <$STR(M10)> <$STR(M11)> <$MAP> 30 30
+close
+
+[@2110号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 51 43 弓箭手1 > 0
+#act
+Mov M10 51
+Mov M11 43
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 10号位置没有可移动弓箭手。
+
+[@299号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 48 47 弓箭手1 > 0
+#act
+Mov M10 48
+Mov M11 47
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 9号位置没有可移动弓箭手。
+
+[@288号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 45 51 弓箭手1 > 0
+#act
+Mov M10 45
+Mov M11 51
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 8号位置没有可移动弓箭手。
+
+[@277号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 41 49 弓箭手1 > 0
+#act
+Mov M10 41
+Mov M11 49
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 7号位置没有可移动弓箭手。
+
+[@266号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 38 46 弓箭手1 > 0
+#act
+Mov M10 38
+Mov M11 46
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 6号位置没有可移动弓箭手。
+
+[@255号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 34 44 弓箭手1 > 0
+#act
+Mov M10 34
+Mov M11 44
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 5号位置没有可移动弓箭手。
+
+[@244号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 31 41 弓箭手1 > 0
+#act
+Mov M10 31
+Mov M11 41
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 4号位置没有可移动弓箭手。
+
+[@233号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 29 37 弓箭手1 > 0
+#act
+Mov M10 29
+Mov M11 37
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 3号位置没有可移动弓箭手。
+
+[@222号]
+#if
+CHECKITEM 弩牌 1
+#act
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 27 33 弓箭手1 > 0
+#act
+Mov M10 27
+Mov M11 33
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 2号位置没有可移动弓箭手。
+
+[@211号]
+#if
+CHECKITEM 弩牌 1
+#elsesay
+messagebox 您的包裹里<弩牌>不足1个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 30 30 弓箭手1 > 0
+#act
+Mov M10 30
+Mov M11 30
+take 弩牌 1
+goto @放置
+#elseact
+messagebox 1号位置没有可移动弓箭手。
+
+[@110号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 51 43 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 51 43
+Close
+#elseact
+messagebox 10号位置，已经有弓箭手。
+
+
+[@99号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 48 47 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 48 47
+Close
+#elseact
+messagebox 9号位置，已经有弓箭手。
+
+[@88号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 45 51 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 45 51
+Close
+#elseact
+messagebox 8号位置，已经有弓箭手。
+
+
+[@77号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 41 49 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 41 49
+Close
+#elseact
+messagebox 7号位置，已经有弓箭手。
+
+
+[@66号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 38 46 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 38 46
+Close
+#elseact
+messagebox 6号位置，已经有弓箭手。
+
+[@55号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 34 44 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 34 44
+Close
+#elseact
+messagebox 5号位置，已经有弓箭手。
+
+[@44号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 31 41 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 31 41
+Close
+#elseact
+messagebox 4号位置，已经有弓箭手。
+
+[@33号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 29 37 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 29 37
+Close
+#elseact
+messagebox 3号位置，已经有弓箭手。
+
+[@22号]
+#if
+CHECKITEM 弩牌 5
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 27 33 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 27 33
+Close
+#elseact
+messagebox 2号位置，已经有弓箭手。
+
+[@11号] 
+#if
+CHECKITEM 弩牌 5
+#act
+#elsesay
+messagebox 您的包裹里<弩牌>不足5个。
+#elseact
+break
+
+#if
+CheckMapMobCount <$MAP> 30 30 弓箭手1 < 1
+#act
+Mov M1 1
+take 弩牌 5
+ReCallMobEx 弓箭手1 2 30 30
+Close
+#elseact
+messagebox 1号位置，已经有弓箭手。
+
+ 
+
+[@10号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 51 43 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 51 43
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 10号位置，已经有弓箭手。
+
+
+[@9号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 48 47 怪11 < 1
+#act
+Mov M1 1
+ReCallMobEx 怪11 2 48 47
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 9号位置，已经有弓箭手。
+
+[@8号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 45 51 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 45 51
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 8号位置，已经有弓箭手。
+
+
+[@7号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 41 49 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 41 49
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 7号位置，已经有弓箭手。
+
+
+[@6号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 38 46 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 38 46
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 6号位置，已经有弓箭手。
+
+[@5号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 34 44 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 34 44
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 5号位置，已经有弓箭手。
+
+[@4号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 31 41 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 31 41
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 4号位置，已经有弓箭手。
+
+[@3号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 29 37 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 29 37
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 3号位置，已经有弓箭手。
+
+[@2号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 27 33 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 27 33
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 2号位置，已经有弓箭手。
+
+[@1号]
+#if
+large M1 0
+#say
+弓箭手已经准备就绪。
+#act
+break
+
+#if
+CheckMapMobCount <$MAP> 30 30 弓箭手1 < 1
+#act
+Mov M1 1
+ReCallMobEx 弓箭手1 2 30 30
+;GMEXECUTE Mission 58 43
+Delaygoto 1 @首次寻路
+Close
+#elseact
+messagebox 1号位置，已经有弓箭手。
+
+[@规则]
+调遣你的弓箭手，拦截逃离的怪物，获得怪物盗走的宝物 \
+逃离的怪物越少，您能获得的奖励将更加丰富 \
+不放走1个怪物，更有机会获得<金宝箱> \
+拦截的怪物少于41个，还可以获得木宝箱 \
+每次使用5张弩牌换取弓箭手，都需要付出1张灵符 \
+<什么是弩牌？/@什么>\
+<如何摆放弓箭手/@摆放>　　 <如何移动弓箭手/@移弓>
+<如何领取奖励/@如励>
+
+[@如励]
+当您狙击怪物的数量达到一定时 \
+便可以选择<"领奖">领取挑战奖励 \
+如果您已经领取了奖励，则领取奖励后再狙击的怪物不再计入成绩 \
+如果您能保持连续的全狙成绩，更有神秘关卡等待着你！ \ 
+<返回/@规则>
+
+[@移弓]
+当您包裹里存在1个弩牌，并且拥有1个以上弓箭手时 \
+您可以选择<“使用1个弩牌移动弓箭手”> \
+先选择要移动的弓箭手后，再选择要放置的位置，即可移动 \
+如果您已经选择了移动弓箭手，但是放置的位置错误 \
+可以再次选择<“选择摆放弓箭手位置”>摆放弓箭手 \
+移动弓箭手<“不需要付出灵符”> \
+<返回/@规则>
+
+[@摆放]
+比赛开始，第一次摆放弓箭手时 \
+您可以点击<“选择摆放弓箭手位置”>选择摆放第一个弓箭手的位置 \
+第一个弓箭手位置一旦放置完毕，则怪物大军开始逃离！ \
+您的弓箭手杀死怪物，会在杀死怪物的弓箭手旁掉蓝<“弩牌”/@什么> \
+当您拥有5个弩牌时可以选择<“使用5个弩牌换取弓箭手”> \
+同时您<“必须付出1张灵符”>，将获得再次选择摆放1个弓箭手的机会 \
+如果您再交出弩牌后没有立刻摆放弓箭手 \
+可以再次选择<“选择摆放弓箭手位置”>进行摆放 \
+<下一页/@下页>
+
+[@下页]
+每次狙击战中您只能摆放6个弓箭手 \
+<返回/@规则>
+
+[@什么]
+弩牌为召唤和移动弓箭手的凭证 \
+你可以使用5个弩牌和1张灵符换取1个弓箭手为你作战 \
+或者使用1个弩牌为你的1个弓箭手移位 \
+杀死逃离的怪物有机会获得弩牌 \
+弩牌只能在魔王岭中使用，一旦带离魔王岭，它将失去魔力 \
+再进入魔王岭时会被传送之力所粉碎 \
+<返回/@规则>
+
+[@领]
+不需要结束这次挑战，您就可以到我这里领取奖励， \
+但是领取的奖励将由您已经消灭的怪物数量来决定， \
+木、铜、银、金各种宝箱双击后就可以打开， \
+奖品会自动放到您的包裹里， \
+请您务必注意，领奖时要<确保包裹有足够的空间>哦， \
+否则将会无法领取宝箱或奖励。 \
+您确认您现在就要来领取奖励吗？ \
+<我确认，我现在就要领取奖励/@取奖> \
+<等我结束这次挑战后再来领取吧/@exit> \
+
+[@取奖]
+#if
+equal M1 0 
+#say
+尚未开始任务\
+<返回/@Main>
+#act
+break
+
+#if
+large M30 59
+#say
+你本次总共阻击了 <$STR(M30)> 个怪物 \
+您获得了：赤金宝箱\
+您给我一张灵符，我可以直接带您进入下一关 \
+<不，我要回天庭/@返回>　　　　　<是的，进入下一关/@返回>
+#act
+Mov M1 0
+Take 弩牌 46
+give 赤金宝箱 1
+CLEARMAPMON <$MAP>
+CLEARITEMMAP <$MAP> 40 40 20
+break
+
+#if
+large M30 45
+#say
+你本次总共阻击了 <$STR(M30)> 个怪物 \
+您获得了：白银宝箱\
+您给我一张灵符，我可以直接带您进入下一关 \
+<不，我要回天庭/@返回>　　　　　<是的，进入下一关/@返回>
+#act
+Mov M1 0
+Take 弩牌 46
+give 白银宝箱 1
+CLEARMAPMON <$MAP>
+CLEARITEMMAP <$MAP> 40 40 20
+break
+
+#if
+large M30 39
+#say
+你本次总共阻击了 <$STR(M30)> 个怪物 \
+您获得了：紫铜宝箱\
+您给我一张灵符，我可以直接带您进入下一关 \
+<不，我要回天庭/@返回>　　　　　<是的，进入下一关/@返回>
+#act
+Mov M1 0
+Take 弩牌 46
+give 紫铜宝箱 1
+CLEARMAPMON <$MAP>
+CLEARITEMMAP <$MAP> 40 40 20
+#elsesay
+你本次总共阻击了 <$STR(M30)> 个怪物 \
+您获得了：檀木宝箱\
+您给我一张灵符，我可以直接带您进入下一关 \
+<不，我要回天庭/@返回>　　　　　<是的，进入下一关/@返回>
+#elseact
+Mov M1 0
+Take 弩牌 46
+give 檀木宝箱 1
+CLEARMAPMON <$MAP>
+CLEARITEMMAP <$MAP> 40 40 20
+
+[@返回]
+#if
+#act
+;自行设置返回天庭
+MAPMOVE 3 333 333

@@ -1,0 +1,23 @@
+产品型号:   MSSQL数据库50M ( sql50 ) 
+数据库地址:   59.53.88.87
+数据库名称:   sq_56m2vip
+数据库用户:   sq_56m2vip
+数据库密码:   mamabuxihuanmima
+FTP地址:   59.53.88.87（供下载备份使用） 
+FTP帐号:    sq_56m2vip  
+FTP密码:    mamabuxihuanmima
+
+
+http://www.zwidc.com/
+hqiang1234
+68330061
+
+http://admin.zwidc.com
+
+
+
+//ZT 1-修改代理人余额 2-用户生成程序 3-注册用户 4-注册代理 5-用户修改密码 6-代理修改密码
+
+ULUserinfo ZT 0-普通代理 1-内部代理
+
+

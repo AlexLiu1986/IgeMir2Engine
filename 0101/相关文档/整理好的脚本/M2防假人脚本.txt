@@ -1,0 +1,54 @@
+M2防假人脚本：
+
+首先先在
+D:\MirServer\Mir200\Envir\QuestDiary\数据文件 目录下建一个“激活.txt”文本文挡
+
+其次在 
+D:\MirServer\Mir200\Envir\MapQuest_def 目录下的QManage.txt脚本里加上如下一段
+
+[@Login] 
+#if 
+checknamelist ..\QuestDiary\数据文件\激活.txt 
+#act 
+SENDMSG 6 你的帐号已经被激活,你可以正常游戏了。 
+#elseact 
+DELAYGOTO 30 @Delayk 
+SENDMSG 6 你的帐号还没有被激活,没有激活的帐户将在30秒后自动掉线。 
+Gmexecute Shutup Self 99999 
+#elseSAY 
+所有玩家上线需要点<激活登陆/@激活登陆>,否则30秒后自动掉线。\ 
+此举是为了防止恶意刷屏和最新出现的挂僵尸攻击,不便之处请原谅。\
+
+[@激活登陆] 
+#if 
+#ACT 
+MOVR N1 10000 
+#SAY 
+为了防止恶意刷屏和最新出现的挂僵尸攻击,不便之处请原谅。\ 
+请输入验证码进行id激活.否则30秒后自动掉线。\ \ 
+<点这里输入以下验证码/@@InPutInteger8>\ \ 
+验证码：<$STR(N1)>
+
+[@InPutInteger8] 
+#IF 
+equal N8 N1 
+#act 
+Gmexecute ReleaseShutup Self 
+addnamelist ..\QuestDiary\数据文件\激活.txt 
+SENDMSG 6 验证码核验通过！你可以正常游戏了。 
+break 
+close 
+#elsesay 
+验证码输入不正确。\ 
+<重新输入/@激活登陆>
+
+[@Delayk] 
+#if 
+checknamelist ..\QuestDiary\数据文件\激活.txt 
+#act 
+SENDMSG 6 30秒钟时间到,你是激活帐户不受影响！ 
+#elseact 
+SENDMSG 6 30秒钟时间到,你还没有激活帐户,系统决定踢你下线！ 
+kick
+
+ 

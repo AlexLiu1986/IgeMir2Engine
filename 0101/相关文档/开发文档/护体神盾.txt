@@ -1,0 +1,42 @@
+效果图
+http://bbs.blueyue.com/attachments/month_0712/20071207_ffb853ec4add1d1e08f5fks51uTgzFie.gif
+STATE_ProtectionDEFENCE
+那个技能和魔法盾不一样哦，不是开了以后就一直有效果的
+
+是开的时候闪一下，然后被攻击时候才一闪下
+
+这个技能控制面版必须做的调节,M2控制
+1、时间控制，即最长时间，使用间隔，单位秒
+2、护体减攻击百分比， 数据 /100
+3、保护时效果，双选一（盾牌效果，彩蛋效果）
+4、盾被击破机率	
+
+
+最大有效时间   技能开启一次能用多久
+
+两次使用间隔时间，就是第一次使用消失后，到第二次使用中间必须间隔多久
+
+
+受攻击减少攻击的百分比
+
+被击破的几率，这个可以做成死的，比如技能等级为1的时候，受到攻击达到多少就破，等级是2时多少就破，3又是多少，这个可以到时候测试下
+(如果百分30被击破的几率,就是攻击力越过一定值,有30%的机会能破)
+
+另外就是和人物对p的时候，被某中技能打到必破，例如破魂合击技能(60-65)，刺杀(12),开天斩(43)，烈火(26)
+
+关于技能使用时间，可以做成刚练成可以使用多少秒，然后设置可以调节，每升一级，该技能可以多使用0.5秒这样，盛大的就是39级学，以后每升1级多0.5秒时间
+
+    nProtectionDefenceTime:LongWord;//护体神盾最长时间 20080108
+    dwProtectionTick: LongWord;//护体神盾使用间隔 20080108
+    nProtectionRate: LongWord;//护体神盾减攻击百分比 20080108
+    nProtectionBadRate: LongWord;//护体神盾被击破机率 20080108
+    nProtectionEffect: Boolean;//护体神盾保护时效果 20080108 0-神盾效果 1-彩蛋效果
+    RushkungBadProtection: Boolean;//刺杀必破护体神盾 20080108
+    ErgumBadProtection: Boolean;//合击必破护体神盾 20080108
+    FirehitBadProtection: Boolean;//烈火必破护体神盾 20080108
+    TwnhitBadProtection: Boolean;//开天必破护体神盾 2008010
+
+
+  if (GetTickCount() - m_nRecallHeroTime) > g_Config.nRecallHeroTime  then begin  //召唤英雄间隔 20071201
+    m_nRecallHeroTime:=GetTickCount();//召唤英雄间隔 20071201
+    FrontEngine.AddToLoadHeroRcdList(m_sHeroCharName, '', Self, 0);

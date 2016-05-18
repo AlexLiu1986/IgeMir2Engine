@@ -1,0 +1,200 @@
+()
+%100
+[@main]
+你想做什么？\
+<查询声望和荣誉值点数/@查询声望与荣誉值>\
+<师傅如何收徒/@如何收徒>\
+<我要拜师/@拜师>\
+<解除师徒关系/@解除师徒关系>\
+<领取荣誉勋章/@领取荣誉勋章>\
+<修理荣誉勋章/@修理荣誉勋章>\
+<离开/@exit>\
+[@拜师]
+想拜师呀，你要拜的师父来了没有？\
+与你师父面对面站好，开始拜师。\ \
+『<准备好了/@agree>』\
+『<我知道了/@exit>』\ \ 
+〖<返回/@main>〗
+[@agree]
+#if
+   CHECKPOSEISMASTER
+#act
+   break
+#say
+没事别来这玩！！！\ \
+〖<返回/@main>〗\
+\
+#if
+   checkmaster
+#act 
+   break
+#say
+你都都已经拜了别人为师，怎么还拜师！！！ \ \
+〖<返回/@main>〗\
+\
+#if
+  checkposemaster
+#say
+你找了个什么人做师父，怎么现在还是别人的徒弟？\ \
+〖<返回/@main>〗\
+\
+#act
+  break
+#if
+   checkposedir
+#elsesay
+你们二个面对面站好呀，不要乱动。\
+〖<返回/@main>〗\
+\
+#elseact
+  break
+#if
+  CHECKLEVELEX >  35
+#say
+你都35多级了还要找师父？\ \
+〖<返回/@main>〗\
+\
+#act
+  break
+#if
+  checkposelevel > 44
+#elsesay
+你找个什么师父呀，等级这么低？\ \
+〖<返回/@main>〗\
+\
+#elseact
+  break
+#act
+   master
+[@StartGetMaster]
+拜师仪式正式开始。\ \
+你是否确认拜师？\ \
+『<确认/@RequestMaster>』
+[@StartMaster]
+拜师仪式正式开始。\ \
+对方已经向你提出拜师请求。\ \
+[@RequestMaster]
+#if
+#act
+   master requestmaster
+CLOSE
+[@WateMaster]
+#if
+#act
+SENDMSG 0 %s面对着自己仰慕已久的英雄深深鞠了一躬，请求对方收自己为徒!
+[@RevMaster]
+对方想拜你为师，你是否想收此人为徒？ \ \
+『<同意/@ResposeMaster>』 \
+『<不同意/@ResposeMasterFail>』
+[@ResposeMaster]
+#IF
+#ACT
+  master responsemaster ok
+CLOSE
+[@ResposeMasterFail]
+#if
+#act
+  master responsemaster fail
+[@EndMaster]
+#if
+#act
+SENDMSG 0 %s完成了拜师收徒仪式!
+[@EndMasterFail]
+拜师失败！\ \
+〖<关闭/@exit>〗
+[@MasterDirErr]
+对方没站好位置
+[@MasterCheckDir]
+请站好位置\\
+[@HumanTypeErr]
+此人不可以做你的师父。
+开始
+[@领取荣誉勋章]
+你要领取荣誉勋章的话你必须要有荣誉值\
+而荣誉值是通过消耗声望值获得的\
+当你有了足够的荣誉值之后，\
+就可以到土城的悦来客栈二楼\
+找勋章守护人兑换各级荣誉勋章了！\
+<返回/@main>\
+<离开/@exit>\
+[@修理荣誉勋章]
+我的手艺已经不行了，\
+不过你可以找各个城市的小贩试试看，\
+说不定他们可以帮到你哦！\
+<返回/@main>\
+<离开/@exit>\
+[@解除师徒关系]
+#if
+   havemaster
+#act
+   unmaster
+#elsesay
+你都没师父，跑来做什么？？\ \
+〖<返回/@main>〗\
+\
+ 
+[@UnMasterCheckDir]
+按正常出师步骤，必须二个人对面对站好位置，\
+如果人来不了你只能选择强行出师了。\ \
+『<我要强行出师/@fUnMaster>』\
+〖<返回/@main>〗
+[@UnMasterTypeErr]
+你对面站了个什么东西，怎么不太象人来的。\ \
+〖<返回/@main>〗
+[@UnIsMaster]
+必须由徒弟发出请求！！！\ \
+〖<返回/@main>〗
+[@UnMasterError]
+不要来捣乱！！！\ \
+〖<返回/@main>〗
+[@StartUnMaster]
+出师仪式现在开始！！！\ \
+是否确定真的要脱离师徒关系？\ \
+『<确定/@RequestUnMaster>』
+[@WateUnMaster]
+出师仪式现在开始！！！\ \
+[@RequestUnMaster]
+#if
+  havemaster
+#act
+  unmaster requestunmaster
+[@ResposeUnMaster]
+#if
+  havemaster
+#act
+  unmaster responseunmaster
+[@WateUnMaster]
+你已向对方发出请求，请耐心等待对方的答复。
+[@RevUnMaster]
+对方向你请求，你是否答应？ \ \
+『<我愿意/@RequestUnMaster>』
+〖<返回/@main>〗
+[@ExeMasterFail]
+你都没师父，跑来做什么？ \ \
+[返回/@main]
+[@fUnMaster]
+#if
+  checkitem 金条 1
+  havemaster
+#act
+  take 金条 1
+  unmaster requestunmaster force
+#elsesay
+要收一根金条的手续费，你没有金条，\
+『<确定/@exit>』\
+\
+[@UnMasterEnd]
+呵呵，你已经脱离师徒关系了！！！ \ \
+『<退出/@exit>』
+[@查询声望与荣誉值]
+你目前的声望值:<$CREDITPOINT>\
+你目前的荣誉值:<$HUMAN(RYZ)>\
+[@如何收徒]
+『师父』--人物等级到达45级，就可以收徒弟了！\
+『徒弟』--人物等级必须在35级以下才能做别人的徒弟！\
+『出师』--徒弟等级到达42级，徒弟自动出师！\
+『收徒』--双方必须面对面！由徒弟点我要拜师即可\
+『好处』--徒弟出师后师父会自动获得5点声望！\
+『声望』--声望可以兑换荣誉值！荣誉值可以领取荣誉勋章\
+『命令』：@允许师徒传送  @师徒传送\
+<返回/@main>\
